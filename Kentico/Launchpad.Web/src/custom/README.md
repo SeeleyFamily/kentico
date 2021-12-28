@@ -1,0 +1,1 @@
+﻿Start the project by copying the js, scss, and vue folder from src/common to src/custom.

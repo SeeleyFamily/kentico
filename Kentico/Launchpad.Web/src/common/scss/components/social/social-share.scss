@@ -1,0 +1,82 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.social-share {
+    ul {
+        @include clear-list();
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: center;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+            text-align: left;
+        }
+
+        li {
+            margin: 0 15px;
+
+            @include media-breakpoint-up(lg) {
+                margin: 0 0 15px;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            a {
+                float: none;
+                padding: 0;
+                text-decoration: none;
+
+                @include media-breakpoint-up(lg) {
+                    display: flex;
+                    align-items: center;
+                }
+
+                &.icon-facebook-circle:before {
+                    color: #425dAA;
+                }
+
+                &.icon-twitter-circle:before {
+                    color: #0084B4;
+                }
+
+                &.icon-linkedin-circle:before {
+                    color: #007BB5;
+                }
+
+                &:before {
+                    @include fontSize(70px);
+                    display: block;
+                    line-height: 60px;
+
+                    @include media-breakpoint-up(lg) {
+                        @include fontSize(35px);
+                        line-height: 35px;
+                    }
+                }
+            }
+        }
+    }
+
+    span {
+        @include fontSize(18px);
+        font-family: $font-body;
+        font-weight: 500;
+        color: $black;
+        margin-top: 10px;
+        display: block;
+
+        @include media-breakpoint-up(lg) {
+            @include fontSize(14px);
+            margin-top: 0;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+    }
+}

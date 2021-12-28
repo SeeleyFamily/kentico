@@ -1,0 +1,66 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+
+    iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+}
+
+.video-preview a.video, span.video-preview {
+    display: block;
+    position: relative;
+
+    &:after {
+        @include fontSize(20px);
+        content: '\F04B';
+        font-family: $font-awesome;
+        text-indent: 3px;
+        font-weight: bold;
+        height: 58px;
+        width: 58px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 50%;
+        background: $white;
+        color: $secondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -32px;
+        margin-top: -32px;
+    }
+}
+
+a span.video-preview {
+    margin-left: -10px;
+}
+
+span.video-preview {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+
+    &:after {
+        @include fontSize(10px);
+        position: static;
+        height: 22px;
+        width: 22px;
+        margin: 0;
+    }
+}

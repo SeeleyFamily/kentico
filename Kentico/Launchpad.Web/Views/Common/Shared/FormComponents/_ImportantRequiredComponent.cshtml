@@ -1,0 +1,31 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using HoneypotConstants = Launchpad.Core.Constants.HoneypotConstants
+@using Kentico.Forms.Web.Mvc
+
+@model ImportantRequiredComponent
+
+@{
+    IDictionary<string, object> htmlAttributes = ViewData.GetEditorHtmlAttributes();
+}
+@{
+    htmlAttributes["style"] = "height: 0px; border: 0px; position: absolute; margin-left: -99999px;";
+    string id = Html.GenerateUniqueId($"ihc-{HoneypotConstants.DefaultHoneypotPrefix}-");
+    htmlAttributes["id"] = id;
+}
+
+@* we use '.important-form-field-wrapper-div-class' to hide the honeypot without giving away our intentions too easily to bots *@
+<div class="important-form-field-wrapper-div-class">
+    @* hidden top div container *@
+    <div class="form-ihc-required-fields">
+        @Html.TextBoxFor(m => m.Value, htmlAttributes)
+    </div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+        $("input[name*='ImportantRequiredComponent']").attr("autocomplete", "new-password");
+    });
+</script>

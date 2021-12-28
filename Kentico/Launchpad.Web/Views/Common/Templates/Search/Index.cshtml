@@ -1,0 +1,21 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.SearchViewModel
+
+<div id="search-list-filter-app">
+    <app v-bind:filterid="'search-list-filter-app'"
+         v-bind:filtertype="'searchfilter'"
+         v-bind:result="@JsonConvert.SerializeObject(Model.Result)"
+         v-bind:resource="'search'">
+    </app>
+</div>
+
+@section JavaScript
+{
+    <script>
+		window.Launchpad.SearchFilters = @Html.Raw(JsonConvert.SerializeObject(Model.Filters));
+		window.Launchpad.Query = "@HttpUtility.JavaScriptStringEncode(Model.Specification.Query)";
+    </script>
+}

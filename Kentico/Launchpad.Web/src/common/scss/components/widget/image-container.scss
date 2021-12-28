@@ -1,0 +1,17 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+.image-container {
+    img {
+        width: 100%;
+		display: block;
+    }
+}
+
+.image-container.widget {
+    img {
+        margin: auto;
+        width: auto;
+    }
+}

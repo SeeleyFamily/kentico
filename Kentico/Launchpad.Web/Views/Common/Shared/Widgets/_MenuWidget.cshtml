@@ -1,0 +1,22 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model ComponentViewModel<Launchpad.Web.Models.Common.Widgets.MenuWidgetProperties>
+
+<ul class="menu-container @Model.Properties.WidgetClass()">
+    @{
+        var menu = Model.Properties.GetMenu();
+        if (menu.Count() > 0)
+        {
+            foreach (MenuItem item in menu)
+            {
+                <li class="menu-item">
+                    <a href="@item.Url">
+                        @item.Label
+                    </a>
+                </li>
+            }
+        }
+    }
+</ul>

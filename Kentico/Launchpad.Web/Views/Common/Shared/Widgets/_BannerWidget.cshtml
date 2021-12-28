@@ -1,0 +1,69 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using BannerWidgetProperties = Launchpad.Web.Models.Common.Widgets.BannerWidgetProperties
+
+@model ComponentViewModel<BannerWidgetProperties>
+
+@{
+    var imgData = Model.Properties.GetImage();
+    string titleID = Html.GenerateUniqueId("title-");
+    string bannerClass = "banner-section";
+    var CtaUrl = Model.Properties.CtaLink();
+
+    switch (Model.Properties.BackgroundStyle)
+    {
+        case "secondary":
+            bannerClass += " bg-secondary";
+            break;
+        case "tertiary":
+            bannerClass += " bg-tertiary";
+            break;
+        default:
+            bannerClass += " bg-primary";
+            break;
+    }
+}
+
+<div class="@bannerClass @Model.Properties.WidgetClass()">
+    <div class="banner-section-wrap">
+        @if (imgData != null)
+        {
+            <picture>
+                <source type="image/webp" srcset="@imgData.Url.GetOptimizedImageUrl()" />
+                <img src="@imgData.Url" alt="@imgData.Description" />
+            </picture>
+        }
+
+        <h2 id="@titleID">
+            @Model.Properties.Title
+        </h2>
+
+        @if (Context.Kentico().PageBuilder().EditMode)
+        {
+            Html.Kentico().RichTextEditor(nameof(BannerWidgetProperties.Content));
+        }
+        else
+        {
+            @Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.Content));
+        }
+
+        @if (!CtaUrl.IsNullOrEmpty())
+        {
+            <a class="btn" href="@CtaUrl">
+                @Model.Properties.CtaText
+            </a>
+        }
+    </div>
+</div>
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+    {
+        PropertyName = nameof(BannerWidgetProperties.Title),
+        Content = Model.Properties.Title,
+        TargetId = titleID
+    });
+}

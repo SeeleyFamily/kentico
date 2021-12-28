@@ -1,0 +1,17 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.filter-header {
+	margin-bottom: 30px;
+	display: flex;
+	justify-content: flex-start;
+	@include fontSize(14px);
+	line-height: 14px;
+
+	p {
+		margin-right: 40px;
+	}
+} 

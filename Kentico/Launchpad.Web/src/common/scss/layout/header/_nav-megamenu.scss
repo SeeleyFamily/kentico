@@ -1,0 +1,129 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+ul.nav-megamenu {
+    display: none;
+    padding: 20px 0 20px 35px;
+    border-top: 4px solid $primary;
+    background: $white;
+
+    @include media-breakpoint-up(lg) {
+        background: $white;
+        padding: 0;
+        box-shadow: 10px 5px 15px 0 rgba(53, 68, 97, .15);
+        border-top: 0;
+        position: absolute;
+        left: 0;
+        z-index: 99;
+        top: 41px;
+        margin-top: 0;
+        width: auto;
+        flex-wrap: nowrap;
+        box-sizing: border-box;
+    }
+
+    .menu-card-wrapper {
+        margin-right: 20px;
+        margin-top: 20px;
+
+        @include media-breakpoint-up(lg) {
+            margin-right: 0;
+            margin-top: 0;
+        }
+
+        h3 {
+            @include fontSize(16px);
+            line-height: 22px;
+            margin: 0;
+        }
+
+        .link {
+            @include fontSize(14px);
+            margin-top: 10px;
+        }
+    }
+
+    > li {
+        @include media-breakpoint-up(lg) {
+            min-width: 180px;
+            flex: 1;
+            display: flex;
+            padding: 15px;
+
+            &:nth-child(even) {
+                background: $launchpad-light-gray;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+
+        > .primary-nav-submenu {
+            @include fontSize(16px);
+
+            li {
+                max-width: 250px;
+
+                &:last-child a {
+                    @include media-breakpoint-up(lg) {
+                        padding-bottom: 0;
+                    }
+                }
+            }
+
+            a {
+                display: block;
+                color: $secondary;
+                font-weight: 400;
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                @include media-breakpoint-up(lg) {
+                    padding-top: 0;
+                    padding-bottom: 15px;
+                    line-height: 18px;
+
+                    &:hover, &:focus, &:active {
+                        color: $txt-link-hover;
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-item-header {
+        @include fontSize(18px);
+        color: $launchpad-dark-gray;
+        font-weight: normal;
+        display: block;
+        padding: 0 0 15px;
+
+        @include media-breakpoint-up(lg) {
+            @include fontSize(22px);
+            margin-bottom: 10px;
+            padding: 0;
+        }
+    }
+
+    &.open {
+        @include media-breakpoint-up(lg) {
+            display: flex !important;
+        }
+    }
+
+    .nav-submenu-title {
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+    }
+
+    a {
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
+}

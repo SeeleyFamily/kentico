@@ -1,0 +1,110 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.banner--cookie {
+    background-color: $bg-banner;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 400;
+    box-shadow: 0 -1px 5px 0 rgba(5, 54, 93, 0.35);
+
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .banner-close {
+        position: relative;
+        flex: 0 0 100%;
+        left: 0;
+        right: auto;
+        justify-content: flex-end;
+
+        @include media-breakpoint-up(sm) {
+            position: absolute;
+            left: auto;
+            right: 30px;
+        }
+
+        .icon-close {
+            &:before, &:after {
+                background: $white;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            right: 45px;
+        }
+
+        &.reveal {
+            display: flex;
+        }
+
+        .icon-global-close::before {
+            color: $white;
+        }
+    }
+
+    .banner-cta {
+        display: none;
+    }
+
+    .banner-content {
+        color: $white;
+        padding-right: 0;
+        text-align: left;
+
+        p,
+        a {
+            color: $white;
+            @include fontSize(14px);
+        }
+
+        p {
+            display: block;
+            margin: 0;
+            padding: 0;
+
+            @include media-breakpoint-up(md) {
+                width: calc(100% - 210px);
+            }
+        }
+
+        .banner-close {
+            display: block;
+            position: relative;
+            flex: 0 0 100%;
+            left: 0;
+            margin-top: 20px;
+            right: auto;
+
+            @include media-breakpoint-up(md) {
+                position: absolute;
+                left: auto;
+                margin-top: 0;
+                right: 0;
+            }
+
+            a {
+                @include btn($primary, $primary-offset, $primary-text, $primary-text-hover);
+                padding: 10px 20px;
+                width: 100%;
+
+                &:hover, &:focus, &:active {
+                    background: $white;
+                    color: $secondary;
+                    opacity: 1;
+                }
+
+                @include media-breakpoint-up(md) {
+                    width: 170px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.ErrorPageViewModel
+
+<section class="error-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @if (!String.IsNullOrEmpty(Model.BackgroundImage))
+                {
+                    <picture>
+                        <source type="image/webp" srcset="@Model.BackgroundImage.GetOptimizedImageUrl()" />
+                        <img src="@Model.BackgroundImage" alt="Error" />
+                    </picture>
+                }
+                <h1>@Model.Headline</h1>
+                <div class="error-page-description">@Html.Raw(Model.Description)</div>
+            </div>
+        </div>
+    </div>
+</section>

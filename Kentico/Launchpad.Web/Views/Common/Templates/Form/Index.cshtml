@@ -1,0 +1,24 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.FormViewModel
+
+<div class="template-form">
+	@Html.Partial("Components/Hero/_Hero", Model.HeroViewModel)
+	@Html.PageBuilderFor(m => m.PageBuilderViewModel)
+	@Html.PageBuilderFor(m => m.AboveFormPageBuilderViewModel)
+	@Html.PageBuilderFor(m => m.FormPageBuilderViewModel)
+</div>
+
+
+@section JavaScript {
+	@if (Model.UsePageBuilder)
+	{
+		// Prevent Duplicate Loading From _Javascript.cshtml
+		if (!Context.Kentico().PageBuilder().EditMode)
+		{
+			@Html.Kentico().PageBuilderScripts()
+		}
+	}
+}

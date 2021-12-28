@@ -1,0 +1,263 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?p5e9s7') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?p5e9s7') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?p5e9s7##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-amazon {
+  &:before {
+    content: $icon-amazon;     
+    color: #000;
+  }
+}
+.icon-arrow-circle {
+  &:before {
+    content: $icon-arrow-circle;     
+    color: #000;
+  }
+}
+.icon-arrow-down-circle {
+  &:before {
+    content: $icon-arrow-down-circle;     
+    color: #000;
+  }
+}
+.icon-arrow-up-circle {
+  &:before {
+    content: $icon-arrow-up-circle;     
+    color: #000;
+  }
+}
+.icon-arrows-extend {
+  &:before {
+    content: $icon-arrows-extend;     
+    color: #000;
+  }
+}
+.icon-chart-up-arrow {
+  &:before {
+    content: $icon-chart-up-arrow;     
+    color: #000;
+  }
+}
+.icon-checkmark-box {
+  &:before {
+    content: $icon-checkmark-box;     
+    color: #000;
+  }
+}
+.icon-computer-search-mobile {
+  &:before {
+    content: $icon-computer-search-mobile;     
+    color: #000;
+  }
+}
+.icon-dollar-sign {
+  &:before {
+    content: $icon-dollar-sign;     
+    color: #000;
+  }
+}
+.icon-facebook-circle {
+  &:before {
+    content: $icon-facebook-circle;     
+    color: #000;
+  }
+}
+.icon-facebook-f {
+  &:before {
+    content: $icon-facebook-f;     
+    color: #000;
+  }
+}
+.icon-gear {
+  &:before {
+    content: $icon-gear;     
+    color: #000;
+  }
+}
+.icon-gears {
+  &:before {
+    content: $icon-gears;     
+    color: #000;
+  }
+}
+.icon-global-arrow-down {
+  &:before {
+    content: $icon-global-arrow-down;     
+    color: #000;
+  }
+}
+.icon-global-arrow-right {
+  &:before {
+    content: $icon-global-arrow-right;     
+    color: #000;
+  }
+}
+.icon-global-checkmark {
+  &:before {
+    content: $icon-global-checkmark;     
+    color: #000;
+  }
+}
+.icon-global-close {
+  &:before {
+    content: $icon-global-close;     
+    color: #000;
+  }
+}
+.icon-global-menu {
+  &:before {
+    content: $icon-global-menu;     
+    color: #000;
+  }
+}
+.icon-global-search {
+  &:before {
+    content: $icon-global-search;     
+    color: #000;
+  }
+}
+.icon-home {
+  &:before {
+    content: $icon-home;     
+    color: #000;
+  }
+}
+.icon-instagram-circle {
+  &:before {
+    content: $icon-instagram-circle;     
+    color: #000;
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram;     
+    color: #000;
+  }
+}
+.icon-linkedin-circle {
+  &:before {
+    content: $icon-linkedin-circle;     
+    color: #000;
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin;     
+    color: #000;
+  }
+}
+.icon-location {
+  &:before {
+    content: $icon-location;     
+    color: #000;
+  }
+}
+.icon-mail-open {
+  &:before {
+    content: $icon-mail-open;     
+    color: #000;
+  }
+}
+.icon-newsletter {
+  &:before {
+    content: $icon-newsletter;     
+    color: #000;
+  }
+}
+.icon-paintbrush-crop {
+  &:before {
+    content: $icon-paintbrush-crop;     
+    color: #000;
+  }
+}
+.icon-pie-chart {
+  &:before {
+    content: $icon-pie-chart;     
+    color: #000;
+  }
+}
+.icon-pinterest-circle {
+  &:before {
+    content: $icon-pinterest-circle;     
+    color: #000;
+  }
+}
+.icon-pinterest {
+  &:before {
+    content: $icon-pinterest;     
+    color: #000;
+  }
+}
+.icon-play {
+  &:before {
+    content: $icon-play;     
+    color: #000;
+  }
+}
+.icon-search {
+  &:before {
+    content: $icon-search;     
+    color: #000;
+  }
+}
+.icon-snapchat-circle {
+  &:before {
+    content: $icon-snapchat-circle;     
+    color: #000;
+  }
+}
+.icon-snapchat {
+  &:before {
+    content: $icon-snapchat;     
+    color: #000;
+  }
+}
+.icon-tiktok-circle {
+  &:before {
+    content: $icon-tiktok-circle;     
+    color: #000;
+  }
+}
+.icon-tiktok {
+  &:before {
+    content: $icon-tiktok;     
+    color: #000;
+  }
+}
+.icon-twitter-circle {
+  &:before {
+    content: $icon-twitter-circle;     
+    color: #000;
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter;     
+    color: #000;
+  }
+}
+

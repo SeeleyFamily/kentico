@@ -1,0 +1,49 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../_references.scss';
+
+main {
+	position: relative;
+	//sticky footer
+	flex: 1 0 auto;
+	outline: 0 !important;
+}
+
+main, footer {
+	outline: 0;
+
+	a {
+		text-decoration: underline;
+	}
+}
+
+main {
+	.btn:not(.dropdown-toggle) {
+		min-width: 230px;
+	}
+}
+
+p a, ul a {
+	font-weight: 600;
+}
+
+.headings-bold {
+	h3 {
+		font-weight: bold;
+	}
+}
+
+.container {
+	@include make-container();
+	max-width: $max-width;
+
+    @include media-breakpoint-up(xl) {
+        max-width: $max-width-xl;
+    }
+
+	&--narrow {
+		max-width: $max-width-narrow;
+	}
+}

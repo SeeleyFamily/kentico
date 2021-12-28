@@ -1,0 +1,51 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@using StatWidgetProperties = Launchpad.Web.Models.Common.Widgets.StatWidgetProperties;
+
+@model ComponentViewModel<StatWidgetProperties>
+
+@{
+	string statID = Html.GenerateUniqueId("card-");
+	string bannerClass = "";
+
+	switch (Model.Properties.BackgroundStyle)
+	{
+		case "secondary":
+			bannerClass += " bg-secondary";
+			break;
+		case "tertiary":
+			bannerClass += " bg-tertiary";
+			break;
+		default:
+			bannerClass += " bg-primary";
+			break;
+	}
+}
+
+<div class="stat widget @Model.Properties.WidgetClass()">
+	<div class="stat-content @bannerClass">
+		<div class="stat-number" id="@statID">@Model.Properties.Stat</div>
+		<div class="stat-description">
+			@if (Context.Kentico().PageBuilder().EditMode)
+			{
+				Html.Kentico().RichTextEditor(nameof(StatWidgetProperties.Description), "basictext");
+			}
+			else
+			{
+				@Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.Description));
+			}
+		</div>
+	</div>
+</div>
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+	Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+	{
+		PropertyName = nameof(StatWidgetProperties.Stat),
+		Content = Model.Properties.Stat,
+		TargetId = statID
+	});
+}

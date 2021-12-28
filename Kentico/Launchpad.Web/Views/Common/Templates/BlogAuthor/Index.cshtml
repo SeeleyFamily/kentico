@@ -1,0 +1,82 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.BlogAuthorViewModel
+
+<div class="template-blog-author-detail">
+    <div class="container">
+        @if (Model.Breadcrumbs != null)
+        {
+            @Html.Partial("Components/Breadcrumb/_Breadcrumb", Model.Breadcrumbs)
+        }
+    </div>
+
+    <section class="section content-detail-author">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 col-lg-auto">
+                    <div class="hide-desktop">
+                        <h1> @Model.FullName</h1>
+                        <p class="title">@Model.Title</p>
+                    </div>
+
+                    <div class="content-detail-author-sidebar">
+                        <div class="author-card">
+                            <img src="@Model.Image" />
+                        </div>
+
+                        <div class="social-links">
+                            <ul class="social-icons-buttons">
+                                <li>
+                                    <a href="@Model.FacebookLink" class="social icon-facebook-f fab" target="_blank">
+                                        <span class="sr-only">Facebook</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Model.TwitterLink" class="social icon-twitter fab" target="_blank">
+                                        <span class="sr-only">Twitter</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Model.LinkedInLink" class="social icon-linkedin fab" target="_blank">
+                                        <span class="sr-only">LinkedIn</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Model.InstagramLink" class="social icon-instagram fab" target="_blank">
+                                        <span class="sr-only">Instagram</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 offset-md-1">
+                    <div class="hide-mobile">
+                        <h1> @Model.FullName</h1>
+                        <p class="title">@Model.Title</p>
+                    </div>
+
+                    @if (!String.IsNullOrWhiteSpace(Model.Content))
+                    {
+                        <section class="section bg-white">
+                            @Model.Content
+                        </section>
+                    }
+
+                    <div class="pagebuilder-sidebar">
+                        @Html.PageBuilderFor(m => m.PageBuilderViewModel)
+                    </div>
+
+                    @if (Model.WysiwygViewModel != null && !String.IsNullOrWhiteSpace(Model.WysiwygViewModel.Content))
+                    {
+                        <section class="section">
+                            @Html.WysiwygFor(m => m.WysiwygViewModel)
+                        </section>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,91 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+    - develop
+    - release/*
+    - hotfix/*
+  paths:
+    include:
+    - Kentico/*
+    - README.md
+    exclude:
+    - Kentico/CMS/*
+    - Kentico/CMSAppCustom/*
+    - Kentico/Launchpad.Infrastructure.Kentico.CMS/*    
+    - Kentico/WebApp.sln
+    - Kentico/Common.Migration.*/*
+    
+pr: none
+    
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/Launchpad.sln'
+  buildPlatform: 'Any CPU'
+  ${{ if ne(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+    buildConfiguration: 'Release-Dev'
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+    buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+    
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '14.x'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'install -g node-gyp'  
+    workingDir: 'Kentico\Launchpad.Web'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'Kentico\Launchpad.Web'
+    
+- task: Npm@1
+  condition: and(ne(variables['Build.SourceBranch'], 'refs/heads/master'), not(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')))
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'  
+    workingDir: 'Kentico\Launchpad.Web'
+    
+- task: Npm@1
+  condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))
+  inputs:
+    command: 'custom'
+    customCommand: 'run build-release'  
+    workingDir: 'Kentico\Launchpad.Web'
+    
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+# - task: VSTest@2
+#   inputs:
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'  
+#     testFiltercriteria: 'TestCategory!=SkipOnAzure'  
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Launchpad'
+    publishLocation: 'Container'

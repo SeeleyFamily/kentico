@@ -1,0 +1,21 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model CalloutCardSummaryItem
+
+<div class="card summary-item col-12 col-lg-4">
+    <a href="@Model.Url" class="card-content-wrapper card-link-wrapper">
+
+        <div class="card-body">
+            <div class="card-media" style="background-image: url('@Model.Image');" aria-label="@Model.Title"></div>
+            <div class="card-body-content-wrapper">
+                <h2 class="card-title">@Model.Title</h2>
+                <p class="card-summary">@Model.Summary</p>
+            </div>
+            <div class="card-cta">
+                <div class="link m-0">@Model.Cta.Text</div>
+            </div>
+        </div>
+    </a>
+</div>

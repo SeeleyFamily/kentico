@@ -1,0 +1,57 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.related-content {
+    &-intro {
+        text-align: center;
+
+        &-heading {
+            @include fontSize(45px);
+            font-weight: 800;
+            line-height: 4.5rem;
+        }
+
+        &-description {
+            color: $txt-body;
+            @include fontSize(26px);
+            font-weight: 300;
+            line-height: 2rem;
+        }
+    }//---/ intro
+
+     &-list {
+         margin-top: 60px;
+     }
+
+     &-item {
+         margin-bottom: 40px;
+
+         &-wrapper {
+             padding: 0 20px;
+
+             @include media-breakpoint-up(lg) {
+                 padding: 0 40px;
+             }
+         }
+
+         &-title {
+             color: $txt-body;
+             @include fontSize(19px);
+             line-height: 1.875rem;
+
+             &:hover {
+                 text-decoration: underline;
+             }
+         }
+
+         &-link {
+            color: $rise-orange;
+            @include fontSize(15px);
+            font-weight: 600;
+            text-decoration: underline;
+         }
+     }
+}

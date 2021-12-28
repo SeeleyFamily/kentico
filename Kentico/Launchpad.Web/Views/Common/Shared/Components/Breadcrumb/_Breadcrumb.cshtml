@@ -1,0 +1,74 @@
+@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model Breadcrumbs
+
+@if (Model.Items.IsNullOrEmpty() || Model.Items.Count() <= 2)
+{
+	return;
+}
+
+<div class="breadcrumb">
+	<ul class="breadcrumb-wrapper">
+		@{ string currentUrl = HttpContext.Current.Request.Url.AbsolutePath; }
+		@if (Model.Items != null && Model.Items.Count() > 2)
+		{
+			foreach (var item in Model.Items)
+			{
+				if (currentUrl != item.DocumentUrlPath)
+				{
+					if (item.Preview != null)
+					{
+						<li><a href="@item.DocumentUrlPath">@CoalesceUtility.CoalesceWithoutWhitespace(item.Preview.PreviewNavigationLabel, item.DocumentName)</a></li>
+
+					}
+					else
+					{
+						<li><a href="@item.DocumentUrlPath">@item.DocumentName</a></li>
+
+					}
+				}
+				else
+				{
+					if (item.Preview != null)
+					{
+						<li>@CoalesceUtility.CoalesceWithoutWhitespace(item.Preview.PreviewNavigationLabel, item.DocumentName)</li>
+
+					}
+					else
+					{
+						<li>@item.DocumentName</li>
+
+					}
+				}
+			}
+		}
+	</ul>
+</div>
+
+@if (!Context.Kentico().PageBuilder().EditMode)
+{
+	<script type="application/ld+json">
+		{
+		"@@context": "https://schema.org",
+		"@@type": "BreadcrumbList",
+		"itemListElement": [
+		@if (Model.Items != null)
+		{
+			int i = 1;
+			foreach (var item in Model.Items)
+			{
+				@:{
+				@:"@@type": "ListItem",
+				@:"position": @i,
+				@:"name": "@item.DocumentName",
+				@:"item": "@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@item.DocumentUrlPath"
+				@:}@(i != Model.Items.Count() ? "," : "")
+				i++;
+			}
+		}
+		]
+		}
+	</script>
+}

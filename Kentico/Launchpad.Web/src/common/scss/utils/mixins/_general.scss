@@ -1,0 +1,195 @@
+/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@mixin align-vertical() {
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+
+@mixin align-middle() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin placeholder($color) {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $color;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $color;
+    }
+
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $color;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $color;
+    }
+}
+
+@mixin focus-outline($width) {
+	@include media-breakpoint-up(lg) {
+		outline: lighten($primary, 30%) solid $width;
+		outline-offset: 3px;
+	}
+}
+
+
+//calculate rem size and include px
+@function calculateRem( $size ) {
+	$remSize: $size / 16px;
+	@return #{$remSize}rem;
+}
+
+
+@mixin fontSize( $size ) {
+	font-size: $size; //Fallback in px
+	font-size: calculateRem($size);
+}
+
+
+@mixin lineHeight( $size ) {
+	line-height: $size; //Fallback in px
+	line-height: calculateRem($size);
+}
+
+
+@mixin closeIcon($width, $height, $top, $left) {
+	position: relative;
+	display: block;
+	width: $width;
+	height: $width;
+
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		top: $top;
+		left: $left;
+		width: $width;
+		height: $height;
+		background: $white;
+	}
+
+	&:before {
+		transform: rotate(45deg);
+	}
+
+	&:after {
+		transform: rotate(-45deg);
+	}
+}
+
+
+@mixin cta-link() {
+	color: $white;
+	text-transform: uppercase;
+	font-family: $font-article;
+	letter-spacing: 2px;
+	font-weight: 600;
+}
+
+
+@mixin clear-list() {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+	}
+}
+
+
+// Background Image Cover
+@mixin bg-cover() {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left;
+}
+
+
+// The mixin need to be applied to the container wrapping an img tag
+// Orientation should equal either 'landscape' or 'portrait'
+@mixin responsive-ratio($x, $y, $orientation) {
+	position: relative;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+		display: block;
+		padding-top: unquote( ( $y / $x ) * 100 + '%' );
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		max-width: none;
+
+		@if ($orientation == 'landscape') {
+			width: 100%;
+		}
+		@else {
+			height: 100%;
+		}
+	}
+}
+
+
+// Base set of FontAwesome styles to apply
+@mixin font-awesome() {
+    display: inline-block;
+    font-family: $font-awesome;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin font-awesome-brands() {
+    display: inline-block;
+    font-family: $font-awesome-brands;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin font-primary() {
+    font-family: 'Cabin', sans-serif;
+}
+
+@mixin avatar() {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    height: 80px;
+    max-width: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 75px;
+}

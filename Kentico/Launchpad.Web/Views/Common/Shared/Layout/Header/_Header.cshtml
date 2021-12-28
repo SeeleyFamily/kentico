@@ -1,0 +1,58 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+<div class="container">
+    <div class="header-inner">
+        <a class="header-logo" href="/" role="img" aria-label="Logo"></a>
+
+        <button type="button" aria-label="Navigation toggle button" class="nav-toggle js-nav-toggle" tabindex="-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="nav-wrapper" style="display:none;">
+            <ul class="header-utilities">
+                @if (Model.Menus.UtilityMenu != null && Model.Menus.UtilityMenu.Any())
+                {
+                    foreach (MenuItem menuItem in Model.Menus.UtilityMenu)
+                    {
+                        <li><a href="@menuItem.Url" @(menuItem.IsExternal ? $"target=\"_blank\"" : "")>@menuItem.Label</a></li>
+                    }
+                }
+
+                <li>
+                    <div class="search js-search">
+                        <form class="search-form js-search-form" role="search" method="get" action="/search">
+                            <div class="input-group">
+                                <label for="header-search" class="sr-only">Search</label>
+                                <input id="header-search" class="js-search-textbox form-control" data-value="" name="query" type="search" autocomplete="off" placeholder="Search" aria-label="Search" />
+
+                                <span class="header-search-prepend-icon fas fa-search"></span>
+
+                                <div class="search-btn-container input-group-append">
+                                    <button class="js-search-btn btn btn--secondary" type="submit">
+                                        <span class="sr-only">Search</span><span class="fas fa-search"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="nav-container">
+                @Html.Partial("Layout/Header/_Menu")
+            </div>
+
+            @*<div class="header-nav-btns">
+                    <a href="/contact-us" class="header-utilities-btn btn btn--primary">Contact</a>
+                </div>*@
+        </div>
+    </div>
+</div>

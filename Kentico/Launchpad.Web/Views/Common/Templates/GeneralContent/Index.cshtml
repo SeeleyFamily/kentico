@@ -1,0 +1,46 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.GeneralContentViewModel
+
+@{
+    bool showWysiwyg = Model.WysiwygViewModel != null && !string.IsNullOrWhiteSpace(Model.WysiwygViewModel.Content);
+}
+
+@Html.HeroFor(m => m.HeroViewModel)
+
+@if (Model.ShowSidebarNavigation)
+{
+    @Html.PageBuilderFor(m => m.AbovePageBuilderViewModel)
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                @Html.SideNavFor(m => m.SideNavMenu)
+            </div>
+            <div class="col-12 col-lg-9 pagebuilder-sidebar">
+                @if (showWysiwyg)
+                {
+                    <section class="section">
+                        @Html.WysiwygFor(m => m.WysiwygViewModel)
+                    </section>
+                }
+                @Html.PageBuilderFor(m => m.PageBuilderViewModel)
+            </div>
+        </div>
+    </div>
+    @Html.PageBuilderFor(m => m.BelowPageBuilderViewModel)
+}
+else
+{
+    if (showWysiwyg)
+    {
+        <section class="section">
+            @Html.WysiwygFor(m => m.WysiwygViewModel)
+        </section>
+    }
+
+    @Html.PageBuilderFor(m => m.AbovePageBuilderViewModel)
+    @Html.PageBuilderFor(m => m.PageBuilderViewModel)
+    @Html.PageBuilderFor(m => m.BelowPageBuilderViewModel)
+}

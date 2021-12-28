@@ -1,0 +1,17 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+p {
+	@include fontSize($font-body-size-mobile);
+	@include lineHeight($font-body-line-height-mobile);
+	font-weight: $font-weight-body;
+	color: $txt-body;
+
+	@include media-breakpoint-up(md) {
+		@include fontSize($font-body-size-desktop);
+		@include lineHeight($font-body-line-height-desktop);
+	}
+}

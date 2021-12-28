@@ -1,0 +1,114 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+@if (Model.Menus == null || Model.Menus.FooterMenu == null)
+{
+    return;
+}
+
+
+<div class="footer-container container">
+    <div class="row">
+        @*Loop through columns*@
+        @foreach (MenuItem menuItem in Model.Menus.FooterMenu)
+        {
+            <div class="footer-col col-md">
+                @foreach (MenuItem childItem in menuItem.Children)
+                {
+                    if (childItem.IsCard)
+                    {
+                        <div class="footer-column-content">
+                            <h2>@childItem.Label</h2>
+                            <p>@childItem.Text</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <ul class="footer-column-navigation--accordion footer-column-navigation js-footer-accordion">
+                            <li class="@(childItem.Children.Count() > 0 ? "footer-column-navigation-item--parent" : "footer-column-navigation-item--single") footer-column-navigation-item">
+                                <a class="open-self" href="@childItem.Url" @(childItem.IsExternal ? "target=_blank" : "") data-parent="@childItem.Label" data-navType="Footer" data-menuType="Parent" data-text="@childItem.Label" data-url="@childItem.Url">@childItem.Label</a>
+
+                                @*Loop through grandchild items of columns*@
+                                @if (childItem.Children.Any())
+                                {
+                                    <ul class="footer-column-navigation-sub">
+                                        @if (childItem.HideMobileOverviewLink == false)
+                                        {
+                                            <li class="footer-column-navigation-item--grandchild footer-column-navigation-item footer-column-navigation-item--overview">
+                                                <a class="@(childItem.IsExternal ? "" : "open-self")" href="@childItem.Url" @(childItem.IsExternal ? "target=_blank" : "") data-parent="@childItem.Label" data-navType="Footer" data-text="@childItem.Label" data-url="@childItem.Url">@(!string.IsNullOrWhiteSpace(childItem.LabelMobile) ? childItem.LabelMobile : "Overview")</a>
+                                            </li>
+                                        }
+
+                                        @foreach (MenuItem grandchildItem in childItem.Children)
+                                        {
+                                            <li class="footer-column-navigation-item--grandchild footer-column-navigation-item">
+                                                <a class="open-self" href="@grandchildItem.Url" @(grandchildItem.IsExternal ? "target=_blank" : "") data-parent="@childItem.Label" data-navType="Footer" data-text="@grandchildItem.Label" data-url="@grandchildItem.Url">@grandchildItem.Label</a>
+
+                                                @if (grandchildItem.Children.Any())
+                                                {
+                                                    <ul class="footer-column-navigation-sub">
+                                                        @foreach (MenuItem greatgrandchildItem in grandchildItem.Children)
+                                                        {
+                                                            <li class="footer-column-navigation-item--grandchild footer-column-navigation-item">
+                                                                <a class="open-self" href="@greatgrandchildItem.Url" @(greatgrandchildItem.IsExternal ? "target=_blank" : "") data-parent="@grandchildItem.Label" data-navType="Footer" data-text="@greatgrandchildItem.Label" data-url="@greatgrandchildItem.Url">@greatgrandchildItem.Label</a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        </ul>
+                    }
+                }
+            </div>
+        }
+
+        <div class="footer-col col-md">
+            <span alt="Launchpad Logo" class="footer-column-social-img"></span>
+
+            <ul class="footer-column-social">
+                <li class="footer-column-social-item"><a target="_blank" href="https://twitter.com/riseinteractive" class="fab fa-twitter" aria-label="Twitter link" data-type="Follow" data-social="Twitter"></a></li>
+                <li class="footer-column-social-item"><a target="_blank" href="http://www.linkedin.com/company/rise-interactive_2" class="fab fa-linkedin-in" aria-label="LinkedIn link" data-type="Follow" data-social="LinkedIn"></a></li>
+                <li class="footer-column-social-item"><a target="_blank" href="https://www.facebook.com/riseinteractive" class="fab fa-facebook" aria-label="Facebook link" data-type="Follow" data-social="Facebook"></a></li>
+                <li class="footer-column-social-item"><a target="_blank" href="https://instagram.com/riseinteractive" class="fab fa-instagram" aria-label="Instagram link" data-type="Follow" data-social="Instagram"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer-meta-wrapper">
+    <div class="container">
+        <ul class="footer-meta-list">
+            @foreach (MenuItem subFooterMenu in Model.Menus.SubFooterMenu)
+            {
+                <li class="footer-meta-list-item">
+                    <a href='@subFooterMenu.Url' data-type="Footer" data-text="@subFooterMenu.Label">
+                        @subFooterMenu.Label
+                    </a>
+                </li>
+            }
+        </ul>
+
+        <p class="footer-meta-description">
+            RISE INTERACTIVE, the Burst image, CONNEX, and PIONEERING A BETTER WAY are registered trademarks of Rise Interactive.
+        </p>
+
+        <p class="footer-meta-copy">
+            &copy; @DateTime.Now.Year Rise Interactive
+        </p>
+    </div>
+</div>
+
+@if (Model.Banners.CookieBanner != null)
+{
+    <div class="banner--cookie banner">
+        @Html.DisplayFor(m => m.Banners.CookieBanner)
+    </div>
+}

@@ -1,0 +1,70 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.accordion {
+	height: auto;
+	margin-bottom: 15px;
+}
+
+.accordion-wrapper {
+    flex-direction: column !important;
+}
+
+.accordion-title {
+    @include fontSize(22px);
+    font-family: $font-body;
+    line-height: 1.67;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 20px 30px;
+    margin: 0 !important;
+    position: relative;
+    width: 100%;
+
+    &::after {
+        @include fontSize(26px);
+        color: $secondary;
+        content: '\f078';
+        @include font-awesome();
+        font-family: $font-awesome;
+        font-weight: 900;
+        position: absolute;
+        pointer-events: none;
+        top: 18px;
+        right: 20px;
+        z-index: 1;
+    }
+
+    &.active {
+        &::after {
+            content: '\f077';
+        }
+    }
+}
+
+.accordion-content {
+	@include fontSize(18px);
+	line-height: 1.38;
+	background: $light-gray;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: height 0.25s ease-in;
+
+    &-wrap {
+        padding: 30px;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &.active {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+    }
+}

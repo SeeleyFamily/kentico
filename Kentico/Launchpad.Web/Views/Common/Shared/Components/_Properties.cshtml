@@ -1,0 +1,26 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model Dictionary<string, string>
+
+
+Copy/paste for code for View preview:
+<hr />
+<code>
+	&lt;ul&gt;<br />
+	@foreach (KeyValuePair<string, string> item in Model)
+	{
+		@:&lt;li&gt;&lt;b&gt;@item.Key:&lt/b&gt; @@Model.@item.Key&lt;/li&gt;<br />
+	}
+	&lt;/ul&gt;
+</code>
+<hr />
+
+
+<ul>
+	@foreach (KeyValuePair<string, string> item in Model)
+	{
+		<li><b>@item.Key:</b> @item.Value</li>
+	}
+</ul>

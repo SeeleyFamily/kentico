@@ -1,0 +1,38 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@using HeroWidgetProperties = Launchpad.Web.Models.Common.Widgets.HeroWidgetProperties;
+
+@model ComponentViewModel<HeroWidgetProperties>
+
+@{
+	string titleTargetId = Html.GenerateUniqueId("hero-");
+
+	var heroViewModel = new HeroViewModel()
+	{
+		Headline = Model.Properties.Headline,
+		Image = Model.Properties.GetBackgroundImage()?.Url,
+		ImageMobile = Model.Properties.GetBackgroundImageMobile()?.Url,
+		Description = Model.Properties.Description,
+		BackgroundType = Model.Properties.GetBackgroundType(),
+		Breadcrumbs = Model.Properties.GetBreadcrumbs(Model.Page.NodeID),
+		PageBuilderEnabled = true,
+		TitleTargetId = titleTargetId,
+	};
+
+}
+
+<div class="@Model.Properties.WidgetClass()">
+	@Html.HeroFor(m => heroViewModel)
+</div>
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+	Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+	{
+		PropertyName = nameof(HeroWidgetProperties.Headline),
+		Content = Model.Properties.Headline,
+		TargetId = titleTargetId
+	});
+}

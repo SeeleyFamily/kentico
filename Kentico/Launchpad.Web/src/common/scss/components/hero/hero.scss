@@ -1,0 +1,124 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    @include media-breakpoint-up(lg) {
+        min-height: 360px;
+    }
+
+    &--columns {
+        .hero-content, .breadcrumb {
+            @include media-breakpoint-up(lg) {
+                width: 50%;
+            }
+        }
+    }
+
+    &-img {
+        padding-top: 70%;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: calc(50% + 30px);
+            bottom: 0;
+            padding-top: 0;
+        }
+    }
+
+    &-content {
+        position: relative;
+        z-index: 1;
+        padding: 30px 0;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &-wrap {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .breadcrumb {
+        margin-bottom: -15px;
+    }
+
+    &-content-heading {
+        color: $white;
+    }
+
+    &-content-subheading {
+        margin-top: 30px;
+    }
+
+    &-description, &-description p {
+        @include fontSize(18px);
+        line-height: 1.4;
+        font-weight: $heading-3-weight;
+
+        @include media-breakpoint-up(lg) {
+            @include fontSize($heading-3-font-desktop);
+            @include lineHeight($heading-3-line-height-desktop);
+        }
+    }
+
+    &-meta {
+        margin-top: 15px;
+        @include fontSize(16px);
+
+        @include media-breakpoint-up(xl) {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        &-date {
+            display: inline-block;
+            margin-bottom: 10px;
+
+            @include media-breakpoint-up(xl) {
+                margin-bottom: 0;
+
+                &:after {
+                    content: '\f111';
+                    font-family: $font-awesome;
+                    @include fontSize(6px);
+                    display: inline-block;
+                    margin: 0 15px;
+                    vertical-align: top;
+                }
+            }
+        }
+
+        .topic-tags {
+            display: flex;
+            align-items: center;
+
+            ul li {
+                margin: 0 8px 0 0;
+            }
+        }
+    }
+
+    .fr-view {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+}

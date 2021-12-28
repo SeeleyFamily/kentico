@@ -1,0 +1,54 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+kentico-add-component-button .ktc-component-button [class*=" icon-"], kentico-add-component-button .ktc-component-button [class^=icon-] {
+    font-family: Core-icons !important;
+}
+
+.ktc-alert-icon, .ktc-alert-info {
+    i {
+        font-family: Core-icons !important
+    }
+
+    .icon-plus:before {
+        content: "\E62F"
+    }
+}
+
+.ktc-admin-ui [class*=" icon-"], .ktc-admin-ui [class^=icon-] {
+    font-family: Core-icons !important;
+}
+
+.ktc-form-builder-tab-content-header input[type='submit'] {
+    padding: 0;
+}
+
+.ktc-form-builder-tab-content-container input[type=checkbox] ~ label:after {
+    font-family: Core-icons !important;
+    left: 0;
+    font-size: 1.5rem;
+    top: 2px;
+}
+
+.ktc-editing-form-value-cell select.selectpicker {
+    display: inline-block !important;
+}
+
+// PageBuilder Specific
+.wysiwyg-editor {
+    .jodit_container {
+        overflow: visible;
+    }
+}
+
+.fr-box.fr-basic .fr-wrapper, .fr-box.fr-basic.fr-top .fr-wrapper {
+    background: transparent;
+}
+
+.second-toolbar {
+    background: rgba(255, 255, 255, 0.7);
+}
+kentico-form-modal-dialog .ktc-form-modal-dialog .ktc-form-modal-content .ktc-checkbox input:checked+input[type=hidden]+label::after {
+    content: "\e6b0" !important;
+}

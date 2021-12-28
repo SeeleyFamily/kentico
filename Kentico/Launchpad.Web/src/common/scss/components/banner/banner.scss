@@ -1,0 +1,83 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.banner {
+    background: $bg-banner;
+    flex: 0 0 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    .icon-close:before, .icon-close:after {
+        background: $white;
+    }
+}
+
+.banner-container {
+    @include media-breakpoint-up(md) {
+        text-align: center;
+    }
+}
+
+.banner-content {
+    color: $txt-banner;
+    display: inline-block;
+    @include fontSize(12px);
+    padding: 0 40px 0 0;
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+        @include fontSize(14px);
+        padding: 0 30px 0 0;
+    }
+
+    p {
+        display: inline;
+        font-weight: $font-weight-banner-body;
+        color: $txt-banner;
+        @include fontSize(14px);
+    }
+
+    a {
+        color: $link-banner;
+        text-decoration: underline;
+
+        &:hover {
+            color: $link-banner;
+            opacity: 0.8;
+        }
+    }
+}
+
+.banner-cta {
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: $font-weight-banner-cta;
+
+    @include media-breakpoint-up(md) {
+        margin-left: 20px;
+    }
+}
+
+.banner-close {
+    display: flex;
+    color: $link-banner;
+    cursor: pointer;
+    @include fontSize(30px);
+    position: absolute;
+    right: 30px;
+    top: 0;
+
+    @include media-breakpoint-up(md) {
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    svg {
+        height: 42px;
+        width: 18px;
+    }
+}

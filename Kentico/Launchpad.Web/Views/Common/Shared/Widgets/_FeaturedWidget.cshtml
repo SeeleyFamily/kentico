@@ -1,0 +1,110 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using FeaturedWidgetProperties = Launchpad.Web.Models.Common.Widgets.FeaturedWidgetProperties;
+
+@model ComponentViewModel<FeaturedWidgetProperties>
+
+@{
+    MediaFile imgData = Model.Properties.Media();
+    string titleID = Html.GenerateUniqueId("card-");
+}
+
+
+<section class="banner-cta widget @(!string.IsNullOrEmpty(Model.Properties.CssClass) ? Model.Properties.CssClass : "") @Model.Properties.DisplayAlignment @Model.Properties.WidgetClass()">
+    @if (!String.IsNullOrEmpty(Model.Properties.VideoUrl))
+    {
+        if (imgData != null)
+        {
+            <div class="banner-cta-img video-preview">
+                <a href="@Model.Properties.VideoUrl" class="open-self video">
+                    <picture>
+                        <source srcset="@imgData.Url.GetOptimizedImageUrl()" type="image/webp">
+                        <img src="@imgData.Url" alt="@Model.Properties.ImgAltText">
+                    </picture>
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="banner-cta-img">
+                <div class="video-responsive">
+                    <iframe width="100%" height="315"
+                            src="@Model.Properties.VideoUrl"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        if (imgData != null)
+        {
+            <div class="banner-cta-img">
+                <picture>
+                    <source srcset="@imgData.Url.GetOptimizedImageUrl()" type="image/webp" />
+                    <img src="@imgData.Url" alt="@Model.Properties.ImgAltText" />
+                </picture>
+            </div>
+        }
+    }
+
+    <div class="banner-cta-content">
+        @if (!String.IsNullOrWhiteSpace(Model.Properties.Title))
+        {
+            <h2 class="banner-cta-title" id="@titleID">
+                @Model.Properties.Title
+            </h2>
+        }
+
+
+        @if (Context.Kentico().PageBuilder().EditMode)
+        {
+            @:<h3>
+                Html.Kentico().RichTextEditor(nameof(FeaturedWidgetProperties.Subtitle), "basictext");
+            @:</h3>
+        }
+        else
+        {
+            if (!String.IsNullOrWhiteSpace(Model.Properties.Subtitle))
+            {
+                @:<h3>
+                    @Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.Subtitle));
+                @:</h3>
+            }
+        }
+
+        @if (Context.Kentico().PageBuilder().EditMode)
+        {
+            @:<div>
+                Html.Kentico().RichTextEditor(nameof(FeaturedWidgetProperties.Description), "basictext");
+            @:</div>
+        }
+        else
+        {
+            @:<div>
+                @Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.Description));
+            @:</div>
+        }
+
+        @if (!String.IsNullOrEmpty(Model.Properties.CtaLink()))
+        {
+            <a href="@Model.Properties.CtaLink()" class="btn btn--primary">@Model.Properties.CtaText</a>
+        }
+    </div>
+</section>
+
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+    {
+        PropertyName = nameof(FeaturedWidgetProperties.Title),
+        Content = Model.Properties.Title,
+        TargetId = titleID
+    });
+}

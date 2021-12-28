@@ -1,0 +1,100 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model HeroViewModel
+
+@if (string.IsNullOrWhiteSpace(Model.Headline))
+{
+    return;
+}
+
+@{
+    bool hasImage = !String.IsNullOrEmpty(Model.Image) ? true : false;  //determines if the hero is split, with an image on the right
+
+    string sectionClass = "hero";
+    bool showBreadcrumbs = true;
+
+    if (hasImage)
+    {
+        sectionClass += " hero--columns";
+    }
+
+    switch (Model.BackgroundType)
+    {
+        case BackgroundType.Primary:
+            sectionClass += " bg-primary";
+            break;
+        case BackgroundType.Secondary:
+            sectionClass += " bg-secondary";
+            break;
+        case BackgroundType.Tertiary:
+            sectionClass += " bg-tertiary";
+            break;
+        case BackgroundType.Quaternary:
+            sectionClass += " bg-quaternary";
+            break;
+        case BackgroundType.Framed:
+            sectionClass += " hero--framed";
+            showBreadcrumbs = false;
+            break;
+        default: // fallback to primary
+            sectionClass += " bg-secondary";
+            break;
+    }
+}
+
+@Html.ResponsiveImageCss(Model.Image, Model.ImageMobile, "hero")
+
+<section class="@Model.SectionClass @sectionClass">
+    <div class="container">
+        @if (showBreadcrumbs && Model.Breadcrumbs != null)
+        {
+            @Html.Partial("Components/Breadcrumb/_Breadcrumb", Model.Breadcrumbs)
+        }
+
+        <div class="hero-content">
+            <div class="hero-txt">
+                <h1 class="hero-heading" id="@Model.TitleTargetId">@Model.Headline</h1>
+                <div class="hero-description">
+                    @if (Model.PageBuilderEnabled && Context.Kentico().PageBuilder().EditMode)
+                    {
+                        Html.Kentico().RichTextEditor(nameof(HeroWidgetProperties.Description));
+                    }
+                    else
+                    {
+                        @Html.Raw(Html.Kentico().ResolveRichText(Model.Description));
+                    }
+                </div>
+
+                <div class="hero-meta">
+                    @if (!string.IsNullOrWhiteSpace(Model.Date))
+                    {
+                        <span class="hero-meta-date">@Model.Date</span>
+                    }
+
+                    @if (!Model.Tags.IsNullOrEmpty())
+                    {
+                        <div class="topic-tags">
+                            <span>Topics:</span>
+                            <ul class="hero-meta-tags">
+                                @if (!Model.Tags.IsNullOrEmpty())
+                                {
+                                    foreach (var contentType in Model.Tags)
+                                    {
+                                        <li><span>@contentType</span></li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (hasImage)
+    {
+        <div class="hero-img responsive-image_hero" aria-label=""></div>
+    }
+</section>

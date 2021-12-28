@@ -1,0 +1,42 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../_references.scss';
+
+//table styles with bootstrap columns/rows and regular tables
+.table, table {
+	
+}
+
+table {
+    border-collapse: collapse;
+    margin: .8em 0;
+    width: 100%
+}
+
+th {
+    font-weight: 600;
+    text-align: left
+}
+
+td {
+    
+}
+
+tr, td, th {
+    vertical-align: middle
+}
+
+caption {
+    background-color: $gray;
+    color: white;
+    padding: .53333em
+}
+
+
+// Media Queries
+@include media-breakpoint-up(md) {
+    .table {
+    }
+}

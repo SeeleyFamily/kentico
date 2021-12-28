@@ -1,0 +1,63 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - master    
+    - develop
+    - release/*
+    - hotfix/*
+  paths:
+    include:
+    - Kentico/*    
+    exclude:
+    - Kentico/Launchpad.Web/*
+    - Kentico/Launchpad.Infrastructure.Kentico.Web/*
+    - Kentico/Launchpad.Infrastructure.Tests/*
+    - Kentico/Tests/Launchpad.Infrastructure.Tests/*
+    - Kentico/Launchpad.Api/*
+    - Kentico/Launchpad.Infrastructure.DependencyInjection/*
+    - Kentico/Launchpad.sln
+    - Kentico/Custom.Api/*
+    - Kentico/Custom.CacheDisplay/*
+    - Kentico/Custom.Infrastructure.Tests/*
+    - Kentico/Tests/Custom.Infrastructure.Tests/*
+    - Kentico/Custom.Core/* # Remove after Development Phase
+    - Kentico/Custom.Infrastructure/* # Remove after Development Phase
+    - Kentico/Launchpad.Core/* # Remove after Development Phase
+    - Kentico/Launchpad.Infrastructure/* # Remove after Development Phase
+    
+
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/WebApp.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'WebApp'
+    publishLocation: 'Container'

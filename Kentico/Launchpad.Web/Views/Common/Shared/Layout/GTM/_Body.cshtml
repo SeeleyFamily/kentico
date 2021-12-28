@@ -1,0 +1,17 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model string
+
+@if (Context.Kentico().Preview().Enabled || String.IsNullOrWhiteSpace(Model))
+{
+	return;
+}
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=@(Model)" height="0" width="0" style="" display:none;visibility:hidden""></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->

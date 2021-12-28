@@ -1,0 +1,53 @@
+/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+// Breakpoints
+$container-max-widths: ( sm: 540px, md: 750px, lg: 970px, xl: 1200px );
+$max-width: 970px;
+$max-width-narrow: 1140px;
+//$grid-columns: 12;
+//$grid-gutter-width: 30px;
+$max-width-xl: 1170px;
+
+// Section Padding
+$section-padding: 40px;
+$section-padding-md: 60px;
+
+// slickslider overrides
+$slick-font-path: '~slick-carousel/slick/fonts/';
+$slick-font-family: 'slick';
+$slick-loader-path: '~slick-carousel/slick/';
+
+// font awesome overrides
+$fa-font-path: '~@fortawesome/fontawesome-pro/webfonts';
+$fa-font-display: swap;
+
+// buttons
+$button-padding: 15px 30px;
+$button-padding-desktop: $button-padding;
+$button-weight: 600;
+$button-font-size: 18px;
+$button-font-size-desktop: $button-font-size;
+$button-border-thick: 0;
+$button-border-radius: 26px;
+$button-letter-spacing: 0;
+$button-text-transform: none;
+
+$button-padding-large: 12px;
+$button-font-size-large: 18px;
+
+// forms
+$input-font-size: 16px;
+$input-border-thick: 2px;
+$input-height: 52px;
+$input-line-height: 52px;
+$input-border-radius: 0;
+
+// widgets
+$widget-spacing-desktop: 30px;
+$widget-spacing-mobile: 15px;
+
+
+@import '_colors.scss';
+@import '_fonts.scss';

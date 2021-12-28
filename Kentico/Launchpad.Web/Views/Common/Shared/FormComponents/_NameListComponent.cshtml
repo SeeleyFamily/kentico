@@ -1,0 +1,153 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using Kentico.Forms.Web.Mvc
+@using Launchpad.Web.Models.Common.FormComponents
+
+@model NameListComponent
+
+@{
+    IDictionary<string, object> htmlAttributes = ViewData.GetEditorHtmlAttributes();
+
+    string id = Html.GenerateUniqueId("nameAndGuids-");
+    htmlAttributes["id"] = id;
+    var wrapperId = $"wrapper_{id}";
+}
+
+<div id="@wrapperId">
+    @Html.HiddenFor(m => m.Value, htmlAttributes)
+    <button class="add-button ktc-btn ktc-btn-default" type="button" onclick="appendInput()">Add</button>
+
+    <div class="nameAndGuids">
+    </div>
+</div>
+
+<script type="text/javascript">
+    @foreach (var nameAndGuid in Model.GetNameAndGuids())
+    {
+        @:appendInput('@(nameAndGuid.Name)', '@(nameAndGuid.Guid)');
+    }
+
+    function appendInput(name, guid) {
+        var guid = guid || '00000000-0000-0000-0000-000000000000';
+        var name = name || '';
+
+        var row = document.createElement('div');
+        row.setAttribute('class', 'nameAndGuids-row');
+
+        var inputWrapper = document.createElement('div');
+        inputWrapper.setAttribute('class', 'nameAndGuids-row-input');
+
+        var input = document.createElement('input');
+        input.setAttribute('class', 'ktc-form-control');
+        input.setAttribute('type', 'text');
+        input.setAttribute('data-guid', guid);
+        input.setAttribute('value', name);
+        input.setAttribute('onkeyup', 'setHiddenValue()');
+
+        var actionsWrapper = document.createElement('div');
+        actionsWrapper.setAttribute('class', 'nameAndGuids-row-actions');
+
+        var upButton = document.createElement('button');
+        upButton.setAttribute('type', 'button');
+        upButton.setAttribute('class', 'ktc-btn ktc-btn-secondary ktc-btn-sm');
+        upButton.setAttribute('onclick', 'moveRowUp(this)');
+        upButton.innerText = '↑';
+
+        var downButton = document.createElement('button');
+        downButton.setAttribute('type', 'button');
+        downButton.setAttribute('class', 'ktc-btn ktc-btn-secondary ktc-btn-sm');
+        downButton.setAttribute('onclick', 'moveRowDown(this)');
+        downButton.innerText = '↓';
+
+        var deleteButton = document.createElement('button');
+        deleteButton.setAttribute('type', 'button');
+        deleteButton.setAttribute('class', 'ktc-btn ktc-btn-secondary ktc-btn-sm');
+        deleteButton.setAttribute('onclick', 'deleteRow(this)');
+        deleteButton.innerText = '×';
+
+        row.append(inputWrapper);
+        inputWrapper.append(input);
+        row.append(actionsWrapper);
+        actionsWrapper.append(upButton);
+        actionsWrapper.append(downButton);
+        actionsWrapper.append(deleteButton);
+
+        document.querySelector('#@wrapperId .nameAndGuids').append(row);
+    }
+
+    function moveRowUp(el) {
+        console.log(el);
+        var row = el.parentElement.parentElement;
+        var previousRow = row.previousElementSibling;
+
+        if (previousRow) {
+            row.after(previousRow);
+            setHiddenValue();
+        }
+    }
+
+    function moveRowDown(el) {
+        console.log(el);
+        var row = el.parentElement.parentElement;
+        var nextRow = row.nextElementSibling;
+
+        if (nextRow) {
+            nextRow.after(row);
+            setHiddenValue();
+        }
+    }
+
+    function deleteRow(el) {
+        console.log(el);
+        var row = el.parentElement.parentElement;
+        row.remove();
+        setHiddenValue();
+    }
+
+    function setHiddenValue() {
+        var nameAndGuids = Array.from(document.querySelectorAll('.nameAndGuids-row-input input'))
+            .map(x => {
+                return {
+                    name: x.value,
+                    guid: x.dataset.guid
+                }
+            });
+
+        document.querySelector('#@id').value = JSON.stringify(nameAndGuids);
+    }
+
+    function getHiddenValue() {
+        var hiddenValue = document.querySelector('#@id').value;
+        return hiddenValue ? JSON.parse(hiddenValue) : null;
+    }
+</script>
+
+<style>
+    .nameAndGuids .nameAndGuids-row {
+        margin-top: 4px;
+    }
+
+        .nameAndGuids .nameAndGuids-row .nameAndGuids-row-input {
+            display: inline;
+        }
+
+            .nameAndGuids .nameAndGuids-row .nameAndGuids-row-input .ktc-form-control {
+                width: 200px;
+            }
+
+        .nameAndGuids .nameAndGuids-row .nameAndGuids-row-actions {
+            margin-left: 12px;
+            margin-bottom: 2px;
+            vertical-align: bottom;
+            display: inline;
+        }
+
+    .ktc-form-wrapper .ktc-form .ktc-btn.ktc-btn-sm {
+        padding: 0px 8px;
+        margin-left: 3px;
+        height: 30px;
+        width: 15px;
+    }
+</style>

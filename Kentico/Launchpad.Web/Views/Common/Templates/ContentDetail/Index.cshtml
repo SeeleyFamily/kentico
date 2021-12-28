@@ -1,0 +1,55 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.ContentDetailViewModel
+
+<div class="template-content-detail">
+    @Html.Partial("Components/Hero/_Hero", Model.HeroViewModel)
+
+    <section class="section">
+        <div class="container">
+            <div class="content-detail">
+                <div class="row">
+                    <div class="col-md-3 order-1 order-md-0">
+                        <div class="content-detail-sidebar">
+                            <div class="print-btn">
+                                <button onclick="window.print()" class="btn-default btn">Print</button>
+                            </div>
+
+                            @Html.Partial("Components/SocialShare/_SocialShare")
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 offset-md-1 order-0 order-md-1">
+                        <div class="main-content-txt">
+                            @Html.Partial("Components/Wysiwyg/_Wysiwyg", Model.WysiwygViewModel)
+                            @Html.Partial("Components/PageBuilder/_PageBuilder", Model.PageBuilderViewModel)
+                        </div>
+
+
+                        @if (Model.RelatedContent != null && Model.RelatedContent.Any())
+                        {
+                            <section class="content-related">
+                                <div class="section-header">
+                                    <h2>You might be interested in:</h2>
+                                </div>
+
+                                <div class="content-list-wrapper">
+                                    <div class="row">
+                                        @foreach (var item in Model.RelatedContent)
+                                        {
+                                            <div class="col-md-4">
+                                                @Html.DisplayFor(m => item, "RelatedItem")
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </section>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

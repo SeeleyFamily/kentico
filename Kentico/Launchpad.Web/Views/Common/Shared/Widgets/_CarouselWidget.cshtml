@@ -1,0 +1,102 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model ComponentViewModel<Launchpad.Web.Models.Common.Widgets.CarouselWidgetProperties>
+
+@{
+    IEnumerable<MediaFile> mediaFiles = Model.Properties.GetCarouselItems();
+}
+
+@if (mediaFiles != null && !Context.Kentico().PageBuilder().EditMode)
+{
+<div class="carousel carousel-sync widget @Model.Properties.WidgetClass()">
+    <div class="slider slider-for">
+        @foreach (MediaFile media in mediaFiles)
+            {
+                if (media.Type == "image")
+                {
+        <div class="carousel-item">
+            <div class="carousel-item-img js-webp-bg" data-image="@media.Url" data-bg-webp="@media.Url.GetOptimizedImageUrl()"></div>
+            <div class="carousel-item-content">
+                @Html.Raw(media.Description)
+            </div>
+        </div>
+                }
+                else if (media.Type == "video")
+                {
+        <div class="carousel-item">
+            <div class="video-responsive">
+                <iframe width="100%" height="315"
+                        src="@media.Url"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="carousel-item-content">
+                @Html.Raw(media.Description)
+            </div>
+        </div>
+                }
+            }
+    </div>
+
+    <div class="slider slider-nav">
+        @foreach (MediaFile media in mediaFiles)
+            {
+                if (media.Type == "image")
+                {
+        <div class="slider-nav-item">
+            <div class="slider-nav-img js-webp-bg" data-image="@media.ThumbnailUrl" data-bg-webp="@media.ThumbnailUrl.GetOptimizedImageUrl()" aria-label="@media.Description"></div>
+        </div>
+                }
+                else if (media.Type == "video")
+                {
+                    string iframeThumbnail = media.ThumbnailUrl;
+                    if (string.IsNullOrWhiteSpace(media.ThumbnailUrl))
+                    {
+                        var youtubeVideoUri = new Uri(media.Url);
+                        string youtubeVideoID = youtubeVideoUri.Segments.Last();
+                        iframeThumbnail = "https://img.youtube.com/vi/" + youtubeVideoID + "/sddefault.jpg";
+                    }
+
+        <div class="slider-nav-item">
+            <div class="slider-nav-img js-webp-bg" data-image="@iframeThumbnail" data-bg-webp="@iframeThumbnail.GetOptimizedImageUrl()" aria-label="@media.Description"></div>
+        </div>
+                }
+
+            }
+    </div>
+</div>
+
+    if (Context.Kentico().PageBuilder().EditMode)
+    {
+<script>
+            if (document.readyState === "loading") {
+                // Calls the function during the 'DOMContentLoaded' event, after the HTML document has been completely loaded
+                // See https://stackoverflow.com/questions/8835413/difference-between-load-vs-domcontentloaded
+                window.addEventListener("load", function () {
+                    const carousel = new Carousel();
+                    carousel.init();
+                });
+            }
+            else {
+                // Calls the function directly in cases where the widget is rendered dynamically after 'DOMContentLoaded' has occurred
+                const carousel = new Carousel();
+                carousel.init();
+            }
+</script>
+    }
+}
+else if (Context.Kentico().PageBuilder().EditMode)
+{
+    if (mediaFiles != null)
+    {
+<h3>Image Carousel</h3>
+<p>
+    @mediaFiles.Count() images selected. Use Preview mode to see the carousel.
+</p>
+    } else {
+<p>Use the widget settings to select an image gallery folder</p>
+    }
+}

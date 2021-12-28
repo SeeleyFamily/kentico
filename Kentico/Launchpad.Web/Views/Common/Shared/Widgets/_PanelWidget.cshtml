@@ -1,0 +1,26 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@using PanelWidgetProperties = Launchpad.Web.Models.Common.Widgets.PanelWidgetProperties;
+
+@model ComponentViewModel<PanelWidgetProperties>
+
+<div class="accordion card widget @Model.Properties.WidgetClass()">
+	<div class="card-content-wrapper accordion-wrapper">
+		<h2 tabindex="0" class="title accordion-title js-accordion-title">@Model.Properties.Title</h2>
+
+		@if (Context.Kentico().PageBuilder().EditMode)
+		{
+			Html.Kentico().RichTextEditor(nameof(PanelWidgetProperties.Content));
+		}
+		else
+		{
+			<div class="content accordion-content js-accordion-content">
+				<div class="accordion-content-wrap">
+					@Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.Content))
+				</div>
+			</div>
+		}
+	</div>
+</div>

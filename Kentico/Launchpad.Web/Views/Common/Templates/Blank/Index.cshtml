@@ -1,0 +1,16 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.BlankViewModel
+
+@{
+	Layout = "~/Views/Common/Shared/_BlankLayout.cshtml";
+}
+
+@section Head
+{
+	@Html.Raw(Model.Head)
+}
+
+@Html.Raw(Model.Body)

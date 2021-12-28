@@ -1,0 +1,40 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model PageBuilderTabComponentViewModel
+
+<div id="accordion-@Model.Index" class="tab-widget-content tab-container container widget @(Context.Kentico().PageBuilder().EditMode ? "border mt-4 mb-4" : "")">
+    @if (Model.HasTabs)
+    {
+        if (Context.Kentico().PageBuilder().EditMode)
+        {
+            <h4 class="text-info">Tab Widget #@Model.Index</h4>
+        }
+
+        <nav class="tab-nav nav" id="nav-tab" role="tablist">
+            @foreach (var tab in Model.PageBuilderTabViewModels)
+            {
+                <button class="tab-link @(tab.IsFirstTab ? "active" : "")" id="@tab.TabId-tab" data-bs-toggle="tab" data-bs-target="#@tab.TabId" type="button" role="tab" aria-controls="@tab.TabId" aria-selected="@(tab.IsFirstTab ? "true" : "false")">@tab.TabName</button>
+            }
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+            @foreach (var tab in Model.PageBuilderTabViewModels)
+            {
+                <button class="tab-accordion-button @(tab.IsFirstTab ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@tab.TabId" aria-expanded="@(tab.IsFirstTab ? "true" : "false")" aria-controls="@tab.TabId">
+                    @tab.TabName
+                </button>
+
+                <div class="tab-pane @(tab.IsFirstTab ? "show active collapse" : "collapse")" id="@tab.TabId" role="tabpanel" aria-labelledby="@tab.TabId-tab" data-bs-parent="#accordion-@Model.Index">
+                    @Html.Partial("Components/PageBuilder/_PageBuilder", tab.PageBuilderViewModel)
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <h2>TAB SECTION</h2>
+        <div>Please use the widget properties to configure tab names.</div>
+    }
+</div>

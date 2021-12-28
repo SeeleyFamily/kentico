@@ -1,0 +1,89 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../_references.scss';
+
+html {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+body {
+	color: $txt-body;
+	background: $bg-body;
+	font-family: $font-body;
+	position: relative;
+	//sticky footer
+	display: flex;
+	flex-direction: column;
+
+	@include fontSize($font-body-size-mobile);
+	@include lineHeight($font-body-line-height-mobile);
+	font-weight: $font-weight-body;
+	color: $txt-body;
+
+	@include media-breakpoint-up(md) {
+		@include fontSize($font-body-size-desktop);
+		@include lineHeight($font-body-line-height-desktop);
+	}
+
+	&.nav-open {
+		overflow: hidden;
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+
+		@include media-breakpoint-up(lg) {
+			position: relative;
+			overflow: auto;
+			left: auto;
+			top: auto;
+			right: auto;
+		}
+	}
+}
+
+.row > * {
+	position: relative;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+	margin: 0 0 15px;
+}
+
+object, embed, audio, video {
+    max-width: 100%;
+}
+
+i, em, .italic {
+    font-style: italic;
+}
+
+strong, b, .bold {
+    font-weight: 900;
+}
+
+.js-lazy-bg {
+    background-image: none;
+}

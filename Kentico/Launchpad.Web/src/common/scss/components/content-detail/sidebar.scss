@@ -1,0 +1,48 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.content-detail-sidebar {
+    .sidebar-logo {
+        width: 100%;
+        border-bottom: 2px solid $gray !important;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+
+        img {
+            max-width: 250px;
+        }
+    }
+
+    .print-btn {
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            text-align: left;
+        }
+    }
+
+    .sub-heading {
+        @include fontSize(20px);
+        line-height: 26px;
+        margin: 20px 0;
+    }
+
+    .sidebar-menu-links {
+        @include clear-list();
+
+        li {
+            margin: 10px 0;
+
+            &.active a {
+                color: $txt-link-hover;
+            }
+
+            a {
+                display: block;
+            }
+        }
+    }
+}

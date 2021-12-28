@@ -1,0 +1,20 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+
+.cards--list {
+    [class*='col-'] {
+        @include media-breakpoint-up(md) {
+            margin-bottom: 30px;
+        }
+
+        .card {
+            @include media-breakpoint-up(md) {
+                height: 100%;
+            }
+        }
+    }
+}

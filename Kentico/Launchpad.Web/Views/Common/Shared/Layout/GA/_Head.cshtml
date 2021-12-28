@@ -1,0 +1,18 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model string
+
+@if (Context.Kentico().Preview().Enabled || String.IsNullOrWhiteSpace(Model))
+{
+    return;
+}
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=@(Model)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '@(Model)');
+</script>

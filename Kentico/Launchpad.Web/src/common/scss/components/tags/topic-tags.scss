@@ -1,0 +1,49 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.topic-tags {
+    > span {
+        margin-right: 10px;
+    }
+
+    ul {
+        @include clear-list();
+
+        li {
+            display: inline-block;
+            margin: 0 8px 18px 0;
+
+            a, span {
+                @include btn($launchpad-blue-2, $primary-offset, $primary-text, $primary-text-hover);
+                @include fontSize(16px);
+                background: $launchpad-blue-2;
+                color: $secondary;
+                font-weight: 400;
+                padding: 10px 15px;
+                min-width: 0 !important;
+
+                &:hover, &:active, &:focus {
+                    background: $secondary;
+                    color: $white;
+                }
+            }
+
+            span {
+                cursor: text;
+                padding: 6px 12px;
+
+                &:hover, &:active, &:focus {
+                    background: $launchpad-blue-2;
+                    color: $secondary;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

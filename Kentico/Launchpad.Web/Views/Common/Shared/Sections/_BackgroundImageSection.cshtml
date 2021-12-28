@@ -1,0 +1,23 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model  ComponentViewModel<Launchpad.Web.Models.Common.Sections.BackgroundImageSectionProperties>
+
+@{
+    string sectionID = Html.GenerateUniqueId("section-");
+    MediaFile backgroundImg = Model.Properties.GetBackgroundImage();
+    string bgStyles = "";
+}
+@{
+    if (backgroundImg != null)
+    {
+        bgStyles = "background: url('" + backgroundImg.Url.Replace("~", "") + "');";
+        bgStyles += "background-size:cover;background-position:center;background-repeat:no-repeat";
+    }
+}
+<section class="" id="@sectionID" style="@bgStyles">
+    <div class="container">
+        @Html.Kentico().WidgetZone()
+    </div>
+</section>

@@ -1,0 +1,76 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using QuoteBannerWidgetProperties = Launchpad.Web.Models.Common.Widgets.QuoteBannerWidgetProperties;
+
+@model ComponentViewModel<QuoteBannerWidgetProperties>
+
+@{
+    MediaFile imgData = Model.Properties.Media();
+    string quoteID = Html.GenerateUniqueId("card-");
+    string titleID = Html.GenerateUniqueId("card-");
+
+}
+
+<div class="banner-quote widget @Model.Properties.WidgetClass()">
+    <div class="banner-quote-content">
+        <div class="banner-quote-card-media">
+            @if (imgData != null)
+            {
+                <picture>
+                    <source srcset="@imgData.Url.GetOptimizedImageUrl()" type="image/webp">
+                    <img src="@imgData.Url">
+                </picture>
+            }
+        </div>
+
+        @if (Context.Kentico().PageBuilder().EditMode)
+        {
+            @:<div class="banner-quote-description">
+                Html.Kentico().RichTextEditor(nameof(QuoteBannerWidgetProperties.QuoteText), "basictext");
+            @:</div>
+        }
+        else
+        {
+            @:<div class="banner-quote-description">
+                @Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.QuoteText));
+            @:</div>
+        }
+
+        @if (!String.IsNullOrWhiteSpace(Model.Properties.QuoteAuthor))
+        {
+            <div class="banner-quote-author" id="@quoteID">
+                - @Model.Properties.QuoteAuthor
+            </div>
+        }
+
+        @if (!String.IsNullOrWhiteSpace(Model.Properties.QuoteTitle))
+        {
+            <div class="banner-quote-title" id="@titleID">
+                @Model.Properties.QuoteTitle
+            </div>
+        }
+    </div>
+</div>
+
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+    {
+        PropertyName = nameof(QuoteBannerWidgetProperties.QuoteAuthor),
+        Content = Model.Properties.QuoteAuthor,
+        TargetId = quoteID
+    });
+}
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+    {
+        PropertyName = nameof(QuoteBannerWidgetProperties.QuoteTitle),
+        Content = Model.Properties.QuoteTitle,
+        TargetId = titleID
+    });
+}

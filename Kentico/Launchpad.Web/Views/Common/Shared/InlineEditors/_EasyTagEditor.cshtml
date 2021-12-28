@@ -1,0 +1,13 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model  EasyTagEditorModel
+
+@using (Html.Kentico().BeginInlineEditor("easyTagEditor", Model.PropertyName))
+{
+    <div class="element-delegate" data-target-element="@Model.TargetId"></div>
+}

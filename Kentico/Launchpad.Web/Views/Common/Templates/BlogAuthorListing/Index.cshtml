@@ -1,0 +1,28 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.BlogAuthorListingViewModel
+
+<div class="template-blog-author-listing">
+	@Html.HeroFor(m => m.HeroViewModel)
+	<br />
+	@Html.WysiwygFor(m => m.WysiwygViewModel)
+	<br />
+	@Html.PageBuilderFor(m => m.PageBuilderViewModel)
+	<br />
+</div>
+
+@section JavaScript
+{
+	<script>
+		window.Launchpad.ResourceFilters = @Html.Raw(JsonConvert.SerializeObject(Model.Filters));
+        window.Launchpad.Query = "@HttpUtility.JavaScriptStringEncode(Model.Specification.SearchTerm)";
+        window.Launchpad.PushStateParameters = @Html.Raw(JsonConvert.SerializeObject(Model.PushStateParameters));
+        window.Launchpad.ResourceFilterDisplay = {
+            hideType: true,
+            hideTopic: false,
+            hideSearch: false
+        };
+	</script>
+}

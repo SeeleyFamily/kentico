@@ -1,0 +1,101 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../_references.scss';
+
+.bg-primary {
+    background: $primary;
+
+    * {
+        color: $primary-text;
+    }
+
+    [class*='btn-outline-'] {
+        @include media-breakpoint-up(md) {
+            &:hover, &:active, &:focus {
+                color: $primary;
+            }
+        }
+    }
+
+    &.section + .section.bg-primary {
+        padding-top: 0;
+    }
+}
+
+.bg-secondary {
+    background: $secondary;
+
+    * {
+        color: $secondary-text;
+    }
+
+    .breadcrumb a {
+        @include media-breakpoint-up(md) {
+            &:hover, &:active, &:focus {
+                color: $white;
+            }
+        }
+    }
+
+    [class*='btn-outline-'] {
+        @include media-breakpoint-up(md) {
+            &:hover, &:active, &:focus {
+                color: $secondary;
+            }
+        }
+    }
+
+    &.section + .section.bg-secondary {
+        padding-top: 0;
+    }
+}
+
+.bg-tertiary {
+    background: $tertiary;
+
+    * {
+        color: $tertiary-text;
+    }
+
+    [class*='btn-outline-'] {
+        @include media-breakpoint-up(md) {
+            &:hover, &:active, &:focus {
+                color: $tertiary;
+            }
+        }
+    }
+
+    &.section + .section.bg-tertiary {
+        padding-top: 0;
+    }
+}
+
+.bg-quaternary {
+    background: $quaternary;
+
+    * {
+        color: $quaternary-text;
+    }
+
+    [class*='btn-outline-'] {
+        @include media-breakpoint-up(md) {
+            &:hover, &:active, &:focus {
+                color: $quaternary;
+            }
+        }
+    }
+
+    &.section + .section.bg-quaternary {
+        padding-top: 0;
+    }
+}
+
+[class*='btn-outline-'] {
+    @include media-breakpoint-up(md) {
+        &:hover, &:active, &:focus {
+            color: $white;
+        }
+    }
+}

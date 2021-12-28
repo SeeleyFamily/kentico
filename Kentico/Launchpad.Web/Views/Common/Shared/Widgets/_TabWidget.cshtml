@@ -1,0 +1,31 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+@using TabWidgetProperties = Launchpad.Web.Models.Common.Widgets.TabWidgetProperties;
+
+@model ComponentViewModel<TabWidgetProperties>
+
+<div class="tab-widget-container widget @Model.Properties.WidgetClass()">
+	@if (Context.Kentico().PageBuilder().EditMode)
+	{
+		if (string.IsNullOrWhiteSpace(Model.Properties.TabNames))
+		{
+			<h4 class="text-warning mt-4 mb-4">Please add tab names using widget properties.</h4>
+		}
+		else
+		{
+			if (Model.Properties.Index == 0)
+			{
+				<h4 class="text-warning mt-4 mb-4">Please save page to generate new tab component.</h4>
+			}
+			else
+			{
+				<h4 class="text-info mt-4 mb-4">Please edit "Tab Widget #@Model.Properties.Index" at bottom of page.</h4>
+			}
+		}
+	}
+	else
+	{
+		<span></span>
+	}
+</div>

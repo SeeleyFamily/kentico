@@ -1,0 +1,44 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+// Card overrides for Grid display
+.cards--grid {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+
+	.row {
+		flex: 0 0 calc(100% + 30px);
+
+		@include media-breakpoint-up(lg) {
+			flex: 0 0 100%;
+		}
+	}
+
+	.card {
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media-breakpoint-up(lg) {
+				margin-bottom: 30px;
+			}
+		}
+
+		.card-media {
+			img {
+				object-fit: cover;
+				max-height: 250px;
+			}
+		}
+	}
+
+	.card-title {
+		font-weight: 600;
+		margin-top: 0;
+	}
+}

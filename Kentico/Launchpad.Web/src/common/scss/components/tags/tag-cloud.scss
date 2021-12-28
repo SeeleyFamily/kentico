@@ -1,0 +1,118 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.tag-cloud {
+    padding: 40px 0;
+    margin: 0 0 40px;
+    border-bottom: 1px solid $gray;
+    border-top: 1px solid $gray;
+    display: block;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        @include fontSize(16px);
+        text-align: left;
+    }
+
+    label {
+        @include fontSize($heading-2-font-mobile);
+        @include lineHeight($heading-2-line-height-mobile);
+        font-weight: $heading-2-weight;
+        color: $secondary;
+        display: block;
+        margin: 0 0 15px;
+        white-space: nowrap;
+
+        @include media-breakpoint-up(md) {
+            @include fontSize($heading-2-font-desktop);
+            @include lineHeight($heading-2-line-height-desktop);
+            margin: 0 0 25px;
+        }
+    }
+
+    .dropdown {
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
+
+        > .dropdown-toggle {
+            font-family: $font-body;
+            @include fontSize(16px);
+            border-radius: 5px;
+            border-width: 1px;
+            font-weight: 400;
+
+            &:after {
+                @include fontSize(16px);
+                top: 0;
+                right: 30px;
+                font-weight: 400;
+            }
+        }
+
+        .dropdown-menu li a {
+            font-weight: 400;
+        }
+    }
+
+    &-list {
+        @include clear-list();
+        display: none;
+        flex-wrap: wrap;
+
+        @include media-breakpoint-up(md) {
+            display: flex;
+        }
+
+        li {
+            cursor: pointer;
+            padding: 0 10px 10px 0;
+
+            .checkbox-container {
+                padding: 0;
+                margin: 0;
+            }
+
+            input[type="checkbox"] {
+                height: 100%;
+
+                &:checked {
+                    ~ label {
+                        background: $secondary;
+                        color: $white;
+                    }
+                }
+
+                @include media-breakpoint-up(lg) {
+                    &:hover, &:active, &:focus {
+                        ~ label {
+                            background: $secondary;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+            label {
+                @include btn($primary, $primary-offset, $primary-text, $primary-text-hover);
+                @include fontSize(16px);
+                background: $rise-blue-2;
+                color: $secondary;
+                font-weight: 400;
+                padding: 10px 15px;
+
+                &:before, &:after {
+                    content: none;
+                }
+            }
+
+            &.active label {
+                background: $secondary;
+                color: $white;
+            }
+        }
+    }
+}

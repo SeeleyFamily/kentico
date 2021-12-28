@@ -1,0 +1,38 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@using CardWidgetProperties = Launchpad.Web.Models.Common.Widgets.CardWidgetProperties
+
+@model ComponentViewModel<CardWidgetProperties>
+
+@{
+		string titleTargetId = Html.GenerateUniqueId("card-");
+
+		var cardViewModel = new CardViewModel()
+		{
+			Title = Model.Properties.Title,
+			Description = Model.Properties.Description,
+			Image = Model.Properties.ImageUrl(),
+			ImageAltText = Model.Properties.ImgAltText,
+			CtaText = Model.Properties.CtaText,
+			CtaUrl = Model.Properties.CtaLink(),
+			PageBuilderEnabled = true,
+			TitleTargetId = titleTargetId,
+			WidgetClass = Model.Properties.WidgetClass()
+	};
+}
+
+
+@Html.CardFor(m => cardViewModel)
+
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+	Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+	{
+		PropertyName = nameof(CardWidgetProperties.Title),
+		Content = Model.Properties.Title,
+		TargetId = titleTargetId
+	});
+}

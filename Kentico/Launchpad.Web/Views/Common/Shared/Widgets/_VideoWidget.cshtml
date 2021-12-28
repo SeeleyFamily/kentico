@@ -1,0 +1,124 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model ComponentViewModel<Launchpad.Web.Models.Common.Widgets.VideoWidgetProperties>
+
+@{
+    MediaFile previewImgData = Model.Properties.GetPreviewImage();
+    var videoUrl = Model.Properties.GetVideoUrl();
+    var videoString = "";
+    var embedCode = Model.Properties.VideoUrl?.Split('/').Last();
+    videoString += Model.Properties.LoopVideo ? "?loop=1&playlist=" + embedCode + "&" : "?";
+    videoString += Model.Properties.Autoplay ? "autoplay=1&mute=1&" : "";
+    videoString += Model.Properties.MuteVideo ? "mute=1&" : "";
+    videoString += Model.Properties.ShowControls ? "controls=1" : "";
+}
+
+@if (!String.IsNullOrEmpty(videoUrl))
+{
+    if (Model.Properties.IsExternalVideo())
+    {
+        <div class="widget widget-video @(previewImgData != null ? "video-preview" : "") @Model.Properties.WidgetClass()">
+            @if (previewImgData != null)
+            {
+                <a href="@Model.Properties.VideoUrl@videoString" class="open-self video js-video">
+                    <picture>
+                        <source srcset="@previewImgData.Url.GetOptimizedImageUrl()" type="image/webp">
+                        <source srcset="@previewImgData.Url.GetOptimizedImageUrl()" type="image/jpeg">
+                        <img src="@previewImgData.Url" alt="@Model.Properties.VideoCaption">
+                    </picture>
+                </a>
+            }
+            else
+            {
+                <div class="video-responsive">
+                    <iframe width="100%" height="315"
+                            src="@videoUrl@videoString"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            }
+
+            @if (!String.IsNullOrWhiteSpace(Model.Properties.VideoCaption) || previewImgData != null)
+            {
+                <div class="widget-caption">
+                    @if (!String.IsNullOrWhiteSpace(Model.Properties.VideoCaption))
+                    {
+                        if (!String.IsNullOrWhiteSpace(Model.Properties.VideoTranscript))
+                        {
+                            <a href="#video-transcript-@Model.Properties.VideoCaption.Replace(" ", "")" class="open-self js-inline-modal">@Model.Properties.VideoCaption</a>
+
+                            <div id="video-transcript-@Model.Properties.VideoCaption.Replace(" ", "")" style="display:none;">
+                                @Html.Raw(Model.Properties.VideoTranscript)
+                            </div>
+                        }
+                        else
+                        {
+                            <p>@Model.Properties.VideoCaption</p>
+                        }
+                    }
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="widget widget-video @(previewImgData != null ? "video-preview" : "") @Model.Properties.WidgetClass()">
+            @if (previewImgData != null)
+            {
+                <a href="#media-video-@Model.Properties.GetHashCode()" class="open-self video js-inline-modal">
+                    <picture>
+                        <source srcset="@previewImgData.Url.GetOptimizedImageUrl()" type="image/webp">
+                        <source srcset="@previewImgData.Url.GetOptimizedImageUrl()" type="image/jpeg">
+                        <img src="@previewImgData.Url" alt="@Model.Properties.VideoCaption">
+                    </picture>
+                </a>
+
+                <div id="media-video-@Model.Properties.GetHashCode()" class="inline" style="display:none;">
+                    <video @(Model.Properties.LoopVideo ? "loop" : "") @(Model.Properties.Autoplay ? "autoplay" : "") @(Model.Properties.MuteVideo ? "muted" : "") @(Model.Properties.ShowControls ? "controls" : "")>
+                        <source src="@videoUrl" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            }
+            else
+            {
+                <video @(Model.Properties.LoopVideo ? "loop" : "") @(Model.Properties.Autoplay ? "autoplay" : "") @(Model.Properties.MuteVideo ? "muted" : "") @(Model.Properties.ShowControls ? "controls" : "")>
+                    <source src="@videoUrl" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            }
+
+            @if (!String.IsNullOrWhiteSpace(Model.Properties.VideoCaption) || previewImgData != null)
+            {
+                <div class="widget-caption">
+                    @if (!String.IsNullOrWhiteSpace(Model.Properties.VideoCaption))
+                    {
+                        if (!String.IsNullOrWhiteSpace(Model.Properties.VideoTranscript))
+                        {
+                            <a href="#video-transcript-@Model.Properties.VideoCaption.Replace(" ", "")" class="open-self js-inline-modal">@Model.Properties.VideoCaption</a>
+
+                            <div id="video-transcript-@Model.Properties.VideoCaption.Replace(" ", "")" style="display:none;">
+                                @Html.Raw(Model.Properties.VideoTranscript)
+                            </div>
+                        }
+                        else
+                        {
+                            <p>@Model.Properties.VideoCaption</p>
+                        }
+                    }
+                </div>
+            }
+        </div>
+    }
+}
+else
+{
+    if (Context.Kentico().PageBuilder().EditMode)
+    {
+        <p>Configure this widget to select a video</p>
+    }
+}

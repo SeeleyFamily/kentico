@@ -1,0 +1,1489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <ExcludeFoldersFromDeployment>src</ExcludeFoldersFromDeployment>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B55DA942-E8CA-40FF-B6B1-DEA819460B26}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Launchpad.Web</RootNamespace>
+    <AssemblyName>Launchpad.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
+    <IISExpressSSLPort>44324</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.14.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.14.0\lib\net472\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.103.71\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.S3.3.3.104.43\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Activities, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Activities.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Activities.Loggers, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Activities.Loggers.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.AmazonStorage, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.AmazonStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.AspNet.Platform, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.AspNet.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Automation, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.AzureStorage, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.AzureStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Base, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.ComputerVision.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.ComputerVision.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.ContactManagement, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.ContactManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.ContinuousIntegration, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.ContinuousIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Core, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.CustomTables, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.CustomTables.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.DataEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.DataEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.DataProtection, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.DocumentEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.DocumentEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Ecommerce, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Ecommerce.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.EmailEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.EmailEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.EventLog, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.FormEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.FormEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Globalization, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Helpers, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.ImportExport, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.ImportExport.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.IO, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.LicenseProvider, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.LicenseProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.MacroEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.MacroEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.MediaLibrary, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.MediaLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Membership, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Membership.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.MembershipProvider, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.MembershipProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Modules, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Newsletters, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Newsletters.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.OnlineForms, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.OnlineForms.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.OnlineMarketing, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.OnlineMarketing.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Personas, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Personas.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Relationships, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Relationships.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Reporting, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.ResponsiveImages, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.ResponsiveImages.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Routing.Web, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Routing.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.SalesForce, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.SalesForce.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Scheduler, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Search, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Search.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Search.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Search.Lucene3, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Search.Lucene3.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Search.TextExtractors, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Search.TextExtractors.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.SharePoint, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.SiteProvider, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.SiteProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.SocialMarketing, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.SocialMarketing.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Synchronization, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Synchronization.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.SynchronizationEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.SynchronizationEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.Taxonomy, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.Taxonomy.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.TextAnalytics.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.TextAnalytics.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.TranslationServices, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.TranslationServices.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.WebAnalytics, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.WebAnalytics.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.WebFarmSync, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.WebFarmSync.dll</HintPath>
+    </Reference>
+    <Reference Include="CMS.WorkflowEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\CMS.WorkflowEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.6.4.2\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalLink.Connect, Version=4.18.2.0, Culture=neutral, PublicKeyToken=946d606070618fd4, processorArchitecture=MSIL">
+      <HintPath>..\packages\GlobalLink.Connect.4.18.3.1\lib\net46\GlobalLink.Connect.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentico.Content.Web.Mvc, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.56\lib\NET48\Kentico.Content.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentico.Content.Web.Mvc.Views, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.56\lib\NET48\Kentico.Content.Web.Mvc.Views.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentico.Membership, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.56\lib\NET48\Kentico.Membership.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentico.OnlineMarketing.Web.Mvc, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.56\lib\NET48\Kentico.OnlineMarketing.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentico.Web.Mvc, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.56\lib\NET48\Kentico.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentico.Web.Mvc.Proxies, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.56\lib\NET48\Kentico.Web.Mvc.Proxies.dll</HintPath>
+    </Reference>
+    <Reference Include="LightInject, Version=5.5.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="LinqToTwitter.AspNet, Version=5.0.0.14073, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\linqtotwitter.5.0.0\lib\net461\LinqToTwitter.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToTwitter.netstandard, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\linqtotwitter.5.0.0\lib\net461\LinqToTwitter.netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.v3, Version=3.0.3.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\Lucene.Net.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.WordNet.SynExpand, Version=2.0.0.1, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\Lucene.Net.WordNet.SynExpand.dll</HintPath>
+    </Reference>
+    <Reference Include="MaxMind.Db, Version=2.0.0.0, Culture=neutral, PublicKeyToken=66afa4cc5ae853ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaxMind.Db.2.6.1\lib\net45\MaxMind.Db.dll</HintPath>
+    </Reference>
+    <Reference Include="MaxMind.GeoIP2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=66afa4cc5ae853ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaxMind.GeoIP2.3.2.0\lib\net45\MaxMind.GeoIP2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.3.1.8\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.3.1.8\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.7.0.0\lib\net461\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.10.1.0\lib\net461\Microsoft.Azure.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Common, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.Common.10.1.0\lib\net461\Microsoft.Azure.Search.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Data, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.Data.10.1.0\lib\net461\Microsoft.Azure.Search.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Service, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.Service.10.1.0\lib\net461\Microsoft.Azure.Search.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Blob, Version=11.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Blob.11.2.2\lib\net452\Microsoft.Azure.Storage.Blob.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Common, Version=11.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Common.11.2.2\lib\net452\Microsoft.Azure.Storage.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Queue, Version=11.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Queue.11.2.2\lib\net452\Microsoft.Azure.Storage.Queue.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Utilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.Data.Tools.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.8\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.3.1.8\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.3.1.8\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Core, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Identity.Core.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Stores, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Identity.Stores.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.7.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.7.1\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.7.1\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.Policy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Office.Client.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.TranslationServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Office.Client.TranslationServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.SharePoint.Tools, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Office.SharePoint.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Online.SharePoint.Client.Tenant, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Online.SharePoint.Client.Tenant.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.1.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.1.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ProjectServer.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.ProjectServer.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.20\lib\net461\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.18\lib\net452\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.DocumentManagement, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.DocumentManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Publishing, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Publishing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime.Windows, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search.Applications, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Search.Applications.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Taxonomy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Taxonomy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.UserProfiles, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.UserProfiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.WorkflowServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.WorkflowServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.5.3.21218, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.5.3\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.Dac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac.Extensions, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.Dac.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.TransactSql.ScriptDom, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.TransactSql.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Common, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Common.5.3.1\lib\net472\NuGet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Configuration, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Configuration.5.3.1\lib\net472\NuGet.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Frameworks, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Frameworks.5.3.1\lib\net472\NuGet.Frameworks.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Packaging, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Packaging.5.3.1\lib\net472\NuGet.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Versioning, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Versioning.5.3.1\lib\net472\NuGet.Versioning.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenPop, Version=2.0.6.1120, Culture=neutral, PublicKeyToken=6bdb97f144b7efc8, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenPop.NET.2.0.6.1120\lib\net40\OpenPop.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.8.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.8.0\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFClown, Version=0.1.2.1, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.56\lib\NET48\PDFClown.dll</HintPath>
+    </Reference>
+    <Reference Include="PreMailer.Net, Version=2.2.0.0, Culture=neutral, PublicKeyToken=23e3f43e29cae17f, processorArchitecture=MSIL">
+      <HintPath>..\packages\PreMailer.Net.2.2.0\lib\net461\PreMailer.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.HashFunction.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.Core.2.0.0\lib\net45\System.Data.HashFunction.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.HashFunction.CRC, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.CRC.2.0.0\lib\net45\System.Data.HashFunction.CRC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.HashFunction.Interfaces, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.Interfaces.2.0.0\lib\net45\System.Data.HashFunction.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.7.1\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\net46\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net46\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net46\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Duplex, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Duplex.4.6.0\lib\net461\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Http.4.6.0\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.NetTcp.4.6.0\lib\net461\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.6.0\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Security.4.6.0\lib\net461\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Syndication, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.4.5.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Widgets\" />
+    <Folder Include="Controllers\Widgets\" />
+    <Folder Include="src\views\Custom\" />
+    <Folder Include="Views\Shared\Components\Custom\" />
+    <Folder Include="Views\Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\Common\default-card-img.png" />
+    <Content Include="Content\images\Common\event-default-image.jpg" />
+    <Content Include="Content\images\Common\lp-logo.png" />
+    <Content Include="Content\images\Common\placeholder.txt" />
+    <Content Include="Content\images\Common\quote-icon.svg" />
+    <Content Include="Content\images\Custom\placeholder.txt" />
+    <Content Include="Content\FormComponents\WysiwygInputComponent\jodit.js" />
+    <Content Include="Content\FormSections\Shared\forms.admin.css" />
+    <Content Include="Content\InlineEditors\EasyTagEditor\easyTagEditor.js" />
+    <Content Include="dist\AdminForm.min.css" />
+    <Content Include="dist\AdminForm.min.js" />
+    <Content Include="dist\assets\47d429114924f049be0109a8d8022ae3.svg" />
+    <Content Include="dist\assets\5cb79e8efcfc7ff8c61f59e3f6c552b4.svg" />
+    <Content Include="dist\assets\e9890406bea73145f81e2822c6d34c26.svg" />
+    <Content Include="dist\BlogAuthor.min.css" />
+    <Content Include="dist\BlogAuthor.min.js" />
+    <Content Include="dist\BlogAuthorListing.min.css" />
+    <Content Include="dist\BlogAuthorListing.min.js" />
+    <Content Include="dist\BlogDetail.min.css" />
+    <Content Include="dist\BlogDetail.min.js" />
+    <Content Include="dist\BlogListing.min.css" />
+    <Content Include="dist\BlogListing.min.js" />
+    <Content Include="dist\CategoryOverview.min.css" />
+    <Content Include="dist\CategoryOverview.min.js" />
+    <Content Include="dist\Cms.min.css" />
+    <Content Include="dist\Cms.min.js" />
+    <Content Include="dist\Contact.min.css" />
+    <Content Include="dist\Contact.min.js" />
+    <Content Include="dist\ContentDetail.min.css" />
+    <Content Include="dist\ContentDetail.min.js" />
+    <Content Include="dist\ContentListing.min.css" />
+    <Content Include="dist\ContentListing.min.js" />
+    <Content Include="dist\CustomLanding.min.css" />
+    <Content Include="dist\CustomLanding.min.js" />
+    <Content Include="dist\Deferred.min.css" />
+    <Content Include="dist\Deferred.min.js" />
+    <Content Include="dist\Error.min.css" />
+    <Content Include="dist\Error.min.js" />
+    <Content Include="dist\EventListing.min.css" />
+    <Content Include="dist\EventListing.min.js" />
+    <Content Include="dist\Form.min.css" />
+    <Content Include="dist\Form.min.js" />
+    <Content Include="dist\GeneralContent.min.css" />
+    <Content Include="dist\GeneralContent.min.js" />
+    <Content Include="dist\Home.min.css" />
+    <Content Include="dist\Home.min.js" />
+    <Content Include="dist\modernizr.min.js" />
+    <Content Include="dist\PeopleListing.min.css" />
+    <Content Include="dist\PeopleListing.min.js" />
+    <Content Include="dist\PeopleProfile.min.css" />
+    <Content Include="dist\PeopleProfile.min.js" />
+    <Content Include="dist\Search.min.css" />
+    <Content Include="dist\Search.min.js" />
+    <Content Include="dist\Sitemap.min.css" />
+    <Content Include="dist\Sitemap.min.js" />
+    <Content Include="Icons\Common\android-icon-144x144.png" />
+    <Content Include="Icons\Common\android-icon-192x192.png" />
+    <Content Include="Icons\Common\android-icon-36x36.png" />
+    <Content Include="Icons\Common\android-icon-48x48.png" />
+    <Content Include="Icons\Common\android-icon-72x72.png" />
+    <Content Include="Icons\Common\android-icon-96x96.png" />
+    <Content Include="Icons\Common\apple-icon-114x114.png" />
+    <Content Include="Icons\Common\apple-icon-120x120.png" />
+    <Content Include="Icons\Common\apple-icon-144x144.png" />
+    <Content Include="Icons\Common\apple-icon-152x152.png" />
+    <Content Include="Icons\Common\apple-icon-180x180.png" />
+    <Content Include="Icons\Common\apple-icon-57x57.png" />
+    <Content Include="Icons\Common\apple-icon-60x60.png" />
+    <Content Include="Icons\Common\apple-icon-72x72.png" />
+    <Content Include="Icons\Common\apple-icon-76x76.png" />
+    <Content Include="Icons\Common\apple-icon-precomposed.png" />
+    <Content Include="Icons\Common\apple-icon.png" />
+    <Content Include="Icons\Common\browserconfig.xml" />
+    <Content Include="Icons\Common\favicon-16x16.png" />
+    <Content Include="Icons\Common\favicon-32x32.png" />
+    <Content Include="Icons\Common\favicon-96x96.png" />
+    <Content Include="Icons\Common\favicon.ico" />
+    <Content Include="Icons\Common\ms-icon-144x144.png" />
+    <Content Include="Icons\Common\ms-icon-150x150.png" />
+    <Content Include="Icons\Common\ms-icon-310x310.png" />
+    <Content Include="Icons\Common\ms-icon-70x70.png" />
+    <Content Include="Icons\Common\placeholder.txt" />
+    <Content Include="Icons\Custom\placeholder.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Kentico\Content\FormComponents\FileUploader\file-uploader.js" />
+    <Content Include="Kentico\Content\FormComponents\USPhone\inputmask.js" />
+    <Content Include="Kentico\Content\FormComponents\USPhone\inputmask.min.js" />
+    <Content Include="Kentico\Content\InlineEditors\DropdownEditor\dropdown-editor.js" />
+    <Content Include="Kentico\Content\InlineEditors\DropdownEditor\DropdownEditor.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\Attachments\attachment-selector.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\MediaFiles\media-files-selector.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\MediaFiles\media-files-selector.js" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\Pages\page-selector.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\PageTemplates\DefaultTemplateImage.png" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\PageTemplates\page-template-selector.js" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\Shared\error-page.css" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\Attachments\attachment-selector.admin.js" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\MediaFiles\media-files-selector.admin.js" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\Pages\page-selector.admin.js" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\Path\path-selector.admin.js" />
+    <Content Include="Kentico\Content\Widgets\RichText\froala_style.css" />
+    <Content Include="Kentico\Content\Widgets\RichText\froala_style.min.css" />
+    <Content Include="Kentico\Scripts\builders\builder.css" />
+    <Content Include="Kentico\Scripts\builders\builder.js" />
+    <Content Include="Kentico\Scripts\builders\components\app-globals-8931cc91.js" />
+    <Content Include="Kentico\Scripts\builders\components\app-globals-d5563cb5.system.js" />
+    <Content Include="Kentico\Scripts\builders\components\components.esm.js" />
+    <Content Include="Kentico\Scripts\builders\components\components.js" />
+    <Content Include="Kentico\Scripts\builders\components\components.system.js" />
+    <Content Include="Kentico\Scripts\builders\components\css-shim-260ce44f.js" />
+    <Content Include="Kentico\Scripts\builders\components\css-shim-b3b7ed10.system.js" />
+    <Content Include="Kentico\Scripts\builders\components\dom-b7f433c1.js" />
+    <Content Include="Kentico\Scripts\builders\components\dom-e7eb5a5d.system.js" />
+    <Content Include="Kentico\Scripts\builders\components\index-4dc45cd4.js" />
+    <Content Include="Kentico\Scripts\builders\components\index-7b62609d.system.js" />
+    <Content Include="Kentico\Scripts\builders\components\index.esm.js" />
+    <Content Include="Kentico\Scripts\builders\components\index.system.js" />
+    <Content Include="Kentico\Scripts\builders\components\kentico-abtest-variant-listing_43.entry.js" />
+    <Content Include="Kentico\Scripts\builders\components\kentico-abtest-variant-listing_43.system.entry.js" />
+    <Content Include="Kentico\Scripts\builders\components\shadow-css-14c5e2cb.js" />
+    <Content Include="Kentico\Scripts\builders\components\shadow-css-8a020e34.system.js" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.svg" />
+    <Content Include="Kentico\Scripts\builders\form-builder.css" />
+    <Content Include="Kentico\Scripts\builders\form-builder.js" />
+    <Content Include="Kentico\Scripts\builders\page-builder.css" />
+    <Content Include="Kentico\Scripts\builders\page-builder.js" />
+    <Content Include="Kentico\Scripts\builders\page-template-selector.css" />
+    <Content Include="Kentico\Scripts\builders\vendors.js" />
+    <Content Include="Kentico\Scripts\builders\vendors.js.LICENSE.txt" />
+    <Content Include="Kentico\Scripts\builders\web-components.css" />
+    <Content Include="Kentico\Scripts\forms\updatableFormHelper.js" />
+    <Content Include="Kentico\Scripts\jquery-3.5.1.js" />
+    <Content Include="Kentico\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Kentico\Scripts\modal-dialog.js" />
+    <Content Include="Kentico\Scripts\shim.min.js" />
+    <Content Include="Scripts\WysiwygConfiguration.js" />
+    <Content Include="src\common\js\base\common.js" />
+    <Content Include="src\common\js\base\layout.js" />
+    <Content Include="src\common\js\cms\cms.js" />
+    <Content Include="src\common\js\components\accordion.js" />
+    <Content Include="src\common\js\components\audioplayer.js" />
+    <Content Include="src\common\js\components\banner.js" />
+    <Content Include="src\common\js\components\carousel.js" />
+    <Content Include="src\common\js\components\dropdown.js" />
+    <Content Include="src\common\js\components\lazyload.js" />
+    <Content Include="src\common\js\components\modal.js" />
+    <Content Include="src\common\js\components\pagebuilder.js" />
+    <Content Include="src\common\js\components\tabs.js" />
+    <Content Include="src\common\js\components\webpimages.js" />
+    <Content Include="src\common\js\deferred.js" />
+    <Content Include="src\common\js\index.js" />
+    <Content Include="src\common\js\components\formbuilder.js" />
+    <Content Include="src\common\js\pagebuilder.js" />
+    <Content Include="src\common\js\plugins\select2-position.js" />
+    <Content Include="src\common\js\utils\analytics.js" />
+    <Content Include="src\common\js\utils\constants.js" />
+    <Content Include="src\common\js\utils\formTools.js" />
+    <Content Include="src\common\js\utils\ui.js" />
+    <Content Include="src\common\js\utils\validation.js" />
+    <Content Include="src\common\js\utils\wysiwygConfig.js" />
+    <Content Include="src\common\js\utils\youtubeparser.js" />
+    <Content Include="src\common\scss\base.scss" />
+    <Content Include="src\common\scss\base\form\_checkbox.scss" />
+    <Content Include="src\common\scss\base\form\_error.scss" />
+    <Content Include="src\common\scss\base\form\_form.scss" />
+    <Content Include="src\common\scss\base\form\_input-group.scss" />
+    <Content Include="src\common\scss\base\form\_input.scss" />
+    <Content Include="src\common\scss\base\form\_radio-button.scss" />
+    <Content Include="src\common\scss\base\form\_select.scss" />
+    <Content Include="src\common\scss\base\typography\_heading.scss" />
+    <Content Include="src\common\scss\base\typography\_link.scss" />
+    <Content Include="src\common\scss\base\typography\_list.scss" />
+    <Content Include="src\common\scss\base\_background.scss" />
+    <Content Include="src\common\scss\base\_button.scss" />
+    <Content Include="src\common\scss\base\_global.scss" />
+    <Content Include="src\common\scss\base\_helpers.scss" />
+    <Content Include="src\common\scss\base\_kentico.scss" />
+    <Content Include="src\common\scss\base\_spinner.scss" />
+    <Content Include="src\common\scss\base\_table.scss" />
+    <Content Include="src\common\scss\components\accordion\accordion.scss" />
+    <Content Include="src\common\scss\components\banner\banner-cookie.scss" />
+    <Content Include="src\common\scss\components\banner\banner-notification.scss" />
+    <Content Include="src\common\scss\components\banner\banner.scss" />
+    <Content Include="src\common\scss\components\card\card-grid.scss" />
+    <Content Include="src\common\scss\components\card\card-list.scss" />
+    <Content Include="src\common\scss\components\card\card.scss" />
+    <Content Include="src\common\scss\components\carousel\carousel.scss" />
+    <Content Include="src\common\scss\components\carousel\_carousel-sync.scss" />
+    <Content Include="src\common\scss\components\cta\cta.scss" />
+    <Content Include="src\common\scss\components\filter\filter-header.scss" />
+    <Content Include="src\common\scss\components\filter\filter-sidebar.scss" />
+    <Content Include="src\common\scss\components\menu\menu.scss" />
+    <Content Include="src\common\scss\components\modal\modal.scss" />
+    <Content Include="src\common\scss\components\pagination\pagination.scss" />
+    <Content Include="src\common\scss\components\search\search-list.scss" />
+    <Content Include="src\common\scss\components\social\social.scss" />
+    <Content Include="src\common\scss\components\tabs\tabs.scss" />
+    <Content Include="src\common\scss\components\video\video.scss" />
+    <Content Include="src\common\scss\components\widget\audio-player.scss" />
+    <Content Include="src\common\scss\components\widget\froala-editor\main.min.css" />
+    <Content Include="src\common\scss\components\widget\widget.scss" />
+    <Content Include="src\common\scss\components\sitemap\sitemap.scss" />
+    <Content Include="src\common\scss\deferred\campton\stylesheet.css" />
+    <Content Include="src\common\scss\deferred\icomoon\demo-files\demo.css" />
+    <Content Include="src\common\scss\deferred\icomoon\demo-files\demo.js" />
+    <Content Include="src\common\scss\deferred\icomoon\demo.html" />
+    <Content Include="src\common\scss\deferred\icomoon\fonts\icomoon.svg" />
+    <Content Include="src\common\scss\deferred\icomoon\Read Me.txt" />
+    <Content Include="src\common\scss\deferred\icomoon\style.css" />
+    <Content Include="src\common\scss\utils\mixins\_buttons.scss" />
+    <Content Include="src\common\scss\utils\mixins\_general.scss" />
+    <Content Include="src\common\scss\utils\mixins\_pseudo-fills.scss" />
+    <Content Include="src\common\scss\utils\_normalize.scss" />
+    <Content Include="src\common\scss\utils\_print.scss" />
+    <Content Include="src\common\scss\_references.scss" />
+    <Content Include="src\common\scss\_utils.scss" />
+    <Content Include="src\common\js\adminform\adminform.js" />
+    <Content Include="src\views\Common\BlogAuthor.js" />
+    <Content Include="src\views\Common\BlogAuthorListing.js" />
+    <Content Include="src\views\Common\BlogDetail.js" />
+    <Content Include="src\views\Common\BlogListing.js" />
+    <Content Include="src\views\Common\CategoryOverview.js" />
+    <Content Include="src\views\Common\AdminForm.js" />
+    <Content Include="src\views\Common\Cms.js" />
+    <Content Include="src\views\Common\Deferred.js" />
+    <Content Include="src\views\Common\Form.js" />
+    <Content Include="src\views\Common\Error.js" />
+    <Content Include="src\views\Common\Contact.js" />
+    <Content Include="src\views\Common\ContentDetail.js" />
+    <Content Include="src\views\Common\ContentListing.js" />
+    <Content Include="src\views\Common\CustomLanding.js" />
+    <Content Include="src\views\Common\EventListing.js" />
+    <Content Include="src\views\Common\GeneralContent.js" />
+    <Content Include="src\views\Common\Home.js" />
+    <Content Include="src\views\Common\PeopleListing.js" />
+    <Content Include="src\views\Common\PeopleProfile.js" />
+    <Content Include="src\views\Common\Search.js" />
+    <Content Include="src\views\Common\Sitemap.js" />
+    <Content Include="src\common\vue\apps\filters\article-filter.js" />
+    <Content Include="src\common\vue\apps\filters\blog-filter.js" />
+    <Content Include="src\common\vue\apps\filters\event-filter.js" />
+    <Content Include="src\common\vue\apps\filters\recipe-filter.js" />
+    <Content Include="src\common\vue\apps\filters\resource-filter.js" />
+    <Content Include="src\common\vue\apps\filters\search-filter.js" />
+    <Content Include="src\common\vue\api\listing.js" />
+    <Content Include="src\common\vue\services\date-format.service.js" />
+    <Content Include="src\common\vue\store\index.js" />
+    <Content Include="src\common\vue\store\modules\listing.js" />
+    <Content Include="src\common\vue\utils\analytics.js" />
+    <Content Include="src\common\vue\utils\constants.js" />
+    <Content Include="src\common\vue\utils\form-controls.js" />
+    <Content Include="src\common\vue\utils\image-optimizer.js" />
+    <Content Include="src\common\vue\utils\ui.js" />
+    <Content Include="src\common\vue\apps\list-filter.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\ApplicationConfig.cs" />
+    <Compile Include="App_Start\CacheConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FormBuilderFieldMarkupInjection.cs" />
+    <Compile Include="App_Start\FormBuilderStaticMarkupConfiguration.cs" />
+    <Compile Include="App_Start\PageBuilderComponentRegister.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AssemblyReference.cs" />
+    <Compile Include="Controllers\FormSections\ThreeColumnFormSectionController.cs" />
+    <Compile Include="Controllers\FormSections\TwoColumnFormSectionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Common\FormComponents\CustomTableItemDropdownComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\CustomTableItemDropdownComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\ImportantRequiredComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\ImportantRequiredComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\NameListComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\NameListComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\WhereConditionProviders\ExampleWhereConditionProvider.cs" />
+    <Compile Include="Models\Common\FormComponents\WidgetVariantDropdownComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\WidgetVariantDropdownComponentProperties.cs" />
+    <Compile Include="Models\Common\Widgets\TabWidgetProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\DynamicDropdownComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\DynamicDropdownComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\DynamicRadioInputComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\DynamicRadioInputComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\MultipleCheckboxComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\MultipleCheckboxComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\DynamicTextInputComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\StateDropdownComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\StateDropdownComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\VideoInputComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\DynamicTextInputComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\VideoInputComponentProperties.cs" />
+    <Compile Include="Models\Common\FormComponents\WysiwygInputComponent.cs" />
+    <Compile Include="Models\Common\FormComponents\WysiwygInputComponentProperties.cs" />
+    <Compile Include="Models\Common\InlineEditors\EasyTagEditor\EasyTagEditorModel.cs" />
+    <Compile Include="Models\Common\Sections\BackgroundImageSectionProperties.cs" />
+    <Compile Include="Models\Common\Sections\CardSectionProperties.cs" />
+    <Compile Include="Models\Common\Sections\IndentThreeColumnSectionProperties.cs" />
+    <Compile Include="Models\Common\Sections\IndentTwoColumnSectionProperties.cs" />
+    <Compile Include="Models\Common\Sections\ThreeColumnSectionProperties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection0892Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection1783Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection2575Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection3366Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection4258Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection5842Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection6633Properties.cs" />
+    <Compile Include="Models\Common\Sections\IndentStandardSectionProperties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection7525Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection8317Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSection9208Properties.cs" />
+    <Compile Include="Models\Common\Sections\TwoColumnSectionProperties.cs" />
+    <Compile Include="Models\Common\Sections\BaseSectionProperties.cs" />
+    <Compile Include="Models\Common\ViewModels\BannerViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\AbstractBaseViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\BlankViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\BlogAuthorListingViewModel.T.cs" />
+    <Compile Include="Models\Common\ViewModels\BlogAuthorListingViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\BlogAuthorViewModel.T.cs" />
+    <Compile Include="Models\Common\ViewModels\BlogAuthorViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\BlogDetailViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\BlogListingViewModel.T.cs" />
+    <Compile Include="Models\Common\ViewModels\BlogListingViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\CategoryOverviewViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\ContactViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\ContentListingViewModel.T.cs" />
+    <Compile Include="Models\Common\ViewModels\CustomLandingPageViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\FormViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\GeneralContentViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\EventListingViewModel.T.cs" />
+    <Compile Include="Models\Common\ViewModels\EventListingViewModel .cs" />
+    <Compile Include="Models\Common\ViewModels\PeopleListingViewModel.T.cs" />
+    <Compile Include="Models\Common\ViewModels\PeopleListingViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\EventDetailViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\PeopleProfileViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\ContentDetailViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\ContentListingViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\ErrorPageViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\SearchViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\ListingViewModel.T.cs" />
+    <Compile Include="Models\Common\ViewModels\PageNotFoundViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\HomeViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\MenuViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Models\Common\ViewModels\SitemapViewModel.cs" />
+    <Compile Include="Models\Common\Widgets\AudioPlayerWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\BaseWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\CardWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\BannerWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\ChildSummaryWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\ContentSplitBannerWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\CarouselWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\FeaturedWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\HeroWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\ImageWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\MenuWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\PanelWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\QuoteBannerWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\StatWidgetProperties.cs" />
+    <Compile Include="Models\Common\Widgets\VideoWidgetProperties.cs" />
+    <Compile Include="Models\Custom\FormComponents\CustomComponent.cs" />
+    <Compile Include="Models\Custom\InlineEditors\CustomEditorModel.cs" />
+    <Compile Include="Models\Custom\Sections\SectionProperties.cs" />
+    <Compile Include="Models\Custom\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Models\Custom\Examples\ViewModels\ExampleCustomInheritedDetailViewModel.cs" />
+    <Compile Include="Models\Custom\Examples\ViewModels\ExampleCustomInheritedListingViewModel.cs" />
+    <Compile Include="Models\Custom\ViewModels\CustomViewModel.cs" />
+    <Compile Include="Models\Custom\Widgets\WidgetProperties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\Common\manifest.json" />
+    <Content Include="Content\images\Common\lp-logo.webp" />
+    <Content Include="Content\images\Common\default-card-img.webp" />
+    <Content Include="Content\images\Common\event-default-image.webp" />
+    <Content Include="App_Offline.htm_" />
+    <Content Include="Views\Common\Templates\Home\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Common\Shared\_Layout.cshtml" />
+    <Content Include="Views\Common\Templates\CustomLanding\Index.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_ThreeColumnSection.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection3366.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection6633.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_HeroWidget.cshtml" />
+    <Content Include="Views\Common\Shared\InlineEditors\_EasyTagEditor.cshtml" />
+    <Content Include="Views\Common\Shared\DisplayTemplates\SummaryItem.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Footer\_Footer.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Footer\_JavaScript.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Header\_Header.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Header\_Menu.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\_Meta.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\_Styles.cshtml" />
+    <Content Include="dist\AdminForm.min.css.map" />
+    <Content Include="dist\AdminForm.min.js.map" />
+    <Content Include="dist\assets\1ebeba8d0fdd479de577e9b6fce65ca4.eot" />
+    <Content Include="dist\assets\3e45317a584ebc2785c420a84ac6e131.eot" />
+    <Content Include="dist\assets\4c7a7246c1ebc15cdeb8870b52a35b77.woff2" />
+    <Content Include="dist\assets\5acdce135a98109c2acfb68b38562415.woff" />
+    <Content Include="dist\assets\65e6c65ab3f6cd21b033dfdab0a5287f.ttf" />
+    <Content Include="dist\assets\85615afdcddca76835cefa3fbf709f8b.woff" />
+    <Content Include="dist\assets\b5af211056f634a8fe488a06d1d24493.woff2" />
+    <Content Include="dist\assets\e935218c3b3c744456176c7d0bba5706.ttf" />
+    <Content Include="dist\BlogAuthor.min.css.map" />
+    <Content Include="dist\BlogAuthor.min.js.map" />
+    <Content Include="dist\BlogAuthorListing.min.css.map" />
+    <Content Include="dist\BlogAuthorListing.min.js.map" />
+    <Content Include="dist\BlogDetail.min.css.map" />
+    <Content Include="dist\BlogDetail.min.js.map" />
+    <Content Include="dist\BlogListing.min.css.map" />
+    <Content Include="dist\BlogListing.min.js.map" />
+    <Content Include="dist\CategoryOverview.min.css.map" />
+    <Content Include="dist\CategoryOverview.min.js.map" />
+    <Content Include="dist\Cms.min.css.map" />
+    <Content Include="dist\Cms.min.js.map" />
+    <Content Include="dist\Contact.min.css.map" />
+    <Content Include="dist\Contact.min.js.map" />
+    <Content Include="dist\ContentDetail.min.css.map" />
+    <Content Include="dist\ContentDetail.min.js.map" />
+    <Content Include="dist\ContentListing.min.css.map" />
+    <Content Include="dist\ContentListing.min.js.map" />
+    <Content Include="dist\CustomLanding.min.css.map" />
+    <Content Include="dist\CustomLanding.min.js.map" />
+    <Content Include="dist\Deferred.min.css.map" />
+    <Content Include="dist\Deferred.min.js.map" />
+    <Content Include="dist\Error.min.css.map" />
+    <Content Include="dist\Error.min.js.map" />
+    <Content Include="dist\EventListing.min.css.map" />
+    <Content Include="dist\EventListing.min.js.map" />
+    <Content Include="dist\Form.min.css.map" />
+    <Content Include="dist\Form.min.js.map" />
+    <Content Include="dist\GeneralContent.min.css.map" />
+    <Content Include="dist\GeneralContent.min.js.map" />
+    <Content Include="dist\Home.min.css.map" />
+    <Content Include="dist\Home.min.js.map" />
+    <Content Include="dist\PeopleListing.min.css.map" />
+    <Content Include="dist\PeopleListing.min.js.map" />
+    <Content Include="dist\PeopleProfile.min.css.map" />
+    <Content Include="dist\PeopleProfile.min.js.map" />
+    <Content Include="dist\Search.min.css.map" />
+    <Content Include="dist\Search.min.js.map" />
+    <Content Include="dist\Sitemap.min.css.map" />
+    <Content Include="dist\Sitemap.min.js.map" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.woff" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.ttf" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.eot" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Common\Templates\Sitemap\Index.cshtml" />
+    <Content Include="Views\Common\Templates\Blank\Index.cshtml" />
+    <Content Include="Views\Common\Shared\_BlankLayout.cshtml" />
+    <Content Include="Views\Common\Templates\Contact\Index.cshtml" />
+    <Content Include="Views\Common\Templates\Search\Index.cshtml" />
+    <Content Include="Views\Common\Templates\GeneralContent\Index.cshtml" />
+    <Content Include="Views\Common\Templates\Form\Index.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Header\_MenuItem.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_DefaultSection.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_CardSection.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\__SectionLayout.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_CardWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_ImageWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_StatWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_CarouselWidget.cshtml" />
+    <Content Include="Views\Common\Templates\PeopleListing\Index.cshtml" />
+    <Content Include="Views\Common\Templates\PeopleProfile\Index.cshtml" />
+    <Content Include="Views\Common\Templates\CategoryOverview\Index.cshtml" />
+    <Content Include="Views\Common\Templates\EventListing\Index.cshtml" />
+    <Content Include="Views\Common\Shared\DisplayTemplates\Banner.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_WysiwygInputComponent.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_VideoInputComponent.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_DynamicTextInputComponent.cshtml" />
+    <Content Include="Views\Common\Shared\FormSections\_TwoColumnFormSection.cshtml" />
+    <Content Include="Views\Common\Shared\FormSections\_ThreeColumnFormSection.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_MultipleCheckboxComponent.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_VideoWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_PanelWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_MenuWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_BackgroundImageSection.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_SocialShare.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_DynamicRadioInputComponent.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_DynamicDropdownComponent.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_StateDropdownComponent.cshtml" />
+    <Content Include="Views\Common\Shared\Data\_States.cshtml" />
+    <Content Include="Views\Common\Shared\Components\SocialShare\_SocialShare.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_ContentSplitBannerWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_BannerWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_IndentStandardSection.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_IndentTwoColumnSection.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_AudioPlayerWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_IndentThreeColumnSection.cshtml" />
+    <Content Include="Views\Common\Shared\Components\Breadcrumb\_Breadcrumb.cshtml" />
+    <Content Include="Views\Common\Shared\DisplayTemplates\CalloutCardSummaryItem.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\GTM\_Head.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\GTM\_Body.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Footer\_PreloadCSS.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Footer\_DeferredCSS.cshtml" />
+    <Content Include="src\common\scss\base\form\_tooltip.scss" />
+    <Content Include="Views\Common\Templates\Error\Error.cshtml" />
+    <Content Include="Views\Common\Templates\Error\NotFound.cshtml" />
+    <Content Include="src\common\scss\base\typography\_body.scss" />
+    <Content Include="Views\Common\Templates\ContentListing\Index.cshtml" />
+    <Content Include="Views\Common\Templates\ContentDetail\Index.cshtml" />
+    <Content Include="Views\Common\Shared\Components\Hero\_Hero.cshtml" />
+    <Content Include="Views\Common\Shared\Components\Wysiwyg\_Wysiwyg.cshtml" />
+    <Content Include="Views\Common\Shared\Components\PageBuilder\_PageBuilder.cshtml" />
+    <Content Include="src\common\scss\components\jodit\jodit.scss" />
+    <Content Include="src\common\scss\deferred.scss" />
+    <Content Include="src\common\scss\layout\footer\_footer.scss" />
+    <Content Include="src\common\scss\layout\header\_header-utilities.scss" />
+    <Content Include="src\common\scss\layout\header\_header.scss" />
+    <Content Include="src\common\scss\layout\header\_nav-megamenu.scss" />
+    <Content Include="src\common\scss\layout\header\_nav-toggle.scss" />
+    <Content Include="src\common\scss\layout\header\_nav.scss" />
+    <Content Include="src\common\scss\layout\_boostrap-custom.scss" />
+    <Content Include="src\common\scss\layout\_container.scss" />
+    <Content Include="src\common\scss\components\breadcrumb\breadcrumb.scss" />
+    <Content Include="src\common\scss\components\error\error.scss" />
+    <Content Include="src\common\scss\components\hero\hero.scss" />
+    <Content Include="src\common\scss\cms\cms.scss" />
+    <Content Include="Views\Common\Templates\BlogAuthorListing\Index.cshtml" />
+    <Content Include="Views\Common\Templates\BlogAuthor\Index.cshtml" />
+    <Content Include="Views\Common\Templates\BlogDetail\Index.cshtml" />
+    <Content Include="Views\Common\Templates\BlogListing\Index.cshtml" />
+    <Content Include="src\common\scss\layout.scss" />
+    <Content Include="src\common\scss\layout\header\_header-search.scss" />
+    <Content Include="src\common\scss\utils\variables\_colors.scss" />
+    <Content Include="src\common\scss\utils\variables\_fonts.scss" />
+    <Content Include="src\common\scss\utils\variables\_variables.scss" />
+    <Content Include="Views\Common\Templates\EventDetail\Index.cshtml" />
+    <Content Include="src\common\vue\apps\containers\blog-list-filter-app.vue" />
+    <Content Include="src\common\vue\apps\containers\content-list-filter-app.vue" />
+    <Content Include="src\common\vue\apps\containers\event-list-filter-app.vue" />
+    <Content Include="src\common\vue\apps\containers\list-filter-app.vue" />
+    <Content Include="src\common\vue\apps\containers\people-profile-related-list-app.vue" />
+    <Content Include="src\common\vue\apps\containers\resource-list-filter-app.vue" />
+    <Content Include="src\common\vue\apps\containers\search-list-filter-app.vue" />
+    <Content Include="src\common\vue\components\listing\blog-list-item.vue" />
+    <Content Include="src\common\vue\components\listing\content-list-item.vue" />
+    <Content Include="src\common\vue\components\listing\event-summary-item.vue" />
+    <Content Include="src\common\vue\components\listing\filter-sidebar.vue" />
+    <Content Include="src\common\vue\components\listing\load-more.vue" />
+    <Content Include="src\common\vue\components\listing\pagination-dropdown.vue" />
+    <Content Include="src\common\vue\components\listing\pagination.vue" />
+    <Content Include="src\common\vue\components\listing\people-profile-related-item.vue" />
+    <Content Include="src\common\vue\components\listing\recipe-summary-item.vue" />
+    <Content Include="src\common\vue\components\listing\summary-item.vue" />
+    <Content Include="src\common\vue\components\search\search-hero.vue" />
+    <Content Include="src\common\vue\components\search\search-item.vue" />
+    <Content Include="src\common\vue\components\ui\checkbox-control.vue" />
+    <Content Include="src\common\vue\components\ui\filter-group.vue" />
+    <Content Include="src\common\vue\components\ui\loading.vue" />
+    <Content Include="src\common\vue\components\ui\radio-control.vue" />
+    <Content Include="src\common\vue\components\ui\select-control.vue" />
+    <Content Include="src\common\vue\components\ui\tag-cloud.vue" />
+    <Content Include="src\common\vue\components\ui\textbox-control.vue" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection0892.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection1783.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection2575.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection4258.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection5842.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection7525.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection8317.cshtml" />
+    <Content Include="Views\Common\Shared\Sections\_TwoColumnSection9208.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Footer\_JavaScriptGlobal.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Footer\_JavaScriptCustom.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_Title.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_GoogleSiteVerification.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_OpenGraph.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_Favicon.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_MobileWebAppTitle.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_NoIndexNoFollow.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_Canonical.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_Description.cshtml" />
+    <Content Include="src\common\scss\components\widget\froala-editor\main.scss" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_MetaCustom.cshtml" />
+    <Content Include="src\common\scss\components\banner\banner-cta.scss" />
+    <Content Include="src\common\scss\components\banner\banner-quote.scss" />
+    <Content Include="src\common\scss\components\carousel\quote-carousel.scss" />
+    <Content Include="src\common\scss\components\content-detail\content-detail.scss" />
+    <Content Include="src\common\scss\components\content-detail\sidebar.scss" />
+    <Content Include="src\common\scss\components\content-detail\subscribe.scss" />
+    <Content Include="src\common\scss\components\content-listing\content-listing.scss" />
+    <Content Include="src\common\scss\components\error\not-found.scss" />
+    <Content Include="src\common\scss\components\form\error.scss" />
+    <Content Include="src\common\scss\components\form\form-container.scss" />
+    <Content Include="src\common\scss\components\related-content\related-content.scss" />
+    <Content Include="src\common\scss\components\social\social-share.scss" />
+    <Content Include="src\common\scss\components\stat\stat.scss" />
+    <Content Include="src\common\scss\components\tags\tag-cloud.scss" />
+    <Content Include="src\common\scss\components\tags\topic-tags.scss" />
+    <Content Include="src\common\scss\components\widget\rich-text.scss" />
+    <Content Include="src\common\scss\layout\section\_section.scss" />
+    <Content Include="src\common\scss\deferred\campton\Campton Bold Italic.otf" />
+    <Content Include="src\common\scss\deferred\campton\Campton Bold.otf" />
+    <Content Include="src\common\scss\deferred\campton\Campton Book Italic.otf" />
+    <Content Include="src\common\scss\deferred\campton\Campton Book.otf" />
+    <Content Include="src\common\scss\deferred\campton\Campton Medium Italic.otf" />
+    <Content Include="src\common\scss\deferred\campton\Campton Medium.otf" />
+    <Content Include="src\common\scss\deferred\campton\Campton SemiBold Italic.otf" />
+    <Content Include="src\common\scss\deferred\campton\Campton SemiBold.otf" />
+    <Content Include="src\common\scss\deferred\campton\campton_bold-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_bold-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\campton\campton_bold_italic-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_bold_italic-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\campton\campton_book-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_book-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\campton\campton_book_italic-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_book_italic-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\campton\campton_medium-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_medium-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\campton\campton_medium_italic-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_medium_italic-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\campton\campton_semibold-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_semibold-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\campton\campton_semibold_italic-webfont.woff" />
+    <Content Include="src\common\scss\deferred\campton\campton_semibold_italic-webfont.woff2" />
+    <Content Include="src\common\scss\deferred\fonts-embedded.scss" />
+    <Content Include="src\common\scss\deferred\fonts.scss" />
+    <Content Include="src\common\scss\deferred\icomoon\fonts\icomoon.ttf" />
+    <Content Include="src\common\scss\deferred\icomoon\fonts\icomoon.woff" />
+    <Content Include="src\common\scss\deferred\icomoon\selection.json" />
+    <Content Include="src\common\scss\deferred\icomoon\style.scss" />
+    <Content Include="src\common\scss\deferred\icomoon\variables.scss" />
+    <Content Include="src\common\scss\deferred\_deferred.scss" />
+    <Content Include="src\common\scss\layout\footer\_footer-social.scss" />
+    <Content Include="src\common\scss\layout\footer\_footer-meta.scss" />
+    <Content Include="Views\Common\Shared\Widgets\_FeaturedWidget.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_QuoteBannerWidget.cshtml" />
+    <Content Include="README.md" />
+    <Content Include="src\common\scss\components\widget\image-container.scss" />
+    <Content Include="src\common\scss\pagebuilder.scss" />
+    <Content Include="src\common\scss\components\banner\banner-section.scss" />
+    <Content Include="Views\Common\Shared\Components\SideNav\_RecursiveSideNavLevel.cshtml" />
+    <Content Include="Views\Common\Shared\Components\SideNav\_SideNav.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_ChildSummaryWidget.cshtml" />
+    <Content Include="src\common\scss\components\menu\menu-sidebar.scss" />
+    <Content Include="src\common\scss\components\banner\banner-content-split.scss" />
+    <Content Include="Views\Common\Shared\Components\Card\_Card.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\Meta\_FacebookVerification.cshtml" />
+    <Content Include="src\common\scss\components\content-detail\authors.scss" />
+    <Content Include="Views\Common\Shared\Components\_Properties.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\Head\_Schema.cshtml" />
+    <Content Include="Views\Common\Shared\Components\PageBuilderTabs\_PageBuilderTabs.cshtml" />
+    <Content Include="Views\Common\Shared\Widgets\_TabWidget.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_NameListComponent.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_ImportantRequiredComponent.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_CustomTableItemDropdownComponent.cshtml" />
+    <Content Include="Views\Common\Shared\Layout\GA\_Head.cshtml" />
+    <Content Include="Views\Common\Shared\FormComponents\_WidgetVariantDropdownComponent.cshtml" />
+    <Content Include="src\custom\README.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.DEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.PROD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release-Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.STAGING.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.TEST.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Custom.Api\Custom.Api.csproj">
+      <Project>{1e5dd5b7-eaaf-48f2-8a9e-791ad9a13b01}</Project>
+      <Name>Custom.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Custom.Core\Custom.Core.csproj">
+      <Project>{06611500-ee5e-480f-a925-d3792e0473ff}</Project>
+      <Name>Custom.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Custom.Infrastructure.Kentico.Web\Custom.Infrastructure.Kentico.Web.csproj">
+      <Project>{0b20d182-b7f7-4514-a538-82578244619b}</Project>
+      <Name>Custom.Infrastructure.Kentico.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Custom.Infrastructure\Custom.Infrastructure.csproj">
+      <Project>{C3B3ED54-E38B-4A9F-88AB-2C078321E097}</Project>
+      <Name>Custom.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Launchpad.Api\Launchpad.Api.csproj">
+      <Project>{01478226-36D9-4F97-AF1B-51FCD02515C4}</Project>
+      <Name>Launchpad.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Launchpad.Core\Launchpad.Core.csproj">
+      <Project>{0263188b-1777-4db0-8e22-d737abcb9acc}</Project>
+      <Name>Launchpad.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Launchpad.Infrastructure.DependencyInjection\Launchpad.Infrastructure.DependencyInjection.csproj">
+      <Project>{25e8beb9-1d70-48e3-bea4-7a0aea4c41fb}</Project>
+      <Name>Launchpad.Infrastructure.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Launchpad.Infrastructure.Kentico.AzureStorage\Launchpad.Infrastructure.Kentico.AzureStorage.csproj">
+      <Project>{3b487a5b-41db-4541-b192-57126d2e5991}</Project>
+      <Name>Launchpad.Infrastructure.Kentico.AzureStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Launchpad.Infrastructure.Kentico.ImageOptimization\Launchpad.Infrastructure.Kentico.ImageOptimization.csproj">
+      <Project>{f43e172e-36ec-4c77-b616-ec7edf6ced46}</Project>
+      <Name>Launchpad.Infrastructure.Kentico.ImageOptimization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Launchpad.Infrastructure.Kentico.Web\Launchpad.Infrastructure.Kentico.Web.csproj">
+      <Project>{50507BD1-6CBB-465D-95C5-1F50B9DF1A4C}</Project>
+      <Name>Launchpad.Infrastructure.Kentico.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Launchpad.Infrastructure\Launchpad.Infrastructure.csproj">
+      <Project>{34c4d43e-08f5-42e2-85c6-df4c2d834560}</Project>
+      <Name>Launchpad.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Global\Resources\Kentico.Builder.resx" />
+    <Content Include="App_Data\Global\Resources\Kentico.Components.resx" />
+    <Content Include="App_Data\Global\Resources\Kentico.FormBuilder.resx" />
+    <Content Include="App_Data\Global\Resources\Kentico.PageBuilder.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.Builder.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.Components.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.FormBuilder.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.InlineEditor.RichText.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.PageBuilder.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.Widget.RichText.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.S3.3.3.104.43\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'STAGING|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PROD|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Dev|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59654</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44324/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.56\build\Kentico.Xperience.AspNet.Mvc5.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.56\build\Kentico.Xperience.AspNet.Mvc5.targets'))" />
+  </Target>
+  <Import Project="..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.56\build\Kentico.Xperience.AspNet.Mvc5.targets" Condition="Exists('..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.56\build\Kentico.Xperience.AspNet.Mvc5.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

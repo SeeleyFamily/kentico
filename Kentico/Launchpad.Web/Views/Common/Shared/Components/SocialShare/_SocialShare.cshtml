@@ -1,0 +1,28 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+<div class="social-share">
+    <ul class="social-icons-buttons a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="@Request.Url.ToString()" data-a2a-title="@Model.Metadata.Title">
+        <li class="sr-only social-icons-label">Share</li>
+        <li>
+            <a href="#" class="social icon-facebook-circle a2a_button_facebook fab" data-type="Share" data-social="Facebook">
+                <span>Share</span>
+            </a>
+        </li>
+        <li>
+            <a class="social icon-twitter-circle a2a_button_twitter fab" data-type="Share" data-social="Twitter">
+                <span>Share</span>
+            </a>
+        </li>
+        <li>
+            <a class="social icon-linkedin-circle a2a_button_linkedin" data-type="Share" data-social="Linkedin">
+                <span>Share</span>
+            </a>
+        </li>
+    </ul>
+
+    <script async src="//static.addtoany.com/menu/page.js"></script>
+</div>

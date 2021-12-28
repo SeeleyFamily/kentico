@@ -1,0 +1,273 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+@include media-breakpoint-up(lg) {
+    a.content-list-item {
+        &:hover, &:focus, &:active {
+            text-decoration: none;
+            color: inherit;
+
+            .content-list-item-content:after {
+                opacity: 1;
+                right: 19px;
+            }
+
+            .content-list-item-cta {
+                color:  $txt-link-hover;
+            }
+        }
+
+        &:hover {
+            .content-list-item-overlay {
+                display: flex;
+            }
+
+            .content-list-item-img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.content-list-item {
+    position: relative;
+    margin-bottom: 30px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    background: $light-gray;
+
+    &.no-bg {
+        background: transparent;
+    }
+
+    &.secondary {
+        border-top: 8px solid $secondary;
+    }
+
+    .content-list-item-content {
+        padding: 20px;
+        position: relative;
+        @include fontSize(16px);
+
+        p {
+            @include fontSize(16px);
+        }
+    }
+
+    &-cta {
+        @include fontSize(16px);
+        text-decoration: underline;
+        margin-top: auto;
+        padding: 0 20px 20px;
+    }
+
+    &-overlay {
+        display: none;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        background: $secondary;
+        color: $white;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        ~ .content-list-item-content {
+            &:after {
+                content: none;
+            }
+
+            .content-list-item-title {
+                padding-right: 0;
+            }
+        }
+
+        [class^="icon-"], [class*=" icon-"] {
+            display: block;
+            margin-top: 20px;
+
+            &:before {
+                @include fontSize(32px);
+                color: $white;
+            }
+        }
+    }
+
+    &--border {
+        border-bottom: 1px solid $launchpad-medium-gray;
+        padding: 30px 0 20px;
+        margin-bottom: 0;
+        background: $white;
+
+        &:first-child {
+            border-top: 1px solid $launchpad-medium-gray;
+        }
+    }
+
+    &--featured {
+        margin-bottom: 0;
+    }
+
+    &.row {
+        display: flex;
+    }
+
+    &-img {
+        padding-top: 56%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        transition: .3s ease-in-out;
+        transform: scale(1);
+
+        &-wrap {
+            overflow: hidden;
+        }
+    }
+
+    &-btn {
+        margin-top: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .content-list-item-title {
+        @include fontSize(18px);
+        line-height: 1.5;
+        margin: 0;
+        font-weight: 400;
+        padding-right: 30px;
+
+        &.large {
+            @include fontSize(22px);
+            line-height: 32px;
+            font-weight: bold;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        + .content-list-item-tags {
+            margin: 15px 0 0;
+            padding-right: 0;
+
+            @include media-breakpoint-up(md) {
+                margin: 20px 0;
+            }
+        }
+    }
+
+    &-cta {
+        font-weight: 400;
+        text-decoration: underline;
+    }
+
+    .content-list-item-date {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    &-meta {
+        @include fontSize(15px);
+        line-height: 23px;
+        margin-bottom: 10px;
+        font-weight: bold;
+
+        &--featured {
+            @include fontSize(12px);
+            line-height: 16px;
+        }
+
+        &-label {
+            @include fontSize(12px);
+            text-transform: uppercase;
+            margin-top: 10px;
+            display: block;
+            color: $launchpad-blue-4;
+        }
+
+        .row .col-6 {
+            margin-bottom: 0;
+        }
+    }
+
+    .content-list-item-featured-job-tag {
+        @include fontSize(12px);
+        line-height: 16px;
+        font-weight: 500;
+        color: $white;
+        background-color: $launchpad-blue-5;
+        border-radius: 2px;
+        padding: 4px 10px;
+        margin: 0 0 16px;
+        width: fit-content;
+    }
+
+    &-tags {
+        @include fontSize(12px);
+        line-height: 18px;
+        font-weight: 500;
+        color: $launchpad-blue-5;
+        display: flex;
+        margin: 0;
+        padding-right: 30px;
+
+        span {
+            margin-right: 5px;
+        }
+
+        &-blog {
+            color: $secondary;
+        }
+
+        &-list {
+            span {
+                display: inline-block;
+
+                &:after {
+                    content: ',';
+                }
+
+                &:last-child:after {
+                    content: '';
+                }
+            }
+        }
+    }
+}
+
+.content-list-wrapper {
+    margin-bottom: -30px;
+
+    &.bg-white .content-list-item {
+        background: $white;
+    }
+
+    [class*='col-'] {
+        margin-bottom: 30px;
+
+        .content-list-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+            height: 100%;
+
+            .content-list-item-cta {
+                margin-top: auto;
+            }
+        }
+    }
+}

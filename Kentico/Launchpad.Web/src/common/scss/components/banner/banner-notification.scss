@@ -1,0 +1,93 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.nav-open .banner--notification {
+	display: none;
+}
+
+.banner--notification {
+	background-color: $bg-notification;
+	padding-bottom: 12px;
+	padding-top: 12px;
+
+	.banner-content {
+		@include fontSize(16px);
+		margin: 0 auto;
+
+		@include media-breakpoint-up(md) {
+			padding-right: 15px;
+		}
+
+		p {
+			@include fontSize(16px);
+		}
+	}
+
+	.banner-cta {
+		color: $white;
+		font-weight: normal;
+		text-decoration: underline;
+		margin-left: 0;
+		margin-top: 10px;
+		display: inline;
+
+		@include media-breakpoint-up(md) {
+			margin-left: 5px;
+			margin-top: 0;
+		}
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	.banner-close {
+		color: $white;
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		transform: translateY(-50%);
+
+		.icon-global-close {
+			display: flex;
+
+			&:before {
+				color: $white;
+				@include fontSize(18px);
+			}
+		}
+	}
+
+	.banner-content-wrapper {
+		display: block;
+		position: relative;
+
+		@include media-breakpoint-up(lg) {
+			align-items: center;
+			display: flex;
+			flex-flow: row nowrap;
+		}
+	}
+
+	.banner-image {
+		margin-bottom: 20px;
+		max-width: 160px;
+
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0;
+		}
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	.banner-content {
+		@include media-breakpoint-up(md) {
+			padding-left: 20px;
+		}
+	}
+}

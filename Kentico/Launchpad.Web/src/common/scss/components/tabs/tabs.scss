@@ -1,0 +1,134 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.tab-container {
+    .collapse {
+        &:not(.show) {
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: unset;
+            }
+        }
+    }
+
+    .collapsing {
+        height: 0;
+        overflow: hidden;
+        transition: height .35s ease;
+
+        @include media-breakpoint-up(md) {
+            height: auto;
+            overflow: visible;
+            transition: none;
+        }
+    }
+}
+
+.tab-content {
+    .tab-accordion-button {
+        text-align: left;
+        width: 100%;
+        display: block;
+        padding: 15px;
+        border-radius: 0;
+        border-top: solid 2px $launchpad-blue-3;
+        color: $secondary;
+        background: $quaternary;
+        text-decoration: none;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+        position: relative;
+
+        &:after {
+            content: '\f077';
+            font-family: $font-awesome;
+            font-weight: 900;
+            color: $secondary;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            margin-top: -12px;
+            @include fontSize(22px);
+        }
+
+        &.collapsed:after {
+            content: '\f078';
+        }
+
+        &:last-of-type.collapsed {
+            border-bottom: solid 2px $launchpad-blue-3;
+        }
+
+        &.active {
+            border-bottom-color: $white;
+        }
+
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
+    }
+
+    > .tab-pane {
+        @include media-breakpoint-up(md) {
+            display: none !important;
+            background: $quaternary;
+            padding: 30px;
+            border-radius: 8px;
+            border-top-left-radius: 0;
+        }
+    }
+
+    > .active {
+        @include media-breakpoint-up(md) {
+            display: block !important;
+        }
+    }
+}
+
+.tab-nav {
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    display: none;
+
+    @include media-breakpoint-up(md) {
+        display: flex;
+    }
+
+    .tab-link {
+        @include fontSize(16px);
+        text-align: left;
+        display: block;
+        padding: 10px 10px 10px 15px;
+        margin-right: 5px;
+        min-width: 140px;
+        border-radius: 0;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        border-bottom: solid 3px $quaternary;
+        color: $secondary;
+        background: transparent;
+        border: 3px solid $quaternary;
+        text-decoration: none;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+        font-weight: normal;
+
+        &.active {
+            font-weight: bold;
+            border-bottom-color: $secondary;
+            background: $quaternary;
+        }
+
+        @include media-breakpoint-up(lg) {
+            &:focus {
+                border-bottom-color: $secondary;
+                background: $quaternary;
+                outline: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+@if (!string.IsNullOrWhiteSpace(Model.Settings.FbVerificationSettingKey))
+{
+    <meta name="facebook-domain-verification" content="@Model.Settings.FbVerificationSettingKey" />
+}

@@ -1,0 +1,158 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+@import '~bootstrap/scss/_custom-forms.scss';
+
+.form-container, .cu-form {
+    label {
+        font-weight: 500;
+        margin-bottom: 8px;
+        display: block;
+        color: $primary-text !important;
+    }
+
+    p.submit, p.hidden {
+        margin: 0;
+    }
+
+    .btn:not(.dropdown-toggle), button:not(.dropdown-toggle), input[type="submit"] {
+        @include btn($primary, $primary-offset, $primary-text, $primary-text-hover);
+        min-width: 230px;
+
+        &:active, &:focus, &:hover {
+            color: $primary-text-hover;
+            background: $primary-offset;
+            border-color: $primary-offset;
+        }
+    }
+
+    input[type="submit"], button[type="submit"] {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .form-note {
+        font-style: italic;
+        margin: 20px 0;
+    }
+
+    input[type="file"] {
+        height: $input-height;
+    }
+
+    .custom-file {
+        height: auto;
+    }
+
+    .form-field {
+        margin: 0 0 20px;
+        padding: 0;
+
+        label {
+            @include fontSize(18px);
+        }
+
+        input, select {
+            width: 100%;
+        }
+    }
+
+    .custom-file-input {
+        &:focus ~ .custom-file-label {
+            color: $secondary;
+            border-color: $rise-light-blue;
+            outline: none;
+            box-shadow: none;
+
+            &:after {
+                border-color: $rise-light-blue;
+                border-left: 2px solid $rise-light-blue;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            ~ .custom-file-label:after {
+                background: $secondary;
+                color: $white;
+            }
+        }
+
+        &.error ~ .custom-file-label {
+            color: $secondary;
+            border-color: $danger;
+            outline: none;
+            box-shadow: none;
+
+            &:after {
+                border-left: 2px solid $danger;
+            }
+        }
+    }
+
+    .custom-file-label:after {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: 3;
+        display: block;
+        height: auto;
+        line-height: 52px;
+        padding: 0 15px;
+        color: $secondary;
+        content: "Browse";
+        font-weight: 600;
+        background-color: $primary;
+        border-left: 0;
+        border-radius: 0;
+
+        &:hover {
+            background: $secondary;
+            color: $primary;
+        }
+    }
+}
+
+body {
+    margin: 0;
+}
+
+.thank-you-message {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.form-box .thank-you-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+}
+
+.bur-form textarea, .cu-form textarea, .home-form textarea, .jd-form textarea {
+    min-height: 100px;
+}
+
+.contact-us-form {
+    .form-field {
+        clear: both;
+    }
+
+    .first_name {
+        width: 45%;
+        float: left;
+        margin-right: 10%;
+        clear: left;
+    }
+
+    .last_name {
+        width: 45%;
+        float: left;
+        clear: right;
+    }
+}

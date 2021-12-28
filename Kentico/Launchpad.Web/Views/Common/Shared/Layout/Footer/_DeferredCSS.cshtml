@@ -1,0 +1,24 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+<!-- typography font -->
+<!-- typekit font -->
+@*<link rel="preload" href="https://use.typekit.net/example.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://use.typekit.net/example.css"></noscript>*@
+
+<!-- deferred css -->
+<link rel="preload" href="~/dist/deferred.min.css?v=@Model.GetAssemblyGuid()" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="~/dist/deferred.min.css?v=@Model.GetAssemblyGuid()"></noscript>
+
+@if (Model.UsePageBuilder)
+{
+	if (Context.Kentico().PageBuilder().EditMode)
+	{
+		<!-- deferred css -->
+		<link rel="preload" href="~/dist/cms.min.css?v=@Model.GetAssemblyGuid()" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="~/dist/cms.min.css?v=@Model.GetAssemblyGuid()"></noscript>
+	}
+}

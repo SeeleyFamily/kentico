@@ -1,0 +1,104 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.content-detail-author {
+    h1 {
+        margin: 0 0 5px;
+    }
+
+    img {
+        display: block;
+
+        @include media-breakpoint-up(md) {
+            margin: 0 auto !important;
+        }
+    }
+
+    &-sidebar {
+        display: flex;
+
+        @include media-breakpoint-up(md) {
+            display: block;
+        }
+    }
+
+    .title {
+        font-style: italic;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: $gray;
+            margin: 20px 0;
+        }
+    }
+
+    &--premium-content {
+        display: flex;
+        align-items: center;
+        text-align: left;
+
+        img {
+            width: 70px;
+            margin-right: 15px;
+            margin-bottom: 0;
+
+            @include media-breakpoint-up(md) {
+                margin-right: 25px;
+            }
+        }
+    }
+}
+
+.author-card {
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    a {
+        @include media-breakpoint-up(md) {
+            &:hover, &:focus, &:active {
+                .author-name {
+                    color: $txt-link-hover;
+                }
+            }
+        }
+    }
+
+    p {
+        @include fontSize(18px);
+        margin: 0;
+
+        @include media-breakpoint-up(md) {
+            @include fontSize(12px);
+        }
+    }
+
+    img {
+        width: 65px;
+        border-radius: 50%;
+        margin-right: 20px;
+
+        @include media-breakpoint-up(md) {
+            width: 105px;
+            margin-right: 0;
+        }
+    }
+
+    .author-name {
+        font-weight: 500;
+    }
+}

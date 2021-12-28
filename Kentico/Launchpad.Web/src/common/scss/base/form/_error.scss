@@ -1,0 +1,27 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.error, .field-validation-error {
+    @include fontSize(14px);
+    color: $danger;
+    margin: 0 0 20px;
+    display: block;
+
+    &.hidden {
+        display: none;
+    }
+
+    &::before {
+        content: '\f00d';
+        @include font-awesome;
+        font-weight: 400;
+        @include fontSize(16px);
+        margin-right: 5px;
+        line-height: 1;
+        vertical-align: top;
+        margin-top: 3px;
+    }
+}

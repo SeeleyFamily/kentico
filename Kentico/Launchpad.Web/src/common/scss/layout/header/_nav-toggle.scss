@@ -1,0 +1,89 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+// priamry navigation toggle hamburger menu icon
+.nav-toggle {
+    outline: none;
+    display: block;
+    border: none;
+    padding: 0;
+    z-index: 105;
+    width: 55px;
+    height: 53px;
+    background: none;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    border-left: 1px solid $launchpad-medium-gray;
+    border-radius: 0;
+
+    &:hover, &:focus {
+        background: none;
+    }
+
+    &.open {
+        background: $secondary;
+
+        .icon-bar {
+            background: $white;
+        }
+    }
+
+    .icon-bar {
+        background: $secondary;
+        width: 25px;
+        height: 3px;
+        display: block;
+        position: absolute;
+        opacity: 1;
+        left: 15px;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    .icon-bar + .icon-bar {
+        margin-top: 0;
+    }
+
+    & span:nth-child(2) {
+        top: 17px;
+    }
+
+    & span:nth-child(3), & span:nth-child(4) {
+        top: 24px;
+    }
+
+    & span:nth-child(5) {
+        top: 31px;
+    }
+
+    &.open span:nth-child(2) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+
+    &.open span:nth-child(3) {
+        transform: rotate(45deg);
+    }
+
+    &.open span:nth-child(4) {
+        transform: rotate(-45deg);
+    }
+
+    &.open span:nth-child(5) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+}
+
+
+//Media Queries
+@include media-breakpoint-up(lg) {
+    .nav-toggle {
+        display: none;
+    }
+}

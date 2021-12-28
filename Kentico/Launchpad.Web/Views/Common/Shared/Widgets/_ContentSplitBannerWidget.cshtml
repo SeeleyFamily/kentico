@@ -1,0 +1,111 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@using ContentSplitBannerWidgetProperties = Launchpad.Web.Models.Common.Widgets.ContentSplitBannerWidgetProperties;
+
+@model ComponentViewModel<ContentSplitBannerWidgetProperties>
+
+@{
+	var imgData = Model.Properties.GetBackgroundImage();
+	string titleID = Html.GenerateUniqueId("title-");
+	string contentClass = "banner-content-split-content";
+	string bannerClass = "banner-content-split-block";
+	string bannerColumnClass = "";
+	string contentColumnClass = "";
+	string imageUrl = imgData != null ? imgData.Url : "";
+	string styleBackground = imgData != null ? "background-image:url('" + imgData.Url + "')" : "";
+
+	switch (Model.Properties.ContentSize)
+	{
+		case "1":
+			contentColumnClass += "col-md-4";
+			bannerColumnClass += "col-md-8";
+			break;
+		case "3":
+			contentColumnClass += "col-md-8";
+			bannerColumnClass += "col-md-4";
+			break;
+		default:
+			contentColumnClass += "col-md-6";
+			bannerColumnClass += "col-md-6";
+			break;
+	}
+
+	switch (Model.Properties.BackgroundStyle)
+	{
+		case "secondary":
+			bannerClass += " bg-secondary";
+			break;
+		case "tertiary":
+			bannerClass += " bg-tertiary";
+			break;
+		default:
+			bannerClass += " bg-primary";
+			break;
+	}
+
+	switch (Model.Properties.ContentBackgroundStyle)
+	{
+		case "primary":
+			contentClass += " bg-primary";
+			break;
+		case "secondary":
+			contentClass += " bg-secondary";
+			break;
+		case "tertiary":
+			contentClass += " bg-tertiary";
+			break;
+		default:
+			break;
+	}
+
+	if (Model.Properties.ContentPosition == "left")
+	{
+		bannerClass += " order-right";
+	}
+	if (imgData != null)
+	{
+		bannerClass += " banner-background";
+	}
+}
+
+<div class="banner-content-split @Model.Properties.ContentPosition @Model.Properties.WidgetClass()">
+	<div class="row">
+		<div class="@bannerClass @bannerColumnClass js-webp-bg" data-image="@imageUrl" data-bg-webp="@imageUrl.GetOptimizedImageUrl()">
+			@if (imgData == null)
+			{
+				<h2 id="@titleID">
+					@Model.Properties.Title
+				</h2>
+			}
+		</div>
+
+		<div class="@contentClass @contentColumnClass">
+			@if (imgData != null)
+			{
+				<h2 id="@titleID">
+					@Model.Properties.Title
+				</h2>
+			}
+			@if (Context.Kentico().PageBuilder().EditMode)
+			{
+				Html.Kentico().RichTextEditor(nameof(ContentSplitBannerWidgetProperties.Content));
+			}
+			else
+			{
+				@Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.Content));
+			}
+		</div>
+	</div>
+</div>
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+	Html.RenderPartial("InlineEditors/_EasyTagEditor", new EasyTagEditorModel
+	{
+		PropertyName = nameof(ContentSplitBannerWidgetProperties.Title),
+		Content = Model.Properties.Title,
+		TargetId = titleID
+	});
+}

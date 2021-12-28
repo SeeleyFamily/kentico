@@ -1,0 +1,18 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model SummaryItem
+
+
+<div class="card">
+    <div class="card-media">
+        <img src="@Model.Image" alt="Alt tag" />
+    </div>
+    <div class="card-body">
+        <div class="card-title">@Model.Title</div>
+        @*<div class="card-date">@(Model.Date?.ToString("MMMM dd, yyyy"))</div>*@
+        <div class="card-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lacus felis, lacinia ac congue eget, pulvinar non purus. Morbi mi diam, malesuada sit amet fringilla ut, mollis at massa.</div>
+        <a href="@Model.Url" class="card-btn">Call to action</a>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.search-list {
+    h1 {
+        margin-bottom: 40px;
+    }
+
+    .content-hero {
+        border-bottom: 1px solid $gray;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+    }
+
+    .search-query {
+        color: $launchpad-blue-4;
+    }
+
+    .text__highlight {
+        border-radius: 0;
+        background-color: $launchpad-blue-2;
+    }
+
+    .search-input {
+        max-width: 560px;
+
+        .form-control {
+            @include fontSize(18px);
+            height: 60px;
+            line-height: 60px;
+            padding-left: 30px;
+
+            &:focus, &:active {
+                outline: 0;
+                border-color: $input-stroke-focus;
+            }
+        }
+
+        .search-clear {
+            color: $dark-gray;
+            right: 70px;
+            top: 22px;
+
+            &:hover, &:focus, &:active {
+                color: $dark-gray;
+                border: 0;
+                background: transparent;
+            }
+
+            &:focus {
+                outline: $gray solid 3px;
+            }
+        }
+
+        button:not(.search-clear) {
+            @include solid-btn($primary, $primary-offset, $primary-text, $primary-text-hover);
+            right: -1px;
+            height: 60px;
+            border-radius: 0;
+            padding: 5px 20px;
+            line-height: 52px;
+
+            &:disabled {
+                background: $gray;
+                color: $dark-gray;
+            }
+        }
+    }
+
+    .search-info {
+        background: $white;
+        padding: 25px 0 85px;
+        color: $gray;
+
+        @include media-breakpoint-up(md) {
+            padding: 25px 0 60px;
+        }
+
+        b {
+            color: $dark-gray;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .search-list--items {
+        margin-top: 40px;
+
+        h3 {
+            margin-bottom: 5px;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .summary-item {
+            margin-bottom: 40px;
+        }
+    }
+}

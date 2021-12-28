@@ -1,0 +1,65 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using Kentico.Forms.Web.Mvc
+@using Launchpad.Web.Models.Common.FormComponents
+
+@model DynamicTextInputComponent
+
+@{
+    IDictionary<string, object> htmlAttributes = ViewData.GetEditorHtmlAttributes();
+}
+@{
+
+    string id = Html.GenerateUniqueId("textComponent-");
+    htmlAttributes["id"] = id;
+    if (htmlAttributes.ContainsKey("class"))
+    {
+        htmlAttributes["class"] += " text-input " + Model.Properties.ValidationType;
+    }
+    else
+    {
+        htmlAttributes["class"] = "text-input " + Model.Properties.ValidationType;
+    }
+
+    if (Model.Properties.Required)
+    {
+        htmlAttributes["class"] += " required";
+    }
+
+}
+
+@Html.TextBoxFor(m => m.Value, htmlAttributes)
+
+<div class="error empty hidden">
+    Please complete the field above
+</div>
+<div class="error email hidden">
+    Please enter a valid email
+</div>
+<div class="error phone hidden">
+    Please enter a valid phone number
+</div>
+<div class="error zipcode hidden">
+    Please enter your zipcode in ##### or #####-#### format
+</div>
+<script type="text/javascript">
+    if (document.readyState === "loading") {
+        // Calls the function during the 'DOMContentLoaded' event, after the HTML document has been completely loaded
+        window.addEventListener("load", function () {
+            FormTools.setDynamic("#@id");
+            @if (!String.IsNullOrEmpty(Model.Properties.CustomTooltip))
+            {
+                @: FormTools.setTooltip("#@id", "@Model.Properties.CustomTooltip");
+            }
+        });
+    } else {
+        // Calls the function directly in cases where the widget is rendered dynamically after 'DOMContentLoaded' has occurred
+        FormTools.setDynamic("#@id");
+        @if (!String.IsNullOrEmpty(Model.Properties.CustomTooltip))
+        {
+            @: FormTools.setTooltip("#@id", "@Model.Properties.CustomTooltip");
+        }
+    }
+</script>

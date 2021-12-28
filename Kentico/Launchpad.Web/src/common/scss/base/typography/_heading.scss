@@ -1,0 +1,78 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $txt-heading;
+	font-family: $font-heading;
+	font-weight: $heading-1-weight;
+	margin: $font-heading-margin;
+	text-transform: $heading-text-transform;
+	letter-spacing: $heading-letter-spacing;
+	line-height: 1.1;
+}
+
+h1 {
+	@include fontSize($heading-1-font-mobile);
+	@include lineHeight($heading-1-line-height-mobile);
+	font-weight: $heading-1-weight;
+}
+
+h2 {
+	@include fontSize($heading-2-font-mobile);
+	@include lineHeight($heading-2-line-height-mobile);
+	font-weight: $heading-2-weight;
+}
+
+h3 {
+	@include fontSize($heading-3-font-mobile);
+	@include lineHeight($heading-3-line-height-mobile);
+	font-weight: $heading-3-weight;
+}
+
+h4 {
+	@include fontSize($heading-4-font-mobile);
+	@include lineHeight($heading-4-line-height-mobile);
+	font-weight: $heading-4-weight;
+}
+
+h5 {
+	@include fontSize($heading-5-font-mobile);
+	@include lineHeight($heading-5-line-height-mobile);
+	font-weight: $heading-5-weight;
+}
+
+// Media Queries
+@include media-breakpoint-up(md) {
+	h1 {
+		@include fontSize($heading-1-font-desktop);
+		@include lineHeight($heading-1-line-height-desktop);
+	}
+
+	h2 {
+		@include fontSize($heading-2-font-desktop);
+		@include lineHeight($heading-2-line-height-desktop);
+	}
+
+	h3 {
+		@include fontSize($heading-3-font-desktop);
+		@include lineHeight($heading-3-line-height-desktop);
+	}
+
+	h4 {
+		@include fontSize($heading-4-font-desktop);
+		@include lineHeight($heading-4-line-height-desktop);
+	}
+
+	h5 {
+		@include fontSize($heading-5-font-desktop);
+		@include lineHeight($heading-5-line-height-desktop);
+	}
+}

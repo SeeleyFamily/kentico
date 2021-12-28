@@ -1,0 +1,36 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.PeopleProfileViewModel
+
+<div class="template-people-profile">
+	<section class="section detail">
+		<br />
+		@Model.Photo
+		<img src="@Model.Photo" />
+		<br />
+		@Model.FirstName
+		<br />
+		@Model.LastName
+		<br />
+		@Model.FullName
+		<br />
+		@Model.Title
+		<br />
+		@Model.FacebookLink
+		<br />
+		@Model.TwitterLink
+		<br />
+		@Model.LinkedInLink
+		<br />
+		@Model.InstagramLink
+		<br />
+		@Model.Content
+		<br />
+		@Html.WysiwygFor(m => m.WysiwygViewModel)
+		<br />
+		@Html.PageBuilderFor(m => m.PageBuilderViewModel)
+		<br />
+	</section>
+</div>

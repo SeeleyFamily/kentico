@@ -1,0 +1,67 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.menu-sidebar {
+    padding: $section-padding 0;
+
+    @include media-breakpoint-up(md) {
+        padding: $section-padding-md 0;
+    }
+
+    h3 {
+        @include fontSize(26px);
+        font-weight: bold;
+        margin-bottom: 5px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    ul {
+        @include clear-list();
+
+        a {
+            text-decoration: none;
+            display: block;
+
+            &:hover, &:active, &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    > ul {
+        > li {
+            border-bottom: 1px solid $gray;
+            padding: 15px 0;
+
+            > a {
+                @include fontSize(18px);
+                color: $secondary;
+                line-height: 1.5;
+                text-decoration: underline;
+
+                + ul {
+                    margin-top: 5px;
+                }
+            }
+
+            > ul {
+                margin-left: 10px;
+
+                > li a {
+                    color: $secondary;
+                    font-weight: normal;
+                    @include fontSize(16px);
+                    font-weight: normal;
+                    line-height: 1.5;
+                    margin-bottom: 1px;
+                }
+            }
+        }
+    }
+}

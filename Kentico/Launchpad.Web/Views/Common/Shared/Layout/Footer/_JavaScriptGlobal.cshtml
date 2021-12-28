@@ -1,0 +1,12 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+<!-- Global Javascript -->
+<!-- Assign to window.Launchpad to be used globally... -->
+<script>
+	window.Launchpad = window.Launchpad || {};
+	window.Launchpad.ApiBaseUrl = "@ConfigurationManager.AppSettings[ "api:baseurl" ]";
+</script>

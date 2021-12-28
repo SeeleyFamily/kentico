@@ -1,0 +1,56 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.error-page {
+	padding-bottom: 50px;
+	padding-top: 50px;
+	text-align: center;
+
+	@include media-breakpoint-up(lg) {
+		padding-bottom: 75px;
+		padding-top: 75px;
+	}
+
+	img {
+		max-width: 460px;
+		width: 100%;
+	}
+
+	h1 {
+		color: $black;
+		font-family: $font-secondary;
+		@include fontSize(44px);
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	&-description {
+		color: $black;
+		@include fontSize(18px);
+
+		a {
+			background-color: $secondary;
+			color: $white;
+			display: inline-block;
+			font-family: $font-secondary;
+			@include fontSize(18px);
+			font-weight: 900;
+			letter-spacing: 1.24px;
+			margin-top: 30px;
+			padding: 15px 30px;
+			text-transform: uppercase;
+
+			&:hover {
+				background-color: $primary;
+				text-decoration: none;
+
+				@include media-breakpoint-up(lg) {
+					background-color: $secondary-offset;
+				}
+			}
+		}
+	}
+}

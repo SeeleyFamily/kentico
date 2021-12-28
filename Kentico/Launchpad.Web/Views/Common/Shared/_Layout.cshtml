@@ -1,0 +1,67 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @if (!string.IsNullOrWhiteSpace(Model.Settings.GoogleAnalyticsId))
+    {
+        @Html.Partial("Layout/GA/_Head", Model.Settings.GoogleAnalyticsId)
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.Settings.GtmContainerId))
+    {
+        @Html.Partial("Layout/GTM/_Head", Model.Settings.GtmContainerId)
+    }
+    @Html.Partial("Layout/Head/_Meta")
+    @Html.Partial("Layout/Head/_Styles")
+    @Html.Partial("Layout/Head/_Schema")
+    @RenderSection("Head", required: false)
+
+</head>
+<body>
+    @if (!string.IsNullOrWhiteSpace(Model.Settings.GtmContainerId))
+    {
+        @Html.Partial("Layout/GTM/_Body", Model.Settings.GtmContainerId)
+    }
+
+    <div id='topOfPage'></div>
+    <header class="header" data-scroll-header>
+        <a href="#main" class="skip-link show-on-focus js-top-target">Skip to main content</a>
+
+        @if (Model.Banners.NotificationBanner != null)
+        {
+            <div class="banner--notification banner js-banner">
+                @Html.DisplayFor(m => m.Banners.NotificationBanner)
+            </div>
+        }
+
+        <div class="header-wrap js-header-wrap">
+            @Html.Partial("Layout/Header/_Header")
+        </div>
+    </header>
+
+    <main id="main" class="main" tabindex="0">
+        @RenderBody()
+    </main>
+
+    @Html.TabsFor(m => m.PageBuilderTabsViewModels)
+
+    <footer class="footer">
+        <a href="#topOfPage" class="skip-link show-on-focus">Back to Top</a>
+        @Html.Partial("Layout/Footer/_Footer")
+    </footer>
+
+
+    @Html.Partial("Layout/Footer/_JavaScriptGlobal")
+
+    @RenderSection("JavaScript", required: false)
+    @Html.Partial("Layout/Footer/_JavaScript")
+    @Html.Partial("Layout/Footer/_JavaScriptCustom")
+
+    @Html.Partial("Layout/Footer/_DeferredCSS")
+    @Html.Partial("Layout/Footer/_PreloadCSS")
+</body>
+</html>

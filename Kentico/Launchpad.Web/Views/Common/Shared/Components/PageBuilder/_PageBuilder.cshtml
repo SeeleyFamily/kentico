@@ -1,0 +1,24 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model PageBuilderViewModel
+
+@{
+	if (Model.HasWidgets() || Context.Kentico().PageBuilder().EditMode)
+	{
+
+		// Investigate why this try/catch is necessary...
+		// The page in question does not have a page builder widget and the database value is null.
+		// This should not throw an error or render but does on certain pages.
+		// See https://riseinteractive.atlassian.net/browse/DMIE-782
+		try
+		{
+			@Html.Kentico().EditableArea(Model.AreaIdentifier, Model.GetEditableAreaOptions());
+		}
+		catch
+		{
+
+		}
+	}
+}

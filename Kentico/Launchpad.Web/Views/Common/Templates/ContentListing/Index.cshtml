@@ -1,0 +1,54 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.ContentListingViewModel
+
+<div class="template-content-listing">
+    @Html.Partial("Components/Hero/_Hero", Model.HeroViewModel)
+    <section class="news-list">
+        <div class="content-list-summary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                        @Html.Partial("Components/Wysiwyg/_Wysiwyg", Model.WysiwygViewModel)
+                    </div>
+                </div>
+            </div>
+        </div>
+        @foreach (var item in Model.Result.Items)
+        {
+            <div>@item.Title</div>
+            <br>
+        }
+        <div class="content-list">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                        <div id="filter-app">
+                            <app v-bind:filterid="'filter-app'"
+                                 v-bind:filtertype="'resourcefilter'"
+                                 v-bind:result="@JsonConvert.SerializeObject(Model.Result)"
+                                 v-bind:resource="'content'">
+                            </app>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section JavaScript
+{
+    <script>
+		window.Launchpad.ResourceFilters = @Html.Raw(JsonConvert.SerializeObject(Model.Filters));
+        window.Launchpad.Query = "@HttpUtility.JavaScriptStringEncode(Model.Specification.SearchTerm)";
+        window.Launchpad.PushStateParameters = @Html.Raw(JsonConvert.SerializeObject(Model.PushStateParameters));
+        window.Launchpad.ResourceFilterDisplay = {
+            hideType: "@(Model.HideTypeFilter || Model.HideFilters)",
+            hideTopic: "@(Model.HideTopicFilter || Model.HideFilters)",
+            hideSearch: "@(Model.HideSearchFilter || Model.HideFilters)",
+        };
+    </script>
+}

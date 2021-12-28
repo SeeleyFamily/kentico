@@ -1,0 +1,33 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model IEnumerable<MenuItem>
+
+@{
+    string menuItemClass = "";
+}
+
+<ul>
+    @foreach (MenuItem menuItem in Model)
+    {
+        if (menuItem.IsCurrentPage)
+        {
+            menuItemClass = "active";
+        }
+        else
+        {
+            menuItemClass = "";
+        }
+
+        <li class="@menuItemClass">
+            <a href="@menuItem.Url">
+                @menuItem.Text
+            </a>
+            @if (menuItem.HasChildren)
+            {
+                @Html.Partial("Components/SideNav/_RecursiveSideNavLevel", menuItem.Children)
+            }
+        </li>
+    }
+</ul>

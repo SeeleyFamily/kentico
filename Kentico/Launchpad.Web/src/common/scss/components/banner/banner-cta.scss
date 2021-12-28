@@ -1,0 +1,207 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.banner-cta {
+    display: block;
+    margin: 0;
+    font-weight: 400;
+
+    @include media-breakpoint-up(md) {
+        @include make-row();
+        margin: 0;
+        align-items: center;
+    }
+
+    &.widget {
+        .banner-cta-content {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &.left-align {
+        @include media-breakpoint-up(md) {
+            > div:first-child {
+                padding-right: 25px;
+            }
+
+            > div:last-child {
+                padding-left: 25px;
+            }
+        }
+    }
+
+    &.center-align {
+        .banner-cta-content {
+            text-align: center;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin: 0 auto;
+
+            @include media-breakpoint-up(md) {
+                @include make-col(9);
+            }
+        }
+    }
+
+    &.right-align {
+        @include media-breakpoint-up(md) {
+            > div:first-child {
+                padding-left: 25px;
+            }
+
+            > div:last-child {
+                padding-right: 25px;
+            }
+        }
+
+        .banner-cta-content {
+            @include media-breakpoint-up(md) {
+                order: 1;
+            }
+        }
+
+        .banner-cta-img {
+            @include media-breakpoint-up(md) {
+                order: 2;
+            }
+        }
+    }
+
+    &.white {
+        .banner-cta-content {
+            padding-left: 0;
+            padding-right: 0;
+
+            @include media-breakpoint-up(md) {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+        }
+    }
+
+    &.gray {
+        background: $launchpad-blue-1;
+    }
+
+    &-bg, &-img, &-content {
+        @include media-breakpoint-up(md) {
+            @include make-col(6);
+        }
+    }
+
+    &-bg {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding-top: 50%;
+
+        @include media-breakpoint-up(md) {
+            padding-top: 30%;
+        }
+    }
+
+    &-img {
+        padding: 0 0 20px;
+
+        @include media-breakpoint-up(md) {
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    &-content {
+        padding: 40px 15px;
+
+        @include media-breakpoint-up(md) {
+            padding: 60px 6%;
+        }
+
+        h3 {
+            font-weight: bold;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+    }
+
+    &--hero {
+        padding: 0;
+        align-items: flex-start;
+
+        @include media-breakpoint-up(md) {
+            padding: 50px 0;
+        }
+
+        .breadcrumb {
+            margin: 10px 0 15px;
+
+            @include media-breakpoint-up(md) {
+                margin: -30px 0 15px;
+            }
+        }
+
+        .banner-cta-content .btn {
+            margin-top: 10px;
+        }
+
+        .banner-cta-img {
+            max-height: 355px;
+            overflow: hidden;
+            padding-top: 20px;
+            padding-bottom: 0;
+            margin: 0px -15px;
+
+            @include media-breakpoint-up(md) {
+                padding-top: 0;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.full-width .banner-cta {
+    padding-top: 0;
+
+    .banner-cta-img img {
+        margin: 0;
+    }
+}
+
+section > .container .banner-cta {
+    &.left-align {
+        @include media-breakpoint-up(md) {
+            > div:first-child {
+                padding-left: 0;
+            }
+
+            > div:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    &.right-align {
+        @include media-breakpoint-up(md) {
+            > div:first-child {
+                padding-right: 0;
+            }
+
+            > div:last-child {
+                padding-left: 0;
+            }
+        }
+    }
+}

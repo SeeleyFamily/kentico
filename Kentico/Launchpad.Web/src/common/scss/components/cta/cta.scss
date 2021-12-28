@@ -1,0 +1,42 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.cta {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.cta-media {
+    margin-top: 20px;
+
+    @include media-breakpoint-up(md) {
+        margin-top: 0;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.cta-btn {
+    display: table;
+    margin-top: 20px;
+}
+
+.cta-link {
+    display: table;
+    margin-top: 20px;
+
+    &::after {
+        content: '\f30b';
+        @include font-awesome();
+        font-family: $font-awesome;
+        font-weight: 900;
+        margin-left: 10px;
+    }
+}

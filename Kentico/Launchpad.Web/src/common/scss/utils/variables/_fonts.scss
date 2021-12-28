@@ -1,0 +1,100 @@
+/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+// Fonts
+$font-heading: 'Campton', sans-serif;
+$font-body: 'Campton', sans-serif;
+$font-awesome: 'Font Awesome 5 Pro';
+$font-awesome-brands: 'Font Awesome 5 Brands';
+$font-primary: 'Campton', sans-serif;
+$font-secondary: 'Campton', sans-serif;
+
+// Font Weights
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+$font-heading-weight: 900;
+
+// Margin/Padding
+$font-heading-margin: 0 0 15px;
+
+// Body
+$font-body-size-desktop: 18px;
+$font-body-line-height-desktop: 24px;
+$font-body-size-mobile: 16px;
+$font-body-line-height-mobile: 20px;
+
+// Heading Sizes
+$heading-1-font-desktop: 50px;
+$heading-1-line-height-desktop: 59px;
+$heading-1-weight: 800;
+
+$heading-1-font-mobile: 36px;
+$heading-1-line-height-mobile: 47px;
+
+$heading-2-font-desktop: 34px;
+$heading-2-line-height-desktop: 44px;
+$heading-2-weight: 800;
+
+$heading-2-font-mobile: 32px;
+$heading-2-line-height-mobile: 42px;
+
+$heading-3-font-desktop: 22px;
+$heading-3-line-height-desktop: 32px;
+$heading-3-weight: 400;
+
+$heading-3-font-mobile: 22px;
+$heading-3-line-height-mobile: 32px;
+
+$heading-4-font-desktop: 22px;
+$heading-4-line-height-desktop: 32px;
+$heading-4-weight: 800;
+
+$heading-4-font-mobile: 22px;
+$heading-4-line-height-mobile: 32px;
+
+$heading-5-font-desktop: 20px;
+$heading-5-line-height-desktop: 24px;
+$heading-5-weight: 800;
+
+$heading-5-font-mobile: 18px;
+$heading-5-line-height-mobile: 20px;
+
+// Heading auxillary properties
+$heading-text-transform: none;
+$heading-letter-spacing: 0;
+
+// Footer sizes
+$footer-heading-size-mobile: 16px;
+$footer-heading-line-height-mobile: 22px;
+$footer-heading-size-desktop: 18px;
+$footer-heading-line-height-desktop: 26px;
+
+// Nav sizes
+$nav-heading-size-mobile: 18px;
+$nav-heading-line-height-mobile: 26px;
+$nav-subheading-size-mobile: 16px;
+$nav-subheading-line-height-mobile: 20px;
+
+// Custom Font Weights
+$font-weight-heading: 800;
+$font-weight-subheading: 400;
+$font-weight-body: 400;
+
+$font-button: $font-heading;
+
+// Footer Font Weights
+$font-weight-footer-heading: $font-weight-bold;
+$font-weight-footer-subheading: $font-weight-medium;
+
+
+// Banner Font Weights
+$font-weight-banner-body: $font-weight-regular;
+$font-weight-banner-cta: $font-weight-bold;

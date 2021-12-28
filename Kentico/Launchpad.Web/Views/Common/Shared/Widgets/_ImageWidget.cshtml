@@ -1,0 +1,57 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model ComponentViewModel<Launchpad.Web.Models.Common.Widgets.ImageWidgetProperties>
+
+<div class="widget widget-img image-container @(Model.Properties.HasCaption() ? "caption" : "" )  @Model.Properties.WidgetClass()">
+    @{
+        MediaFile imgData = Model.Properties.Media();
+        MediaFile imgMobileData = Model.Properties.MediaMobile();
+        string useMobileImg = imgMobileData != null ? "d-none d-md-block" : "";
+
+        if (imgData != null && Model.Properties.IsImageModal)
+        {
+
+            <a href="@imgData.Url" class="open-self image-modal @useMobileImg">
+                <picture>
+                    <source type="image/webp" srcset="@imgData.Url.GetOptimizedImageUrl()" />
+                    <img src="@imgData.Url" alt="@Model.Properties.ImgAltText" />
+                </picture>
+            </a>
+
+            if (imgMobileData != null)
+            {
+                <a href="@imgMobileData.Url" class="open-self image-modal d-md-none">
+                    <picture>
+                        <source type="image/webp" srcset="@imgMobileData.Url.GetOptimizedImageUrl()" />
+                        <img src="@imgMobileData.Url" alt="@Model.Properties.ImgAltText" />
+                    </picture>
+                </a>
+            }
+        }
+        else if (imgData != null && !(Model.Properties.IsImageModal))
+        {
+            <picture class="@useMobileImg">
+                <source type="image/webp" srcset="@imgData.Url.GetOptimizedImageUrl()" />
+                <img src="@imgData.Url" alt="@Model.Properties.ImgAltText" />
+            </picture>
+            if (imgMobileData != null)
+            {
+                <picture class="d-md-none">
+                    <source type="image/webp" srcset="@imgMobileData.Url.GetOptimizedImageUrl()" />
+                    <img src="@imgMobileData.Url" alt="@Model.Properties.ImgAltText" />
+                </picture>
+            }
+        }
+        else
+        {
+            <img src="https://via.placeholder.com/300" />
+        }
+
+        if (Model.Properties.HasCaption())
+        {
+            <span class="widget-caption">@Model.Properties.Caption</span>
+        }
+    }
+</div>

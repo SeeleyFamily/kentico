@@ -1,0 +1,44 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+// Base styles that normalize and create
+// structure for development to build on
+@import 'utils/_normalize.scss';
+
+@import '_utils.scss';
+
+@import '~bootstrap/scss/bootstrap-grid.scss';
+@import '~bootstrap/scss/_dropdown.scss';
+
+// Base
+@import 'base/_global.scss';
+@import 'base/_button.scss';
+@import 'base/_helpers.scss';
+@import 'base/_kentico.scss';
+@import 'base/_spinner.scss';
+@import 'base/_table.scss';
+@import 'base/_background.scss';
+
+//- Typography
+@import 'base/typography/_body.scss';
+@import 'base/typography/_heading.scss';
+@import 'base/typography/_link.scss';
+@import 'base/typography/_list.scss';
+
+//- Forms
+@import 'base/form/_checkbox.scss';
+@import 'base/form/_error.scss';
+@import 'base/form/_form.scss';
+@import 'base/form/_input-group.scss';
+@import 'base/form/_input.scss';
+@import 'base/form/_radio-button.scss';
+@import 'base/form/_select.scss';
+@import 'base/form/_tooltip.scss';
+
+@import 'components/banner/banner.scss';
+@import 'components/banner/banner-cookie.scss';
+@import 'components/banner/banner-notification.scss';
+
+// Print
+@import 'utils/_print.scss';

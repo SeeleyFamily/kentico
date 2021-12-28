@@ -1,0 +1,73 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model MenuItem
+
+@{
+	string listClassName = "";
+	string linkClassName = "nav-item";
+	bool hasChildrenLinks = false;
+
+	if (Model.IsColumn)
+	{
+		listClassName += "";
+	}
+
+	if (Model.IsCard)
+	{
+		listClassName += "menu-card-item";
+	}
+
+	if (Model.HasChildren)
+	{
+		linkClassName += " has-dropdown js-nav-toggle-children";
+		hasChildrenLinks = Model.Children.Any(x => !(x.IsCard || x.IsColumn));
+	}
+
+	if (!string.IsNullOrWhiteSpace(Model.CustomClass))
+	{
+		listClassName += Model.CustomClass;
+	}
+}
+
+<li class="@listClassName">
+	@if (!Model.IsColumn && !Model.IsCard)
+	{
+		linkClassName += Model.IsExternal ? " nav-item--external" : "";
+		<a class="@linkClassName open-self" href="@Model.Url" @(Model.IsExternal ? $"target=\"_blank\"" : "") data-type="Header" data-text="@Model.Label"><span>@Model.Label</span></a>
+	}
+
+	@if (Model.IsCard)
+	{
+		<a class="menu-card-wrapper" href="@Model.Url" @(Model.IsExternal ? $"target=\"_blank\"" : "") data-type="Header" data-text="@Model.Label">
+			<div class="menu-card">
+				<div class="menu-image-wrapper">
+					<div class="menu-image js-webp-bg js-lazy-bg" role="img" aria-label="@Model.Label" data-bg="@Model.Image" data-bg-webp="@Model.Image.GetOptimizedImageUrl()" style="background-image:url('@Model.Image');"></div>
+				</div>
+				<h3>@Model.Label</h3>
+				<div class="link">@Model.Text</div>
+			</div>
+		</a>
+	}
+
+	@if (Model.HasChildren && Model.IsColumn)
+	{
+		<ul class="primary-nav-submenu js-nav-dropdown-toggle">
+			@foreach (MenuItem item in Model.Children)
+			{
+				@Html.Partial("Layout/Header/_MenuItem", item)
+			}
+		</ul>
+	}
+
+	@if (Model.HasChildren && !Model.IsColumn)
+	{
+		<ul class="primary-nav-submenu js-nav-dropdown-toggle primary-nav-submenu--nested">
+			@foreach (MenuItem item in Model.Children)
+			{
+				@Html.Partial("Layout/Header/_MenuItem", item)
+			}
+		</ul>
+	}
+</li>

@@ -1,0 +1,48 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+@if (Model.Menus == null || Model.Menus.NavigationMenu == null)
+{
+    return;
+}
+
+<nav class="nav">
+    <ul class="primary-nav">
+        @foreach (MenuItem menuItem in Model.Menus.NavigationMenu)
+        {
+            string className = "nav-item";
+
+            string navMegaMenuClass = "nav-megamenu row js-nav-megamenu ";
+            navMegaMenuClass += string.IsNullOrWhiteSpace(menuItem.CustomClass) ? "" : menuItem.CustomClass;
+
+            string subMenuTitleText = string.IsNullOrWhiteSpace(menuItem.LabelMobile) ? menuItem.Label + " Overview" : menuItem.LabelMobile;
+
+            string subMenuTitleClass = "nav-submenu-title col-md-12";
+            subMenuTitleClass += menuItem.HideMobileOverviewLink ? " nav-submenu-title--hide" : "";
+
+            if (menuItem.HasChildren)
+            {
+                className += " has-dropdown js-nav-toggle-children";
+            }
+
+            <li>
+                <a href="@menuItem.Url" class="@className open-self" data-type="Header" data-text="@menuItem.Label"><span>@menuItem.Label</span></a>
+
+                @if (menuItem.HasChildren)
+                {
+                    <ul class="@navMegaMenuClass" data-parent-text="@menuItem.Label">
+                        <li class="@subMenuTitleClass"><a href="@menuItem.Url" class="nav-item-header nav-item" data-type="Header" data-text="@subMenuTitleText">@subMenuTitleText</a></li>
+
+                        @foreach (MenuItem item in menuItem.Children)
+                        {
+                            @Html.Partial("Layout/Header/_MenuItem", item)
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+</nav>

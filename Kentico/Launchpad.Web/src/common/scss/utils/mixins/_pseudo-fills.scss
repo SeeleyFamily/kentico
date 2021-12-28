@@ -1,0 +1,66 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+// fill background in to be full width outside of container
+@mixin rightPseudoFill($color) {
+    position: relative;
+    z-index: 2;
+
+    &:after {
+		content: '';
+		background-color: $color;
+        position: absolute;
+        height: 100%;
+        width: 1000%;
+        right: -1000%;
+        top: 0;
+		bottom: 0;
+		z-index: -2;
+    }
+}
+
+
+@mixin leftPseudoFill($color) {
+    position: relative;
+    z-index: 2;
+
+    &:before {
+		content: '';
+		background-color: $color;
+        position: absolute;
+        height: 100%;
+        width: 1000%;
+        left: -1000%;
+        top: 0;
+		bottom: 0;
+		z-index: -2;
+    }
+}
+
+
+@mixin overlay() {
+	&:before {
+		content: '';
+		background-color: rgba(0,0,0,0.4);
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}

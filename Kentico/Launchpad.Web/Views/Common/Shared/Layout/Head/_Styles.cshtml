@@ -1,0 +1,13 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+<!-- CSS -->
+<link href="@Model.GetCSSPath()" rel="stylesheet" type="text/css" />
+
+@if (Model.UsePageBuilder && Context.Kentico().PageBuilder().EditMode)
+{
+	@Html.Kentico().PageBuilderStyles()
+}

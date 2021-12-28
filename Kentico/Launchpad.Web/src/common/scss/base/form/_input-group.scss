@@ -1,0 +1,83 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+// input groups
+.input-group {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 100%;
+
+	> .form-control {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.form-control {
+		position: relative;
+		flex: 1 1 auto;
+		width: 1%;
+
+		&:focus, &:active {
+			border-right: none;
+		}
+
+		&[disabled] ~ .input-group-btn .btn {
+			background-color: $input-disabled;
+
+			&:hover {
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	.input-group-select {
+		display: table-cell;
+		width: 1%;
+		vertical-align: top;
+
+		select {
+			width: auto;
+			padding-right: 38px;
+			padding-left: 10px;
+			border-left: 0;
+		}
+	}
+}
+
+.input-group-append {
+	margin-left: -2px;
+}
+
+.input-group-append, .input-group-prepend {
+	display: flex;
+
+	.btn {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.input-inline-btn {
+	position: absolute;
+	top: 9px;
+	right: 12px;
+	color: $primary;
+
+	.fa {
+		@include fontSize(20px);
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: $primary-offset;
+	}
+}
+
+label ~ input ~ .input-inline-btn {
+	top: 39px;
+}

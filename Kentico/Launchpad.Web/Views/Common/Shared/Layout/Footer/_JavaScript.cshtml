@@ -1,0 +1,20 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model BaseViewModel
+
+<!--- JavaScript Includes Here -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/dist/modernizr.min.js?v=@Model.GetAssemblyGuid()"></script>
+<script src="@Model.GetJavaScriptPath()"></script>
+
+
+@if (Model.UsePageBuilder)
+{
+    if (Context.Kentico().PageBuilder().EditMode)
+    {
+        @Html.Kentico().PageBuilderScripts()
+        @Scripts.Render("~/Scripts/WysiwygConfiguration.js")
+    }
+}

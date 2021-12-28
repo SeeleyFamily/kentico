@@ -1,0 +1,249 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.header-up, .header-down {
+	.header {
+		transition: top 0.5s ease-in-out;
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		right: 0;
+	}
+}
+
+.header {
+	@include fontSize(14px);
+	z-index: 999;
+
+	@include media-breakpoint-up(lg) {
+		border: 0;
+		display: block;
+	}
+
+	.header-wrap {
+		background-color: $white;
+		box-shadow: 0 5px 15px 0 rgba(53, 68, 97, 0.1);
+		border-bottom: 1px solid $launchpad-medium-gray;
+		position: relative;
+		z-index: 9999;
+	}
+
+	.container {
+		padding-right: 0;
+		padding-left: 0;
+
+		@include media-breakpoint-up(lg) {
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+	}
+
+	&.header-sticky {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.header-toggle {
+		text-align: center;
+		display: flex;
+		align-items: center;
+		padding: 13px 15px 14px;
+		color: $launchpad-dark-blue;
+		border-left: 1px solid #EEE;
+		border-radius: 0;
+
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+
+		.fas {
+			@include fontSize(32px);
+			display: block;
+			font-weight: 500;
+			margin-bottom: 5px;
+		}
+
+		span {
+			color: $launchpad-dark-blue;
+			@include fontSize(13px);
+			line-height: 1;
+			display: block;
+			font-weight: bold;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		&.open {
+			.fas {
+				font-size: 2.5rem;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&-logo {
+		background-image: url('/Content/images/common/lp-logo.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		display: block;
+		position: relative;
+		height: 16px;
+		width: 115px;
+		margin-left: 15px;
+		margin-right: auto;
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 1;
+			grid-row: 1 / end;
+			margin-left: 0;
+			margin-right: 35px;
+			height: 23px;
+			width: 160px;
+		}
+	}
+
+	&-utilities {
+		@include clear-list();
+
+		@include media-breakpoint-up(lg) {
+			display: flex;
+		}
+
+		li {
+			align-items: center;
+			display: flex;
+			border-top: 1px solid $launchpad-medium-gray;
+
+			@include media-breakpoint-up(lg) {
+				border-bottom: 0;
+				align-items: center;
+				flex-flow: row wrap;
+				margin-left: 5px;
+				padding-top: 10px;
+				padding-bottom: 5px;
+
+				&:after {
+					color: #EEE;
+					content: '|';
+					@include fontSize(17px);
+					margin-left: 13px;
+					margin-right: 13px;
+				}
+			}
+
+			&:last-child {
+				&:after {
+					content: none;
+				}
+			}
+
+			@include media-breakpoint-up(xl) {
+				&:after {
+					margin-left: 18px;
+					margin-right: 18px;
+				}
+			}
+
+			a {
+				color: $launchpad-dark-blue;
+				display: block;
+				font-family: $font-body;
+				@include fontSize(18px);
+				line-height: normal;
+				padding: 15px;
+				font-weight: 400;
+
+				@include media-breakpoint-up(lg) {
+					@include fontSize(16px);
+					@include lineHeight(18px);
+					padding: 0;
+				}
+
+				&:focus,
+				&:hover,
+				&:active {
+					color: $txt-link-hover;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&-inner {
+		align-items: center;
+		display: flex;
+		flex-flow: row wrap;
+		height: 100%;
+
+		@include media-breakpoint-up(lg) {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			height: auto;
+			min-height: 100px;
+		}
+
+		.nav-wrapper {
+			grid-column: 2;
+			grid-row: auto;
+			grid-template-rows: auto;
+			grid-template-columns: 1fr auto;
+
+			@include media-breakpoint-up(lg) {
+				position: relative;
+				top: 0;
+				grid-column: 2;
+				grid-row: 1;
+				height: 100%;
+			}
+
+			.header-utilities {
+				grid-column: 1 / end;
+				grid-row: 1;
+				justify-self: flex-end;
+			}
+
+			.header-nav-btns {
+				grid-column: 2;
+				grid-row: 2;
+				align-self: end;
+				margin: 25px 0;
+				width: 100%;
+				padding-left: 15px;
+				padding-right: 15px;
+
+				@include media-breakpoint-up(lg) {
+					width: auto;
+					padding-left: 0;
+					padding-right: 0;
+					margin: 12px 0;
+				}
+
+				.btn {
+					@include fontSize(18px);
+					@include lineHeight(22px);
+					font-weight: 600;
+					width: 100%;
+					padding: 15px 30px;
+
+					@include media-breakpoint-up(lg) {
+						width: auto;
+						font-weight: 500;
+						padding: 8px 36px;
+					}
+				}
+			}
+
+			.nav-container {
+				grid-column: 1;
+				grid-row: 2;
+				align-self: end;
+			}
+		}
+	}
+}

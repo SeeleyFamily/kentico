@@ -1,0 +1,68 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using Kentico.Forms.Web.Mvc
+@using Launchpad.Web.Models.Common.FormComponents
+
+@model MultipleCheckboxComponent
+
+@{
+    IDictionary<string, object> htmlAttributes = ViewData.GetEditorHtmlAttributes();
+}
+@{
+    @* Specifies additional HTML attributes for the input fields *@
+    if (htmlAttributes.ContainsKey("class"))
+    {
+        htmlAttributes["class"] += " text-input";
+    }
+    else
+    {
+        htmlAttributes["class"] = "text-input";
+    }
+    if (Model.Properties.Required)
+    {
+        htmlAttributes["class"] += " required";
+    }
+    string id = Html.GenerateUniqueId("textComponent-");
+    htmlAttributes["id"] = id;
+    Model.GetCheckboxComponents();
+
+}
+<ul class="checkbox-list">
+    @{var fieldName = ViewData.TemplateInfo.HtmlFieldPrefix;}
+    @foreach (KeyValuePair<string, string> opt in Model.Properties.GetOptions())
+    {
+        <li>
+            <input type="checkbox" data-ktc-notobserved-element
+                   value="@opt.Key"
+                   class="@(Model.Properties.Required ? "required": "")"
+                   name="@(fieldName).CheckboxComponents" @((Model.CheckboxComponents != null && Model.CheckboxComponents.Contains(opt.Key)) ? "checked" : "") />
+            <label>@opt.Value</label>
+        </li>
+    }
+</ul>
+
+
+<div class="error empty hidden">
+    Please complete the field above
+</div>
+
+<script type="text/javascript">
+    if (document.readyState === "loading") {
+        // Calls the function during the 'DOMContentLoaded' event, after the HTML document has been completely loaded
+        // See https://stackoverflow.com/questions/8835413/difference-between-load-vs-domcontentloaded
+        window.addEventListener("load", function () {
+            @if (!String.IsNullOrEmpty(Model.Properties.CustomTooltip))
+            {
+                @: FormTools.setTooltip("#@id", "@Model.Properties.CustomTooltip");
+            }
+        });
+    } else {
+        // Calls the function directly in cases where the widget is rendered dynamically after 'DOMContentLoaded' has occurred
+        @if (!String.IsNullOrEmpty(Model.Properties.CustomTooltip))
+        {
+            @: FormTools.setTooltip("#@id", "@Model.Properties.CustomTooltip");
+        }
+    }
+</script>

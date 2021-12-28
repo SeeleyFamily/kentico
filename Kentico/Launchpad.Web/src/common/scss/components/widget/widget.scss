@@ -1,0 +1,252 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.section .row [class*='col-']:last-child {
+	.widget-img, .widget-video, .fr-view {
+		margin-bottom: 0;
+	}
+}
+
+.pagebuilder-sidebar {
+	> section:not(.bg-primary):not(.bg-secondary):not(.bg-tertiary):not(.bg-quaternary) {
+		.container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	> section.bg-primary, > section.bg-secondary, > section.bg-tertiary, > section.bg-quaternary {
+		margin-left: calc(-1.5rem / 2);
+		margin-right: calc(-1.5rem / 2);
+
+		@include media-breakpoint-up(lg) {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.container, .full-width {
+			padding-left: $grid-gutter-width !important;
+			padding-right: $grid-gutter-width !important;
+
+			@include media-breakpoint-up(md) {
+				padding-left: $section-padding !important;
+				padding-right: $section-padding !important;
+			}
+		}
+	}
+}
+
+.full-width {
+	> .row, > .row > .col-12 {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+section {
+	&.bg-primary, &.bg-secondary, &.bg-tertiary, &.bg-quaternary {
+		.full-width {
+			padding-left: $section-padding !important;
+			padding-right: $section-padding !important;
+		}
+	}
+}
+
+.widget-spacing {
+	margin-top: $widget-spacing-mobile !important;
+	margin-bottom: $widget-spacing-mobile !important;
+
+	@include media-breakpoint-up(md) {
+		margin-top: $widget-spacing-desktop !important;
+		margin-bottom: $widget-spacing-desktop !important;
+	}
+
+	&.no-margin-bottom {
+		margin-bottom: 0 !important;
+	}
+
+	&.no-margin-top {
+		margin-top: 0 !important;
+	}
+}
+
+.fr-view {
+	margin: 15px 0;
+
+	@include media-breakpoint-up(md) {
+		margin: 0;
+	}
+
+	h1, h2 {
+		margin-bottom: 20px;
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: 30px;
+		}
+	}
+
+	img {
+		margin: 20px auto;
+		display: block;
+
+		&.fr-fil {
+			float: left;
+			margin: 0 20px 0 0;
+		}
+
+		&.fr-fir {
+			float: right;
+			margin: 0 0 0 20px;
+		}
+	}
+
+	.btn-primary {
+		letter-spacing: 1.24px;
+		text-decoration: none;
+	}
+
+	iframe {
+		@include media-breakpoint-up(md) {
+			margin: 15px 0 20px;
+		}
+	}
+
+	hr {
+		border-style: solid;
+		height: 0;
+		border: 0;
+		border-bottom: 1px solid $gray;
+	}
+}
+
+.widget {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	word-wrap: break-word;
+
+	.widget-caption, .widget-caption a {
+		display: block;
+		@include fontSize(14px);
+		color: $gray;
+		font-style: italic;
+	}
+
+	&-img, &-video, &.card {
+		height: auto;
+		margin: 15px 0;
+
+		@include media-breakpoint-up(md) {
+			margin: 0;
+		}
+	}
+
+	&.audio-widget {
+		text-align: center;
+		max-width: 450px;
+		margin: 0 auto;
+		height: auto;
+
+		.card-content-wrapper {
+			display: block;
+			padding: 20px 30px;
+
+			@include media-breakpoint-up(md) {
+				padding: 20px 50px;
+			}
+		}
+
+		h2 {
+			@include fontSize(24px);
+			line-height: 1.13;
+		}
+
+		p {
+			@include fontSize(14px);
+			line-height: 1.29;
+			font-style: italic;
+		}
+	}
+
+	&.promo-banner {
+		max-width: 800px;
+		margin: 0 auto;
+
+		.card-image {
+			min-width: 215px;
+		}
+	}
+}
+
+.widget-video {
+	.card-img {
+		min-height: 0;
+		position: relative;
+		padding-top: 60%;
+		background-size: cover;
+
+		.fa-play {
+			@include fontSize(28px);
+			width: 72px;
+			height: 72px;
+			background: $white;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $primary;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -36px 0 0 -36px;
+
+			&:before {
+				margin-left: 5px;
+			}
+
+			&:hover {
+				color: $secondary;
+			}
+		}
+	}
+
+	.card-content {
+		padding: 30px;
+	}
+
+	a {
+		text-decoration: none !important;
+	}
+}
+
+.wa-flex-start > div > .row > .col-12 {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.wa-flex-end > div > .row > .col-12 {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.wa-center > div > .row > .col-12 {
+	display: flex;
+	justify-content: center;
+}
+
+.wa-space-between > div > .row > .col-12 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.wa-space-around > div > .row > .col-12 {
+	display: flex;
+	justify-content: space-around;
+}
+
+.wa-space-evenly > div > .row > .col-12 {
+	display: flex;
+	justify-content: space-evenly;
+}

@@ -1,0 +1,139 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.quote-carousel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 650px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    &-item-wrapper {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        height: 100%;
+    }
+
+    &-item {
+        display: flex !important;
+        flex-direction: column;
+        position: relative;
+        background-color: $quaternary;
+        border-radius: 50%;
+        margin: auto;
+        width: 350px !important;
+        height: 350px;
+
+        @include media-breakpoint-up(md) {
+            height: 500px;
+            width: 500px !important;
+        }
+
+        @include media-breakpoint-up(lg) {
+            height: 600px;
+            width: 600px !important;
+        }
+
+        &::before {
+            background-size: cover;
+            background-position: center;
+            content: '';
+            display: block;
+            height: 40px;
+            left: calc(50% - 15px);
+            position: absolute;
+            top: 15px;
+            width: 30px;
+
+
+            @include media-breakpoint-up(md) {
+                top: 35px;
+            }
+        }
+    }
+
+    @at-root .webp &-item {
+        &::before {
+            background-image: url('/Content/images/riseburst.webp');
+        }
+    }
+
+    @at-root .no-webp &-item {
+        &::before {
+            background-image: url('/Content/images/riseburst.png');
+        }
+    }
+
+    &-media {
+        flex: 0 0 30%;
+        max-width: 30%;
+
+        @include media-breakpoint-up(md) {
+            flex: 0 0 37%;
+            max-width: 37%;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .slick-count {
+        margin-top: auto;
+        margin-bottom: 20px;
+        @include fontSize(14px);
+
+        @include media-breakpoint-up(md) {
+            @include fontSize(18px);
+        }
+    }
+
+    &-content {
+        flex: 0 0 70%;
+        max-width: 70%;
+        padding: 50px 50px 0 20px;
+        text-align: left;
+
+        @include media-breakpoint-up(md) {
+            padding: 0 50px 0 20px;
+            flex: 0 0 63%;
+            max-width: 63%;
+        }
+
+        .quote, .quote p {
+            @include fontSize(14px);
+
+            @include media-breakpoint-up(md) {
+                @include fontSize(18px);
+            }
+        }
+
+        .name {
+            @include fontSize(12px);
+            line-height: 1.5em;
+
+            @include media-breakpoint-up(md) {
+                @include fontSize(16px);
+                margin-top: 40px;
+            }
+        }
+
+        .title {
+            @include fontSize(12px);
+            line-height: 1.5em;
+            font-weight: 600;
+
+            @include media-breakpoint-up(md) {
+                @include fontSize(16px);
+            }
+        }
+    }
+
+    .slick-slide {
+        position: relative;
+    }
+}

@@ -1,0 +1,56 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model ComponentViewModel<Launchpad.Web.Models.Common.Widgets.AudioPlayerWidgetProperties>
+
+@{
+	string mediaUrl = Model.Properties.MediaUrl();
+	string titleID = Html.GenerateUniqueId("audio-");
+}
+
+<div class="audio-widget widget card @Model.Properties.WidgetClass()">
+	<div class="card-content-wrapper">
+		@{ if (!String.IsNullOrEmpty(mediaUrl))
+			{
+				<div class="player js-player" data-id="@titleID" data-url="@mediaUrl" data-title="@Model.Properties.AssetTitle" data-subtitle="@Model.Properties.AssetSubtitle">
+					<div class="meta-container">
+						<h2 class="song-title">@Model.Properties.AssetTitle</h2>
+						<p class="song-artist">@Model.Properties.AssetSubtitle</p>
+
+						<div class="time-container">
+							<div class="current-time">
+								<span class="amplitude-current-minutes" data-amplitude-song-index="0"></span>:<span class="amplitude-current-seconds" data-amplitude-song-index="0"></span>
+							</div>
+
+							<div class="duration">
+								<span class="amplitude-duration-minutes" data-amplitude-song-index="0"></span>:<span class="amplitude-duration-seconds" data-amplitude-song-index="0"></span>
+							</div>
+						</div>
+						<progress class="amplitude-song-played-progress" data-amplitude-song-index="0" id="@titleID"></progress>
+						<div class="control-container">
+							<div class="amplitude-prev">
+								<span class="fas fa-backward"></span>
+							</div>
+							<div class="amplitude-play-pause" data-amplitude-song-index="0">
+								<span class="fas fa-play"></span>
+							</div>
+							<div class="amplitude-next">
+								<span class="fas fa-forward"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+			else
+			{
+				if (Context.Kentico().PageBuilder().EditMode)
+				{
+					<p>Configure this widget to select a an audio file</p>
+				}
+			}
+		}
+	</div>
+</div>
+
+

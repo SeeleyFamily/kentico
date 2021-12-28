@@ -1,0 +1,99 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../_references.scss';
+
+//Button styles for links, spans, etc.
+.btn,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+    @include btn($primary, $primary-offset, $primary-text, $primary-text-hover);
+}
+
+.btn {
+    &.btn--primary, &.btn-primary {
+        @include solid-btn($primary, $primary-offset, $primary-text, $primary-text-hover);
+    }
+
+    &.btn-outline--primary {
+        @include outline-btn($primary, $button-border-thick);
+    }
+
+    &.btn--secondary, &.btn-secondary {
+        @include solid-btn($secondary, $secondary-offset, $secondary-text, $secondary-text-hover);
+    }
+
+    &.btn-outline--secondary {
+        @include outline-btn($secondary, $button-border-thick);
+    }
+
+    &.btn--tertiary {
+        @include solid-btn($tertiary, $tertiary-offset, $tertiary-text, $tertiary-text-hover);
+    }
+
+    &.btn-outline--tertiary {
+        @include outline-btn($tertiary, $button-border-thick);
+    }
+
+    &.btn--quaternary {
+        @include solid-btn($quaternary, $quaternary-offset, $quaternary-text, $quaternary-text-hover);
+    }
+
+    &.btn-outline--quaternary {
+        @include outline-btn($quaternary, $button-border-thick);
+    }
+
+    &.large-btn {
+        @include fontSize($button-font-size-large);
+        padding: $button-padding-large;
+    }
+
+    &--group {
+        margin-top: 20px;
+
+        .btn {
+            width: 100%;
+            margin: 10px 0px;
+
+            @include media-breakpoint-up(lg) {
+                margin: 10px 20px 10px 0;
+                width: auto;
+            }
+        }
+    }
+
+    &-label {
+        &-mobile {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+
+        &-desktop {
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.center-btn {
+	text-align: center;
+	margin: 10px 0;
+
+	.btn {
+		margin: 0;
+		width: auto !important;
+		vertical-align: top;
+
+		+ .btn {
+			margin-left: 20px;
+		}
+	}
+}
+

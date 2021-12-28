@@ -1,0 +1,36 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Launchpad.Web.Models.Common.ViewModels.ContactViewModel
+
+<div class="template-contact">
+    @Html.Partial("Components/Hero/_Hero", Model.HeroViewModel)
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-10 offset-lg-2">
+                    @Html.Partial("Components/Wysiwyg/_Wysiwyg", Model.WysiwygViewModel)
+                    @Html.PageBuilderFor(m => m.PageBuilderViewModel)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 offset-lg-2">
+                    @Html.PageBuilderFor(m => m.AboveFormPageBuilderViewModel)
+                    @Html.PageBuilderFor(m => m.ContactFormPageBuilderViewModel)
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section JavaScript {
+    @if (Model.UsePageBuilder)
+    {
+        // Prevent Duplicate Loading From _Javascript.cshtml
+        if (!Context.Kentico().PageBuilder().EditMode)
+        {
+            @Html.Kentico().PageBuilderScripts()
+        }
+    }
+}

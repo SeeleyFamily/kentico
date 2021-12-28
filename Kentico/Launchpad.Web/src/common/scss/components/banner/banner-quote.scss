@@ -1,0 +1,80 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.banner-quote {
+    border: dotted 4px $gray;
+    text-align: center;
+    margin: 20px 0 0;
+    position: relative;
+
+    &:before {
+        content: '';
+        background-image: url('/Content/images/common/quote-icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 87px;
+        height: 41px;
+        display: block;
+        position: absolute;
+        top: -22px;
+        left: 50%;
+        margin-left: -43.5px;
+        background-color: $white;
+    }
+
+    .banner-quote-content {
+        padding: 50px;
+    }
+
+    .banner-quote-description {
+        @include fontSize($heading-2-font-mobile);
+        @include lineHeight($heading-2-line-height-mobile);
+        font-weight: $heading-2-weight;
+        color: $secondary;
+        font-style: italic;
+        margin-bottom: 20px;
+
+        @include media-breakpoint-up(md) {
+            @include fontSize($heading-2-font-desktop);
+            @include lineHeight($heading-2-line-height-desktop);
+        }
+    }
+
+    &-author {
+        @include fontSize(12px);
+        margin-top: 40px;
+        color: $secondary;
+
+        @include media-breakpoint-up(md) {
+            @include fontSize(18px);
+        }
+    }
+
+    &-title {
+        @include fontSize(12px);
+        color: $secondary;
+
+        @include media-breakpoint-up(md) {
+            @include fontSize(18px);
+        }
+    }
+
+    &-card-media {
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+        @include make-col-offset(4);
+        @include make-col(4);
+
+        @include media-breakpoint-up(lg) {
+            left: auto;
+            @include make-col-offset(5);
+            @include make-col(2);
+        }
+    }
+}

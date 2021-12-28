@@ -1,0 +1,55 @@
+/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.tooltip {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: $tooltip-background;
+	position: relative;
+	border-radius: 50%;
+	color: $tooltip-text;
+	cursor: pointer;
+	margin-left: 15px;
+	text-align: center;
+	@include fontSize(14px);
+	line-height: 20px;
+	font-weight: bold;
+
+	&:hover, &:focus {
+		.tooltip-box {
+			display: block;
+		}
+	}
+
+	.tooltip-box {
+		display: none;
+		font-weight: normal;
+		position: absolute;
+		z-index: 10;
+		line-height: 1.4;
+		width: 150px;
+		top: 28px;
+		left: calc(50% - 75px);
+		color: $tooltip-text;
+		background: $tooltip-background;
+		padding: 6px 10px;
+		border-radius: 2px;
+		text-align: left;
+
+		&:after {
+			display: block;
+			height: 12px;
+			width: 12px;
+			position: absolute;
+			transform: rotate(45deg);
+			background: $tooltip-background;
+			content: ' ';
+			top: -5px;
+			left: calc(50% - 7px);
+		}
+	}
+}

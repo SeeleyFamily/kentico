@@ -1,0 +1,214 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+@mixin content-detail($media-breakpoint) {
+	> section {
+		padding-top: 0;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			padding-top: $section-padding-md;
+		}
+	}
+
+	.main-content-txt {
+		@include fontSize(16px);
+
+		p {
+			@include fontSize(16px);
+		}
+
+		.content-detail-logo {
+			width: 200px;
+			padding-bottom: 50px;
+		}
+
+		h1 {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		.description:not(.no-margin) {
+			margin: -10px 0 30px;
+		}
+
+		.description, .description p {
+			@include fontSize($heading-3-font-mobile);
+			@include lineHeight($heading-3-line-height-mobile);
+			font-weight: $heading-3-weight;
+
+			@include media-breakpoint-up(md) {
+				@include fontSize($heading-3-font-desktop);
+				@include lineHeight($heading-3-line-height-desktop);
+			}
+		}
+
+		.container {
+			padding: 0;
+		}
+
+		.content-detail-date {
+			@include fontSize(14px);
+			color: $dark-gray;
+			border-top: 1px solid $gray;
+			padding-top: 20px;
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
+
+		.content-detail-authors {
+			margin-top: 15px;
+			margin-bottom: 60px;
+		}
+	}
+
+	.content-related {
+		.section-header {
+			text-align: left;
+			margin: 0 0 50px;
+		}
+	}
+
+	.author-cards {
+		border-top: 1px solid $gray;
+		border-bottom: 1px solid $gray;
+		padding: 20px 0;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			border: 0;
+			padding: 0;
+		}
+	}
+
+	.content-detail-breadcrumbs {
+		padding: 20px 0;
+
+		&.full-width {
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		@include media-breakpoint-up($media-breakpoint) {
+			padding: 50px 0 50px 75px;
+			margin-left: 25%;
+		}
+	}
+
+	.subscribe-banner {
+		margin: 25px -15px;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			margin: 0;
+		}
+	}
+
+	.topic-tags {
+		border-bottom: 1px solid $gray;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+	}
+
+	> .author-cards {
+		display: block;
+		order: 1;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			display: none;
+		}
+	}
+
+	.subscribe-sidebar {
+		display: none;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			display: block;
+		}
+	}
+
+	.content-detail-sidebar {
+		order: 3;
+
+		.author-cards {
+			display: none;
+
+			@include media-breakpoint-up($media-breakpoint) {
+				display: block;
+			}
+		}
+	}
+
+	.content-detail-img {
+		order: 1;
+	}
+
+	.main-content-txt {
+		order: 2;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			grid-column: 2;
+			grid-row: 1;
+			padding: 0;
+		}
+	}
+
+	.subscribe-banner {
+		order: 4;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			grid-column: 2;
+			grid-row: auto;
+		}
+	}
+
+	.content-related {
+		order: 5;
+
+		@include media-breakpoint-up($media-breakpoint) {
+			grid-column: 2;
+			grid-row: auto;
+		}
+	}
+
+	.content-detail-sidebar {
+		@include media-breakpoint-up($media-breakpoint) {
+			grid-column: 1;
+			grid-row: 1 / span 3;
+			padding-bottom: 10px;
+		}
+
+		> div {
+			border-bottom: 1px solid $gray;
+			padding-bottom: 30px;
+			margin-bottom: 30px;
+
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+	}
+}
+
+.content-detail {
+	@include content-detail(lg);
+}
+
+.sticky-sidebar {
+	padding: 0;
+
+	&-inner {
+		background: $primary;
+		padding: 10px;
+		transition: top 0.2s ease 0s;
+		transform: translate(0, 0); /* For browsers don't support translate3d. */
+		transform: translate3d(0, 0, 0);
+		will-change: position, transform;
+
+		@include media-breakpoint-up(lg) {
+			transition: none;
+			padding: 0 15px;
+			background: transparent;
+		}
+	}
+}

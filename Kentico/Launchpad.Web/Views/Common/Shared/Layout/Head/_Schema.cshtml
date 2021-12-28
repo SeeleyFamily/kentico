@@ -1,0 +1,13 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model  BaseViewModel
+@*With regards to schema - the content should render with the appropriate script element*@
+
+@if (Model.Metadata != null && !string.IsNullOrWhiteSpace(Model.Metadata.Schema))
+{
+
+	@Html.Raw(Model.Metadata.Schema)
+
+}

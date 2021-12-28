@@ -1,0 +1,90 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+/// <reference path="../../utils/_variables.scss" />
+/// <reference path="./_general.scss" />
+
+@mixin btn($background, $background-hover, $color, $color-hover) {
+	background: $background;
+	border: $button-border-thick solid $background;
+	color: $color;
+	font-family: $font-button;
+	padding: $button-padding;
+	font-weight: $button-weight;
+	@include fontSize($button-font-size);
+	line-height: normal;
+	border-radius: $button-border-radius;
+	letter-spacing: $button-letter-spacing;
+	text-transform: $button-text-transform;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	text-decoration: none;
+	box-shadow: none;
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+	transition: background-color .25s ease-in-out;
+	-webkit-appearance: none;
+
+	&:active {
+		outline: none;
+	}
+
+	&:hover, &:focus, &:active {
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include fontSize($button-font-size-desktop);
+		padding: $button-padding-desktop;
+		
+		&:hover, &:focus, &:active {
+			color: $color-hover;
+			background: $background-hover;
+			border-color: $background-hover;
+		}
+
+		&:focus {
+			@include focus-outline(3px);
+		}
+	}
+}
+
+@mixin solid-btn($background, $background-hover, $color, $color-hover) {
+	color: $color;
+	background: $background;
+	border-color: $background;
+
+	@include media-breakpoint-up(lg) {
+		&:active, &:focus, &:hover {
+			color: $color-hover;
+			background: $background-hover;
+			border-color: $background-hover;
+		}
+	}
+}
+
+@mixin outline-btn($color, $thinkness) {
+	color: $color;
+	background: transparent;
+	border: $thinkness solid $color;
+
+	@include media-breakpoint-up(lg) {
+		&:hover {
+			border-color: $color;
+			color: $white;
+			background: $color;
+			outline: none;
+		}
+
+		&:active, &:focus {
+			border-color: $color;
+			background: $color;
+		}
+	}
+}

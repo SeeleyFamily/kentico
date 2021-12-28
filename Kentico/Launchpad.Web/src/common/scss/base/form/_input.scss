@@ -1,0 +1,118 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+textarea:focus, input:focus {
+	outline: 0;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+	padding: 0;
+}
+
+input[type='search'] {
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+
+	&::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='number'],
+input[type='url'],
+input[type='date'],
+input[type='password'],
+input[type='search'],
+select,
+.form-control,
+textarea {
+	&:not(.ktc-form-control) {
+		@include placeholder($input-placeholder);
+		@include fontSize($input-font-size);
+		color: $input-text;
+		border: $input-border-thick solid $input-stroke;
+		background-color: $input-bg;
+		font-family: $font-body;
+		height: $input-height;
+		line-height: $input-line-height;
+		border-radius: $input-border-radius;
+		box-sizing: border-box;
+		padding: 0 0 0 15px;
+		box-shadow: none;
+	}
+
+	&:focus {
+		color: $input-text;
+		border-color: $input-stroke-focus;
+		outline: none;
+		box-shadow: none;
+	}
+
+	&:disabled {
+		background: $input-disabled;
+		border-color: $input-disabled-stroke;
+		cursor: not-allowed;
+	}
+}
+
+input[type='file'] {
+	@include fontSize(14px);
+	color: $input-text;
+	background: $input-file-background;
+	height: 32px;
+	padding: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 1px;
+	border-radius: 1px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+textarea {
+	width: 100%;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='number'],
+input[type='url'],
+input[type='date'],
+input[type='password'],
+input[type='search'],
+textarea {
+	-webkit-appearance: none;
+
+	&::-ms-clear {
+		display: none;
+	}
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+select option:not([disabled]) {
+	color: $input-text;
+}
+
+select[multiple] {
+	height: auto;
+	min-height: 100px;
+	padding: 0;
+}
+
+select[multiple] option {
+	padding: 2px;
+}

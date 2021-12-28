@@ -1,0 +1,21 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+$campton-font-path: 'deferred/campton';
+@import 'fonts.scss';
+
+$icomoon-font-path: 'deferred/icomoon/fonts';
+@import 'icomoon/style.scss';
+
+
+// font awesome overrides
+$fa-font-path: '~@fortawesome/fontawesome-pro/webfonts';
+$fa-font-display: swap;
+
+// font awesome import
+//@import '~@fortawesome/fontawesome-pro/scss/light.scss';
+//@import '~@fortawesome/fontawesome-pro/scss/regular.scss';
+@import '~@fortawesome/fontawesome-pro/scss/solid.scss';
+@import '~@fortawesome/fontawesome-pro/scss/brands.scss';
+@import '~@fortawesome/fontawesome-pro/scss/fontawesome.scss';

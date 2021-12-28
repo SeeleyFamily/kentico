@@ -1,0 +1,395 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.filter-sidebar {
+	background-color: #FFFFFF;
+	box-shadow: 0 2px 15px 0 rgba(70, 92, 136, 0.2);
+	border-radius: 5px;
+	height: 100%;
+	position: relative;
+	top: -30px;
+
+	@include media-breakpoint-up(lg) {
+		background-color: transparent;
+		box-shadow: none;
+		top: -37px;
+	}
+
+	&-btns {
+		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+
+		button {
+			display: block;
+		}
+	}
+
+	.filter-group {
+		margin: 0 !important;
+		padding: 10px 15px;
+		position: relative;
+
+		@include media-breakpoint-up(lg) {
+			padding: 15px 0;
+		}
+
+		&[specification='SearchTerm'],
+		&[specifications='SearchTerm'] {
+			padding-top: 15px;
+
+			.control-item-header {
+				margin-bottom: 10px;
+			}
+		}
+
+		select {
+			@include fontSize(16px);
+			border: 2px solid $border-color;
+			color: $gray;
+
+			&:hover {
+				border-color: $border-color-hover;
+				color: $dark-gray;
+				cursor: pointer;
+			}
+
+			&:focus {
+				@include focus-outline(2px);
+			}
+		}
+
+		&:first-child {
+			align-items: center;
+			background-color: #F5F8FA;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			padding: 20px 15px;
+
+			@include media-breakpoint-up(lg) {
+				background-color: transparent;
+				padding: 0;
+				position: absolute;
+				right: calc(-300% - 75px);
+				top: -97px;
+				width: 325px;
+				z-index: 10;
+			}
+
+			.control-item-header {
+				flex: 0 0 25%;
+				margin-bottom: 2px;
+			}
+
+			.control-item-header + div {
+				flex: 0 0 75%;
+			}
+		}
+	}
+
+	.form-group {
+		margin-bottom: 0;
+		padding: 0;
+		position: relative;
+	}
+
+	.control {
+		position: relative;
+
+		&.has-children {
+			margin-bottom: 35px;
+
+			> .control-item {
+				margin-bottom: 20px;
+			}
+		}
+
+		&-item {
+			display: flex;
+			position: relative;
+
+			@include media-breakpoint-up(lg) {
+				display: block;
+			}
+
+			&.collapsible .form-group {
+				padding-right: 30px;
+			}
+
+			&.has-children {
+				flex-direction: column;
+				//width: 100%;
+			}
+		}
+
+		&-item-header {
+			@include fontSize(20px);
+			font-weight: 600;
+			margin-bottom: 15px;
+		}
+
+		input[type=text] {
+			border-color: #D2D4D7;
+			background-color: transparent;
+			@include fontSize(18px);
+			padding-right: 75px;
+			height: 45px;
+			line-height: 45px;
+		}
+	}
+
+	.expand-all {
+		@include fontSize(13px);
+		background: transparent;
+		border: 0;
+		color: $primary;
+		margin-bottom: 15px;
+
+		&:focus, &:active {
+			outline: 0;
+			color: $primary-offset;
+		}
+	}
+
+	.control-expand-icon {
+		@include fontSize(22px);
+		z-index: 99;
+		position: absolute;
+		top: 50%;
+		right: -5px;
+		margin-top: -15px;
+		background: transparent;
+		border: 0;
+		padding: 5px;
+		color: $primary;
+
+		&:focus, &:active {
+			outline: 0;
+			color: $primary-offset;
+		}
+
+		&.collapsed:before {
+			content: '\f105';
+		}
+	}
+}
+
+.filter-title {
+    @include fontSize(18px);
+    position: relative;
+    padding: 16px 30px;
+
+    &::after {
+        content: '\f067';
+        @include font-awesome;
+        @include fontSize(27px);
+        font-weight: 300;
+        position: absolute;
+        right: 30px;
+        top: 10px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    &.active::after {
+        content: '\f068';
+    }
+}
+
+.filter-content {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+
+    &.active {
+        background-color: #FFFFFF;
+    }
+}
+
+.filter-group {
+    .custom-checkbox {
+        margin-bottom: 10px;
+        -webkit-tap-highlight-color: transparent;
+
+        label {
+            background-color: transparent;
+            border: 2px solid #C7C9CC;
+            border-radius: 25px;
+            color: $dark-gray;
+            display: inline-block;
+            font-weight: 600;
+            text-align: center;
+            padding: 10px 15px;
+            width: 100%;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+
+        input:checked + label {
+            background-color: $secondary;
+            border-color: $secondary;
+            color: $white;
+        }
+
+        input[type='checkbox'] {
+            height: 100%;
+
+            &:checked ~ label:after {
+                color: transparent;
+            }
+
+            &:focus + label {
+                background: $secondary;
+                border-color: $secondary;
+                color: $white;
+            }
+        }
+    }
+
+    &[specification='Topic'],
+    &[specification='Topics'] {
+        .custom-checkbox {
+            input:checked + label,
+            input:focus + label {
+                background-color: $primary;
+                border-color: $primary;
+            }
+        }
+    }
+}
+
+.filter-flex .control {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+
+    &-item {
+        margin-right: 10px;
+    }
+}
+
+.filter-buttons-equal {
+    .control {
+        justify-content: space-between;
+    }
+
+    .control-item {
+        display: flex;
+        flex: 0 0 auto;
+        min-width: calc(33.3333% - 10px);
+        margin-right: 10px;
+
+        @include media-breakpoint-up(lg) {
+            min-width: calc(50% - 10px);
+        }
+
+        .form-group, label {
+            width: 100%;
+        }
+
+        label {
+            line-height: 1.25em;
+            text-align: center;
+            padding: 10px 0;
+        }
+    }
+}
+
+.filter-group[specification='Type'],
+.filter-group[specification='Types'],
+.filter-group[specification='RecipeType'],
+.filter-group[specification='Topic'],
+.filter-group[specification='Topics'] {
+    .control {
+        justify-content: flex-start;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            justify-content: space-between;
+        }
+    }
+
+    .control-item {
+        display: flex;
+        flex: 0 0 auto;
+        min-width: calc(33.3333% - 10px);
+        margin-right: 10px;
+
+        @include media-breakpoint-up(lg) {
+            min-width: calc(50% - 10px);
+        }
+
+        &.has-children {
+            flex: 0 0 auto;
+            min-width: calc(33.3333% - 10px);
+            margin-right: 10px;
+
+            @include media-breakpoint-up(lg) {
+                min-width: calc(50% - 10px);
+            }
+        }
+
+        .collapse {
+            display: none;
+        }
+    }
+
+    .control-item.control-item-header {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .custom-checkbox {
+        width: 100%;
+    }
+}
+
+.filter-search {
+    position: relative;
+
+    button {
+        background-color: #1A578A;
+        border: 0;
+        border-radius: 0;
+        color: #FFFFFF;
+        font-weight: 900;
+        @include fontSize(20px);
+        height: 45px;
+        padding: 5px 12px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .search-clear {
+        color: $light-gray;
+        background: transparent;
+        cursor: pointer;
+        position: absolute;
+        right: 60px;
+        top: 16px;
+        padding: 0;
+        height: auto;
+        line-height: 1;
+        border: 0;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+#Sort-By-filter {
+    height: 44px;
+}

@@ -1,0 +1,51 @@
+﻿@*
+	Built with Common Launchpad 2.0.2
+*@
+
+@model CardViewModel
+
+@if (!string.IsNullOrWhiteSpace(Model.CtaUrl))
+{
+	@:<a href="@Model.CtaUrl" class="card-link-wrapper">
+	}
+
+<div class="card widget @Model.WidgetClass">
+	@if (Model.Image != null && Model.Image != "")
+	{
+		<div class="card-img-wrap">
+			<div class="card-img js-webp-bg" data-image="@Model.Image" data-bg-webp="@Model.Image.GetOptimizedImageUrl()" aria-label="@Model.ImageAltText"></div>
+		</div>
+	}
+
+	<div class="card-content">
+		@if (!String.IsNullOrWhiteSpace(Model.Title))
+		{
+			<h2 class="card-title" id="@Model.TitleTargetId">
+				@Model.Title
+			</h2>
+		}
+
+		@if (Model.PageBuilderEnabled && Context.Kentico().PageBuilder().EditMode)
+		{
+			@:<div>
+				Html.Kentico().RichTextEditor(nameof(CardWidgetProperties.Description), "basictext");
+			@:</div>
+		}
+		else if (!String.IsNullOrWhiteSpace(Model.Description))
+		{
+			<div>@Html.Raw(Html.Kentico().ResolveRichText(Model.Description))</div>
+		}
+	</div>
+
+	@if (!string.IsNullOrWhiteSpace(Model.CtaUrl))
+	{
+		<div class="card-cta">
+			<div class="link">@Model.CtaText</div>
+		</div>
+	}
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.CtaUrl))
+{
+@:</a>
+}

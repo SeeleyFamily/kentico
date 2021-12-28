@@ -1,0 +1,59 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.carousel-sync {
+	//max-height: 700px;
+	overflow: hidden;
+	max-width: 650px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+
+	.carousel-item {
+		height: auto;
+		display: block;
+
+		&-img {
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			padding-top: 55%;
+		}
+
+		&-content {
+			margin: 10px 0 0;
+
+			p:last-of-type {
+				margin: 0;
+			}
+		}
+	}
+
+	.slider-for {
+		margin-bottom: 5px;
+	}
+
+	.slider-nav {
+		padding: 0 20px;
+		margin: 20px 0 0;
+
+		@include media-breakpoint-up(md) {
+			margin: 20px 80px 0;
+			padding: 0;
+		}
+
+		&-img {
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			padding-top: 100%;
+			margin: 2px;
+		}
+
+		.slick-current .slider-nav-item {
+			border: 2px solid $secondary;
+		}
+	}
+}

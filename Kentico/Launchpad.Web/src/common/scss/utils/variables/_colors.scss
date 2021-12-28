@@ -1,0 +1,128 @@
+/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+// Brand Colors
+$launchpad-dark-blue: #122C5B;
+$launchpad-light-blue: #77C8E6;
+$launchpad-blue-7: #41516f;
+$launchpad-blue-6: #00163E;
+$launchpad-blue-5: #0C6484;
+$launchpad-blue-4: #1E8CB4;
+$launchpad-blue-3: #AABFDB;
+$launchpad-blue-2: #E2F4FA;
+$launchpad-blue-1: #F2F7FD;
+$launchpad-green: #C5DB9E;
+$launchpad-green-2: #456708;
+$launchpad-green-1: #ECF3E0;
+$launchpad-orange: #FFB17E;
+$launchpad-orange-3: #DD5A04;
+$launchpad-orange-2: #FF893C;
+$launchpad-orange-1: #FFF1E8;
+$launchpad-black: #000000;
+$launchpad-dark-gray: #5A5B5C;
+$launchpad-medium-gray: #EDEDED;
+$launchpad-light-gray: #F9F9F9;
+
+// Greyscale
+$white: #FFFFFF;
+$light-gray: $launchpad-light-gray;
+$gray: $launchpad-medium-gray;
+$dark-gray: $launchpad-dark-gray;
+$black: $launchpad-black;
+
+// Site Colors
+$primary: $launchpad-orange;
+$primary-offset: $launchpad-dark-blue;
+$primary-text: $launchpad-dark-blue;
+$primary-text-hover: $white;
+$secondary: $launchpad-dark-blue;
+$secondary-offset: $launchpad-orange;
+$secondary-text: $white;
+$secondary-text-hover: $launchpad-dark-blue;
+$tertiary: $launchpad-light-gray;
+$tertiary-offset: $launchpad-light-gray;
+$tertiary-text: $white;
+$tertiary-text-hover: $launchpad-dark-blue;
+$tertiary-text: $launchpad-dark-blue;
+$quaternary: $launchpad-blue-1;
+$quaternary-text: $launchpad-dark-blue;
+$quaternary-offset: $launchpad-light-gray;
+$quaternary-text-hover: $launchpad-black;
+
+// Errors
+$danger: #d02027;
+$danger-offset: #d02027;
+
+// Border
+$border-color: $light-gray;
+$border-color-hover: $gray;
+
+// Text
+$txt-body: $black;
+$txt-heading: $secondary;
+$txt-link: $secondary;
+$txt-link-hover: rgba($launchpad-dark-blue, .6);
+$txt-nav: $secondary;
+$txt-nav-mobile: $secondary;
+$txt-footer: $black;
+$txt-notification: $white;
+$txt-banner: $white;
+$txt-pagination-label: $gray;
+$txt-pagination-active: $primary;
+
+// Link
+$link-footer: $black;
+$link-notification: $white;
+$link-banner: $white;
+
+// Background
+$bg-body: $white;
+$bg-header: $white;
+$bg-nav-desktop: $light-gray;
+$bg-nav-mobile: $light-gray;
+$bg-banner: $secondary;
+$bg-notification: $secondary;
+
+// Background Footer
+$bg-footer: $light-gray;
+$txt-footer: $secondary;
+$bg-footer-copyright: $launchpad-blue-6;
+$txt-footer-copyright: $white;
+$border-footer-grey: #EEEEEE;
+$txt-open-footer: rgba($launchpad-dark-blue, .6);
+$bg-sub-footer: $gray;
+
+
+// Forms
+$input-disabled: $launchpad-medium-gray;
+$input-stroke: $light-gray;
+$input-stroke-focus: $launchpad-light-blue;
+$input-bg: $light-gray;
+$input-placeholder: rgba($secondary, .6);
+$input-text: $txt-body;
+$input-disabled-stroke: $launchpad-medium-gray;
+$input-file-background: $white;
+$checkbox-background: $white;
+$checkbox-color: $white;
+$checkbox-stroke: $launchpad-medium-gray;
+$checkbox-selected-background: transparent;
+$checkbox-selected-color: $secondary;
+$checkbox-disabled: $launchpad-medium-gray;
+$radio-background: $white;
+$radio-selected-background: $secondary;
+$radio-focus: $launchpad-light-blue;
+$select-background: $light-gray;
+$select-text: $secondary;
+$select-selected-background: $primary;
+$select-selected-text: $white;
+$select-focus-background: $light-gray;
+$select-focus-text: $primary;
+$select-arrow: $dark-gray;
+$select-arrow-background: $white;
+$select-arrow-border: $light-gray;
+$select-arrow-text: $dark-gray;
+$select-arrow-focus-border: $launchpad-light-blue;
+$select-arrow-focus-text: $dark-gray;
+$tooltip-background: $secondary;
+$tooltip-text: $white;

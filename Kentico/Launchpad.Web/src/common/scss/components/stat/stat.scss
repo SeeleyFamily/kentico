@@ -1,0 +1,83 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.stat {
+    margin: 0 0 30px;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+    }
+
+    &-content {
+        padding: 40px 30px;
+        background: $quaternary;
+        height: 100%;
+
+        &.bg-primary {
+            background: $primary;
+
+            .stat-number {
+                color: $secondary;
+            }
+
+            .stat-description:before {
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        &.bg-secondary {
+            background: $secondary;
+
+            .stat-number {
+                color: $white;
+            }
+
+            .stat-description:before {
+                border-color: rgba(255, 255, 255, 0.25);
+            }
+        }
+    }
+
+    &-number {
+        @include fontSize(50px);
+        color: $launchpad-blue-4;
+        font-weight: bold;
+        line-height: 1.11;
+
+        @include media-breakpoint-up(lg) {
+            @include fontSize(72px);
+        }
+    }
+
+    &-description {
+        @include fontSize(18px);
+        line-height: 1.44;
+
+        &:before {
+            content: '';
+            border-top: dotted 4px #dbe0e5;
+            width: 137px;
+            height: 2px;
+            display: block;
+            margin: 15px auto;
+        }
+    }
+}
+
+.no-padding-bottom + .no-padding-top .stat {
+    margin: 0;
+
+    @include media-breakpoint-up(md) {
+        margin: 30px 0 0;
+    }
+}
+
+.bg-quaternary {
+    .stat-content {
+        background: $white;
+    }
+}

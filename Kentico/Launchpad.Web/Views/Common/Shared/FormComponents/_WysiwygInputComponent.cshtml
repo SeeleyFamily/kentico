@@ -1,0 +1,63 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@using Kentico.Forms.Web.Mvc
+@using Launchpad.Web.Models.Common.FormComponents
+
+@model WysiwygInputComponent
+
+@{
+    IDictionary<string, object> htmlAttributes = ViewData.GetEditorHtmlAttributes();
+}
+@{
+    string id = Html.GenerateUniqueId("wysiwygComponent-");
+    htmlAttributes["id"] = id;
+    htmlAttributes["data-toolset"] = "min";
+
+    if (Model.Properties.Required)
+    {
+        if (htmlAttributes.ContainsKey("class"))
+        {
+            htmlAttributes["class"] += " required";
+        }
+        else
+        {
+            htmlAttributes["class"] = "required";
+        }
+    }
+}
+<div class="text-area">
+    @Html.TextAreaFor(m => m.Value, htmlAttributes)
+
+    <div class="error empty hidden">
+        Please complete the field above
+    </div>
+</div>
+
+<script type="text/javascript">
+    if (document.readyState === "loading") {
+        // Calls the function during the 'DOMContentLoaded' event, after the HTML document has been completely loaded
+        // See https://stackoverflow.com/questions/8835413/difference-between-load-vs-domcontentloaded
+        window.addEventListener("load", function () {
+            @if (!String.IsNullOrEmpty(Model.Properties.CustomTooltip))
+            {
+                @: FormTools.setTooltip("#@id", "@Model.Properties.CustomTooltip");
+            }
+            @if (Model.Properties.IsWysiwyg)
+            {
+                @: FormTools.wysiwyg("#@id");
+            }
+        });
+    } else {
+        // Calls the function directly in cases where the widget is rendered dynamically after 'DOMContentLoaded' has occurred
+        @if (!String.IsNullOrEmpty(Model.Properties.CustomTooltip))
+        {
+            @: FormTools.setTooltip("#@id", "@Model.Properties.CustomTooltip");
+        }
+        @if (Model.Properties.IsWysiwyg)
+        {
+            @: FormTools.wysiwyg("#@id");
+        }
+    }
+</script>

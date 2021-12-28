@@ -1,0 +1,14 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model MenuItem
+
+<aside class="menu-sidebar">
+    @if (Model != null && Model.HasChildren)
+    {
+        <h3><a href="@Model.Url">@Model.Text</a></h3>
+
+        @Html.Partial("Components/SideNav/_RecursiveSideNavLevel", Model.Children)
+    }
+</aside>

@@ -1,0 +1,50 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+a, .link {
+    color: $txt-link;
+    text-decoration: none;
+
+    &:active {
+        outline: none;
+        ie-dummy: expression(this.hideFocus=true);
+    }
+
+    &:hover, &:active, &:focus {
+        text-decoration: underline;
+
+        @include media-breakpoint-up(lg) {
+            color: $txt-link-hover;
+        }
+    }
+}
+
+.link {
+    display: inline-block;
+    font-family: $font-secondary;
+    font-weight: 900;
+    margin-top: 15px;
+    text-transform: uppercase;
+    transition: color 0.25s ease-in-out;
+    letter-spacing: 1.1px;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &::after {
+        content: '\f054';
+        @include font-awesome;
+        font-weight: 900;
+        font-size: 12px;
+        margin-left: 5px;
+        transition: transform .2s ease-in-out;
+    }
+
+    &:hover::after {
+        transform: translateX(5px);
+    }
+}

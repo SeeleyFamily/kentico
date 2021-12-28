@@ -1,0 +1,98 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.breadcrumb {
+    z-index: 5;
+    margin-top: 15px;
+    position: relative;
+
+    .breadcrumb-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: row wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            @include fontSize(13px);
+            font-weight: 500;
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: inline-block;
+            }
+
+            &:nth-last-of-type(2) {
+                display: inline-block;
+            }
+
+            @include media-breakpoint-up(md) {
+                @include fontSize(14px);
+            }
+
+            &:before {
+                content: '<';
+                display: inline-block;
+                padding: 0 8px;
+
+                @include media-breakpoint-up(md) {
+                    content: none;
+                }
+            }
+
+            @include media-breakpoint-up(md) {
+                &::after {
+                    content: '>';
+                    display: inline-block;
+                    padding: 0 8px;
+                }
+            }
+
+            &:last-child {
+                a {
+                    text-decoration: none;
+                }
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .content-hero-columns & {
+        @include media-breakpoint-up(md) {
+            width: 50%;
+
+            ul {
+                align-items: flex-start;
+
+                li {
+                    flex: 0 1 auto;
+                    max-width: 50%;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            ul li {
+                max-width: 60%;
+            }
+        }
+    }
+
+    &--content-detail .breadcrumb-wrapper {
+        ul {
+            margin: 45px 0 30px;
+
+            li,
+            li a {
+                color: $launchpad-light-blue;
+            }
+        }
+    }
+}

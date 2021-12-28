@@ -1,0 +1,55 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.banner-content-split {
+    @include media-breakpoint-up(md) {
+        &.left {
+            .banner-content-split-block {
+                order: 2;
+            }
+
+            .banner-content-split-block {
+                order: 1;
+            }
+        }
+    }
+
+    &-block {
+        min-height: 250px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        @include media-breakpoint-up(md) {
+            min-height: 315px;
+            padding: 40px;
+        }
+    }
+
+    &-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media-breakpoint-up(md) {
+            padding: 40px;
+        }
+
+        .btn {
+            margin-top: 15px;
+
+            @include media-breakpoint-up(md) {
+                margin-top: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+﻿/*
+ * Built with Common Launchpad 2.0.2
+ */
+
+@import '../../_references.scss';
+
+.search {
+    width: 100%;
+    padding: 0 15px;
+    margin: 15px 0;
+
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+        margin: 0;
+
+        &.focused .search-form {
+            .form-control {
+                width: 250px;
+                padding-left: 15px;
+                padding-right: 45px;
+                border-color: $input-bg;
+                @include placeholder($input-placeholder);
+
+                ~ .header-search-prepend-icon {
+                    display: none;
+                }
+
+                ~ .input-group-append {
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+.search .search-form {
+    position: relative;
+    overflow: hidden;
+
+    .header-search-prepend-icon {
+        display: none;
+        position: absolute;
+        top: 11px;
+        left: 12px;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+    }
+
+    .form-control {
+        height: 50px;
+        line-height: 50px;
+        padding-left: 30px;
+        padding-right: 60px;
+        border-radius: 25px;
+        border-right: 2px solid transparent;
+        background: $white;
+        @include placeholder($input-placeholder);
+        transition: .5s ease all;
+
+        @include media-breakpoint-up(lg) {
+            height: 36px;
+            line-height: 36px;
+            padding-right: 0;
+            border-radius: 17px;
+            background: $input-bg;
+            @include placeholder($txt-link);
+            width: 100px;
+        }
+    }
+
+    .input-group-append {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin-left: 0;
+
+        @include media-breakpoint-up(lg) {
+            right: -45px;
+        }
+    }
+
+    .btn {
+        width: 60px;
+        text-align: center;
+        padding: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        outline: 0 !important;
+
+        @include media-breakpoint-up(lg) {
+            width: 45px;
+        }
+    }
+}

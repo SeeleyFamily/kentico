@@ -1,0 +1,38 @@
+
+
+# Ignore Visual Studio user-specific/build files & directories
+*.suo
+*.user
+bin/
+obj/
+.vs/
+
+# Ignore Nuget packages
+Kentico/packages/
+
+# Ignore Kentico app_data
+**/App_Data/Persistent
+**/App_Data/CMSModules/WebFarm/
+**/App_Data/CMSModules/SmartSearch/
+
+# Ignore node modules
+node_modules
+yarn.lock
+
+# Ignore compiled assets
+**/content/dist
+Kentico/Launchpad.Web/package-lock.json
+Kentico/Launchpad.Web/dist/
+Kentico/Launchpad.Web/src/dist/
+Kentico/Launchpad.Web/Launchpad/media/
+Kentico/CMS/Launchpad/media/
+Kentico/CMS/App_Data/CMSTemp/
+Kentico/Launchpad.Web/App_Data/CMSTemp/
+Kentico/Launchpad.Web/App_Data/AzureTemp/
+Kentico/Launchpad.Web/App_Data/AzureCache/
+Kentico/CMS/App_Data/AzureTemp/
+Kentico/CMS/App_Data/AzureCache/
+Kentico/CMS/CMSSiteUtils/Export/
+Kentico/CMS/CMSSiteUtils/Import/
+Kentico/CMS/App_Data/Templates/
+Kentico/log.txt

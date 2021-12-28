@@ -1,0 +1,50 @@
+﻿@*
+    Built with Common Launchpad 2.0.2
+*@
+
+@model Banner
+
+@{
+    string bannerClass = !string.IsNullOrEmpty(Model.BannerType) ? Model.BannerType : "";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="banner-container col-12 @bannerClass">
+            <div class="banner-content">
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <div class="banner-image">
+                        <img src="@Model.Image" aria-hidden="true" />
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.Title))
+                {
+                    <div class="banner-title">
+                        @Model.Title
+                    </div>
+                }
+
+                @Html.Raw(Model.Content)
+
+                @if (!string.IsNullOrEmpty(Model.CtaLabel))
+                {
+                    if (Model.IsCtaUsedToClose)
+                    {
+                        <div class="banner-close js-banner-close" data-banner-id="@Model.NodeGuid" data-create-cookie="true" data-expiration-days="7" tabindex="0"><a href="#" class="banner-cta">@Model.CtaLabel</a></div>
+                    }
+                    else
+                    {
+                        <a href="@Model.CtaUrl" class="banner-cta">@Model.CtaLabel</a>
+                    }
+                }
+            </div>
+
+            <div class="banner-close js-banner-close" data-banner-id="@Model.NodeGuid" data-create-cookie="true" data-expiration-days="7" tabindex="0">
+                <span class="sr-only">Close</span>
+                <span class="icon-close"></span>
+            </div>
+        </div>
+    </div>
+</div>
