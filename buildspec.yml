@@ -18,4 +18,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'obj\Release\Package\PackageTmp'
+  base-directory: 'C:\srcbld\obj\Release\Package\PackageTmp'
