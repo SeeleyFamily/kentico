@@ -1,0 +1,17 @@
+{
+  "manifestVersion": 1,
+  "deployments": {
+
+    "aspNetCoreWeb": [
+      {
+        "name": "KenticoCMS",
+        "parameters": {
+          "appBundle": "kentico-cms-cb.zip",
+          "iisPath": "/",
+          "iisWebSite": "Default Web Site"
+        }
+      }
+    ]
+  }
+}
+
