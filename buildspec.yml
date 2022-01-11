@@ -2,20 +2,11 @@ version: 0.2
 
 env:
   variables:
-    SOLUTION: .\Kentico\WebApp.sln
+    SOLUTION: ./Kentico/WebApp.sln
     PACKAGE_DIRECTORY: Kentico/packages
     DOTNET_FRAMEWORK: 4.8
 phases:
   build:
     commands:
-    - dir
-    - 'md C:\srcbld'
-    - 'Xcopy $env:CODEBUILD_SRC_DIR C:\srcbld /O /X /E /H /K'
-    - 'cd C:\srcbld'
-    - 'dir'
     - nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY
-    - msbuild $env:SOLUTION /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\
-artifacts:
-  files:
-    - '**/*'
-  base-directory: 'C:\srcbld'
+    - msbuild $env:SOLUTION /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:PackageLocation="C:\codebuild\artifacts"
