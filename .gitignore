@@ -13,7 +13,7 @@ Kentico/packages/
 # Ignore Kentico app_data
 **/App_Data/Persistent
 **/App_Data/CMSModules/WebFarm/
-**/App_Data/CMSModules/SmartSearch/
+## **/App_Data/CMSModules/SmartSearch/
 
 # Ignore node modules
 node_modules
