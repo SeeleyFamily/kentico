@@ -17,7 +17,7 @@ phases:
     - msbuild $env:SOLUTION /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:PackageLocation="C:\codebuild\artifacts"
   post_build:
     commands:
-    - 'cd C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp'; Compress-Archive -Path C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp\* -DestinationPath kentico-cms.zip'
+    - 'cd C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp; Compress-Archive -Path C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp\* -DestinationPath kentico-cms.zip'
     - 'dir'
     - 'copy C:\srcbld\aws-windows-deployment-manifest.json .'
     - 'dir'
