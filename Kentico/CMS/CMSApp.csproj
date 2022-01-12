@@ -922,6 +922,8 @@
     <Content Include="CMSFormControls\Launchpad\SelectDocuments.ascx" />
     <Content Include="CMSFormControls\Launchpad\NodeAliasControl.ascx" />
     <Content Include="robots.txt" />
+    <Content Include="test.html" />
+    <Content Include="abc.html" />
     <None Include="Properties\PublishProfiles\Pre Deployment Publish Test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
