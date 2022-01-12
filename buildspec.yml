@@ -19,7 +19,7 @@ phases:
     commands:
     - 'cd C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp'
     - 'dir'
-    - 'Compress-Archive -Path C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp\* -DestinationPath C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp\kentico-cms.zip'
+    - 'Compress-Archive -Path \* -DestinationPath kentico-cms.zip'
     - 'dir'
     - 'copy C:\srcbld\aws-windows-deployment-manifest.json .'
     - 'dir'
