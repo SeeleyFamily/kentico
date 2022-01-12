@@ -13,6 +13,7 @@ phases:
     - 'Xcopy $env:CODEBUILD_SRC_DIR C:\srcbld /O /X /E /H /K'
     - 'cd C:\srcbld'
     - 'dir'
+    - 'dir C:\srcbld\Kentico\CMS\'
     - nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY
     - msbuild $env:SOLUTION /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:PackageLocation="C:\codebuild\artifacts"
   post_build:
