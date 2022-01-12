@@ -23,6 +23,6 @@ phases:
     - 'dir'
 artifacts:
   files:
-    - 'C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp\kentico-cms.zip'
-    - 'C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp\aws-windows-deployment-manifest.json'
+    - 'kentico-cms.zip'
+    - 'aws-windows-deployment-manifest.json'
   base-directory: 'C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp'
