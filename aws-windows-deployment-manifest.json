@@ -6,7 +6,7 @@
       {
         "name": "KenticoCMS",
         "parameters": {
-          "appBundle": "kentico-cms-cb.zip",
+          "appBundle": "kentico-cms.zip",
           "iisPath": "/",
           "iisWebSite": "Default Web Site"
         }

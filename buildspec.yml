@@ -15,6 +15,14 @@ phases:
     - 'dir'
     - nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY
     - msbuild $env:SOLUTION /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:PackageLocation="C:\codebuild\artifacts"
+  post_build:
+    commands:
+    - 'cd C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp'
+    - 'dir'
+    - 'zip ../kentico-cms.zip -r * .[^.]*'
+    - 'dir'
+    - 'copy C:\srcbld\aws-windows-deployment-manifest.json .'
+    - 'dir'
 artifacts:
   files:
     - '**/*'
