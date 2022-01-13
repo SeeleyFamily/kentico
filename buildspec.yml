@@ -27,5 +27,5 @@ artifacts:
   files:
     - 'kentico-cms.zip'
     - 'aws-windows-deployment-manifest.json'
-    - .ebextensions/* 
+    - '.ebextensions/*'
   base-directory: 'C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp'
