@@ -21,9 +21,11 @@ phases:
     - 'cd C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp; Compress-Archive -Path C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp\* -DestinationPath kentico-cms.zip'
     - 'dir'
     - 'copy C:\srcbld\aws-windows-deployment-manifest.json .'
+    - 'xcopy C:\srcbld\.ebextensions .ebextensions /E /H /C /I'
     - 'dir'
 artifacts:
   files:
     - 'kentico-cms.zip'
     - 'aws-windows-deployment-manifest.json'
+    - .ebextensions/* 
   base-directory: 'C:\srcbld\Kentico\CMS\obj\Release\Package\PackageTmp'
