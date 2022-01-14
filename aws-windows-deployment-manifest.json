@@ -15,15 +15,6 @@
             "file": "C:\\IIS_IUSRS.ps1"
           }
       }
-    ]
-  }
+    }
+  ]
 }
-
-  "deployments": {
-    "aspNetCoreWeb": [
-      {
-        "name": "app",
-        "scripts": {
-          "postInstall": {
-            "file": "SetupScripts/PostInstallSetup.ps1"
-          }
