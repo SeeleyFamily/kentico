@@ -9,13 +9,8 @@
           "appBundle": "kentico-cms.zip",
           "iisPath": "/",
           "iisWebSite": "Default Web Site"
-        },
-        "scripts": {
-          "postInstall": {
-            "file": "C:\\IIS_IUSRS.ps1"
-          }
+        }
       }
-    }
-  ]
-}
+    ]
+  }
 }
